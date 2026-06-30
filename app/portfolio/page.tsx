@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowUpRight } from "lucide-react";
 import { m } from "framer-motion";
 
@@ -10,7 +11,7 @@ export default function Portfolio() {
       title: "Cooperative Finance Platform",
       category: "Financial Systems",
       description: "Digital transformation for a major SACCO, digitizing member records and automating loan disbursements.",
-      image: "bg-emerald-900",
+      image: "/images/tb-report-full.jpg",
       tags: ["Finance", "Security", "Teachers Bank Engine"]
     },
     {
@@ -23,7 +24,7 @@ export default function Portfolio() {
     {
       title: "EduPayTrack Fee Portal",
       category: "Fee Management Systems",
-      description: "Deploying an automated payment tracking and AI-driven receipt reconciliation system for schools, colleges, and educational institutions.",
+      description: "Automated payment tracking and AI-driven receipt reconciliation system for all levels of education, from primary schools to universities.",
       image: "bg-purple-900",
       tags: ["EduPayTrack", "AI OCR", "Finance Integration"]
     }
@@ -68,10 +69,14 @@ export default function Portfolio() {
                 transition={{ duration: 0.5, delay: i * 0.1 }}
                 className="group rounded-2xl border border-border bg-background overflow-hidden hover:shadow-xl transition-all"
               >
-                {/* Image Placeholder */}
-                <div className={`aspect-video w-full ${project.image} relative overflow-hidden flex items-center justify-center`}>
-                  <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors z-10" />
-                  <span className="text-white/50 font-medium z-0">Project Screenshot</span>
+                {/* Image or Placeholder */}
+                <div className="aspect-video w-full relative overflow-hidden flex items-center justify-center bg-muted">
+                  {project.image.startsWith('/') ? (
+                    <Image src={project.image} alt={project.title} fill className="object-cover object-top" />
+                  ) : (
+                    <div className={`absolute inset-0 ${project.image}`} />
+                  )}
+                  <div className="absolute inset-0 bg-black/40 group-hover:bg-black/10 transition-colors z-10" />
                   
                   {/* Overlay Link */}
                   <Link href="/contact" className="absolute inset-0 z-20 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity bg-primary/40 backdrop-blur-sm">

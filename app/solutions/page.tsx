@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowRight, CheckCircle2, Activity, MonitorSmartphone, ShieldCheck } from "lucide-react";
 import { m } from "framer-motion";
 
@@ -63,10 +64,23 @@ export default function Solutions() {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5 }}
-              className="bg-muted rounded-2xl aspect-[4/3] border border-border shadow-xl relative overflow-hidden flex items-center justify-center"
+              className="relative h-[450px] md:h-[550px] w-full flex items-center justify-center overflow-hidden md:overflow-visible"
             >
-              <div className="text-muted-foreground/50 font-medium flex items-center gap-2">
-                <Activity className="h-6 w-6" /> System Dashboard Preview
+              {/* Mobile Mockup 1 (Back/Left) */}
+              <div className="hidden md:block absolute left-[-5%] top-[10%] w-[220px] h-[450px] bg-card rounded-[2rem] border-[6px] border-muted shadow-2xl overflow-hidden transform -rotate-6 opacity-60 hover:opacity-100 hover:scale-105 hover:z-20 transition-all duration-500 cursor-pointer group">
+                <Image src="/images/tb-contributions.jpg" alt="Contributions Ledger" fill className="object-cover" />
+                <div className="absolute inset-0 bg-primary/20 group-hover:bg-transparent transition-colors" />
+              </div>
+              
+              {/* Mobile Mockup 2 (Center/Front) */}
+              <div className="absolute z-10 w-[240px] h-[500px] md:w-[260px] md:h-[540px] bg-card rounded-[2rem] border-[8px] border-slate-800 shadow-2xl overflow-hidden transform hover:-translate-y-4 hover:scale-105 transition-all duration-500">
+                <Image src="/images/tb-overview.jpg" alt="Financial Overview" fill className="object-cover" />
+              </div>
+
+              {/* Mobile Mockup 3 (Right/Back) */}
+              <div className="hidden md:block absolute right-[-5%] top-[15%] w-[220px] h-[450px] bg-card rounded-[2rem] border-[6px] border-muted shadow-2xl overflow-hidden transform rotate-6 opacity-60 hover:opacity-100 hover:scale-105 hover:z-20 transition-all duration-500 cursor-pointer group">
+                <Image src="/images/tb-loan-config.jpg" alt="Loan Configurations" fill className="object-cover" />
+                <div className="absolute inset-0 bg-primary/20 group-hover:bg-transparent transition-colors" />
               </div>
             </m.div>
           </div>
@@ -133,7 +147,7 @@ export default function Solutions() {
               </div>
               <h2 className="text-3xl md:text-4xl font-bold mb-6">EduPayTrack</h2>
               <p className="text-lg text-muted-foreground mb-6">
-                A secure, transparent, and highly efficient school fee tracking system. EduPayTrack eliminates manual receipting errors, provides parents with instant updates, and gives administrators complete financial oversight.
+                A secure, transparent, and highly efficient fee tracking system for all levels of education—from primary and secondary schools to colleges and universities. EduPayTrack eliminates manual receipting errors, provides parents with instant updates, and gives administrators complete financial oversight.
               </p>
               <ul className="space-y-3 mb-8">
                 {["Automated SMS/Email payment receipts", "Student balance tracking and reminders", "Integration with mobile money and bank APIs", "Comprehensive audit trails"].map((feature, i) => (
