@@ -7,11 +7,11 @@ import { m } from "framer-motion";
 export default function Portfolio() {
   const projects = [
     {
-      title: "National NGO Portal",
-      category: "Web Development",
-      description: "A centralized information hub for NGOs operating in Malawi to share resources and track initiatives.",
-      image: "bg-slate-800",
-      tags: ["Next.js", "PostgreSQL", "CMS"]
+      title: "Cooperative Finance Platform",
+      category: "Financial Systems",
+      description: "Digital transformation for a major SACCO, digitizing member records and automating loan disbursements.",
+      image: "bg-emerald-900",
+      tags: ["Finance", "Security", "Teachers Bank Engine"]
     },
     {
       title: "Retail Chain Inventory",
@@ -21,32 +21,11 @@ export default function Portfolio() {
       tags: ["React", "Node.js", "MsikaPos Engine"]
     },
     {
-      title: "Cooperative Finance Platform",
-      category: "Financial Systems",
-      description: "Digital transformation for a major SACCO, digitizing member records and automating loan disbursements.",
-      image: "bg-emerald-900",
-      tags: ["Finance", "Security", "Teachers Bank Engine"]
-    },
-    {
       title: "University Payment Gateway",
       category: "Education Systems",
       description: "Integration of mobile money and bank transfers for seamless student fee payments.",
       image: "bg-purple-900",
       tags: ["EduPayTrack", "API Integration"]
-    },
-    {
-      title: "Agri-Business ERP",
-      category: "Business Management",
-      description: "Supply chain and procurement tracking system for a regional agricultural cooperative.",
-      image: "bg-amber-900",
-      tags: ["ERP", "Dashboard", "Analytics"]
-    },
-    {
-      title: "Healthcare Clinic Management",
-      category: "Custom Software",
-      description: "Patient record management and appointment scheduling system.",
-      image: "bg-rose-900",
-      tags: ["Healthcare", "Data Privacy"]
     }
   ];
 
