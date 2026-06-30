@@ -72,7 +72,7 @@ export default function Portfolio() {
                 {/* Image or Placeholder */}
                 <div className="aspect-video w-full relative overflow-hidden flex items-center justify-center bg-muted">
                   {project.image.startsWith('/') ? (
-                    <Image src={project.image} alt={project.title} fill className="object-cover object-top" />
+                    <Image src={project.image} alt={project.title} fill sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" className="object-cover object-top" />
                   ) : (
                     <div className={`absolute inset-0 ${project.image}`} />
                   )}

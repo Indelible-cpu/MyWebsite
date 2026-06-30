@@ -68,18 +68,18 @@ export default function Solutions() {
             >
               {/* Mobile Mockup 1 (Back/Left) */}
               <div className="hidden md:block absolute left-[-5%] top-[10%] w-[220px] h-[450px] bg-card rounded-[2rem] border-[6px] border-muted shadow-2xl overflow-hidden transform -rotate-6 opacity-60 hover:opacity-100 hover:scale-105 hover:z-20 transition-all duration-500 cursor-pointer group">
-                <Image src="/images/tb-contributions.jpg" alt="Contributions Ledger" fill className="object-cover" />
+                <Image src="/images/tb-contributions.jpg" alt="Contributions Ledger" fill sizes="220px" className="object-cover" />
                 <div className="absolute inset-0 bg-primary/20 group-hover:bg-transparent transition-colors" />
               </div>
               
               {/* Mobile Mockup 2 (Center/Front) */}
               <div className="absolute z-10 w-[240px] h-[500px] md:w-[260px] md:h-[540px] bg-card rounded-[2rem] border-[8px] border-slate-800 shadow-2xl overflow-hidden transform hover:-translate-y-4 hover:scale-105 transition-all duration-500">
-                <Image src="/images/tb-overview.jpg" alt="Financial Overview" fill className="object-cover" />
+                <Image src="/images/tb-overview.jpg" alt="Financial Overview" fill sizes="260px" className="object-cover" />
               </div>
 
               {/* Mobile Mockup 3 (Right/Back) */}
               <div className="hidden md:block absolute right-[-5%] top-[15%] w-[220px] h-[450px] bg-card rounded-[2rem] border-[6px] border-muted shadow-2xl overflow-hidden transform rotate-6 opacity-60 hover:opacity-100 hover:scale-105 hover:z-20 transition-all duration-500 cursor-pointer group">
-                <Image src="/images/tb-loan-config.jpg" alt="Loan Configurations" fill className="object-cover" />
+                <Image src="/images/tb-loan-config.jpg" alt="Loan Configurations" fill sizes="220px" className="object-cover" />
                 <div className="absolute inset-0 bg-primary/20 group-hover:bg-transparent transition-colors" />
               </div>
             </m.div>
