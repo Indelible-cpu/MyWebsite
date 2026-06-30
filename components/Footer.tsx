@@ -1,12 +1,48 @@
 "use client";
 
+import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { MapPin, Phone, Mail } from "lucide-react";
+import { MapPin, Phone, Mail, Loader2, CheckCircle2, AlertCircle } from "lucide-react";
 import { FaFacebook, FaXTwitter, FaLinkedin, FaInstagram, FaWhatsapp } from "react-icons/fa6";
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
+  const [email, setEmail] = useState("");
+  const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
+  const [message, setMessage] = useState("");
+
+  const handleSubscribe = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!email) return;
+
+    setStatus("submitting");
+    setMessage("");
+
+    try {
+      const res = await fetch("/api/newsletter", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ email }),
+      });
+
+      const data = await res.json();
+
+      if (res.ok) {
+        setStatus("success");
+        setMessage(data.message || "Subscribed successfully!");
+        setEmail("");
+      } else {
+        setStatus("error");
+        setMessage(data.error || "Something went wrong. Please try again.");
+      }
+    } catch (error) {
+      setStatus("error");
+      setMessage("Failed to connect to the server. Please try again later.");
+    }
+  };
 
   return (
     <footer className="bg-primary text-primary-foreground pt-16 pb-8 border-t border-border">
@@ -60,11 +96,9 @@ export function Footer() {
           <div className="flex flex-col gap-4">
             <h4 className="font-semibold text-lg">Our Ecosystem</h4>
             <ul className="flex flex-col gap-2 text-primary-foreground/80 text-sm">
-              <li><Link href="/solutions#education" className="hover:text-accent transition-colors">Teachers Bank</Link></li>
-              <li><Link href="/solutions#retail" className="hover:text-accent transition-colors">MsikaPos</Link></li>
-              <li><Link href="/solutions#finance" className="hover:text-accent transition-colors">EduPayTrack</Link></li>
-              <li><Link href="/solutions#business" className="hover:text-accent transition-colors">Business Management</Link></li>
-              <li><Link href="/solutions#community" className="hover:text-accent transition-colors">Community Solutions</Link></li>
+              <li><Link href="/solutions#teachersbank" className="hover:text-accent transition-colors">Teachers Bank</Link></li>
+              <li><Link href="/solutions#msikapos" className="hover:text-accent transition-colors">MsikaPos</Link></li>
+              <li><Link href="/solutions#edupaytrack" className="hover:text-accent transition-colors">EduPayTrack</Link></li>
             </ul>
           </div>
 
@@ -97,16 +131,39 @@ export function Footer() {
             </ul>
             <div className="mt-4">
               <h5 className="font-medium text-sm mb-2 text-primary-foreground">Subscribe to our newsletter</h5>
-              <form className="flex gap-2">
+              <form onSubmit={handleSubscribe} className="flex gap-2">
                 <input 
                   type="email" 
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
                   placeholder="Email address" 
-                  className="bg-primary-foreground/10 border border-primary-foreground/20 text-primary-foreground placeholder:text-primary-foreground/50 text-sm rounded-md px-3 py-2 w-full focus:outline-none focus:ring-1 focus:ring-accent"
+                  disabled={status === "submitting"}
+                  className="bg-primary-foreground/10 border border-primary-foreground/20 text-primary-foreground placeholder:text-primary-foreground/50 text-sm rounded-md px-3 py-2 w-full focus:outline-none focus:ring-1 focus:ring-accent disabled:opacity-50"
+                  required
                 />
-                <button type="submit" className="bg-accent hover:bg-accent/90 text-primary-foreground px-3 py-2 rounded-md text-sm font-medium transition-colors">
-                  Subscribe
+                <button 
+                  type="submit" 
+                  disabled={status === "submitting"}
+                  className="bg-accent hover:bg-accent/90 text-primary-foreground px-3 py-2 rounded-md text-sm font-medium transition-colors flex items-center justify-center min-w-[80px] disabled:opacity-50"
+                >
+                  {status === "submitting" ? (
+                    <Loader2 className="h-4 w-4 animate-spin" />
+                  ) : (
+                    "Subscribe"
+                  )}
                 </button>
               </form>
+
+              {message && (
+                <div className={`mt-3 flex items-start gap-2 text-sm ${status === "success" ? "text-green-400" : "text-red-400"}`}>
+                  {status === "success" ? (
+                    <CheckCircle2 className="h-4 w-4 shrink-0 mt-0.5" />
+                  ) : (
+                    <AlertCircle className="h-4 w-4 shrink-0 mt-0.5" />
+                  )}
+                  <span>{message}</span>
+                </div>
+              )}
             </div>
           </div>
 
