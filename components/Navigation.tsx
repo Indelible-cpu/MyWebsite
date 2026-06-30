@@ -93,7 +93,7 @@ export function Navigation() {
 
       {/* Mobile Nav */}
       {isOpen && (
-        <div className="md:hidden glass border-t border-border/50 absolute top-full left-0 w-full shadow-lg">
+        <div className="md:hidden bg-background border-t border-border/50 absolute top-full left-0 w-full shadow-lg">
           <div className="container mx-auto px-4 py-4 flex flex-col gap-4">
             {mainNav.map((item) => (
               <Link
