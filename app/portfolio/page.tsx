@@ -21,11 +21,11 @@ export default function Portfolio() {
       tags: ["React", "Node.js", "MsikaPos Engine"]
     },
     {
-      title: "University Payment Gateway",
-      category: "Education Systems",
-      description: "Integration of mobile money and bank transfers for seamless student fee payments.",
+      title: "EduPayTrack Fee Portal",
+      category: "Fee Management Systems",
+      description: "Deploying an automated payment tracking and AI-driven receipt reconciliation system for schools, colleges, and educational institutions.",
       image: "bg-purple-900",
-      tags: ["EduPayTrack", "API Integration"]
+      tags: ["EduPayTrack", "AI OCR", "Finance Integration"]
     }
   ];
 
