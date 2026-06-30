@@ -21,6 +21,7 @@ export function Navigation() {
   const [isOpen, setIsOpen] = React.useState(false);
   const pathname = usePathname();
   const [scrolled, setScrolled] = React.useState(false);
+  const headerRef = React.useRef<HTMLElement>(null);
 
   React.useEffect(() => {
     const handleScroll = () => {
@@ -30,8 +31,24 @@ export function Navigation() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  React.useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (headerRef.current && !headerRef.current.contains(event.target as Node)) {
+        setIsOpen(false);
+      }
+    };
+
+    if (isOpen) {
+      document.addEventListener("mousedown", handleClickOutside);
+    }
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [isOpen]);
+
   return (
     <header
+      ref={headerRef}
       className={`fixed top-0 w-full z-50 transition-all duration-300 border-b border-transparent ${
         scrolled ? "bg-background/95 backdrop-blur-lg shadow-sm border-border/50 py-3" : "bg-transparent py-5"
       }`}
