@@ -8,6 +8,8 @@ import { FaFacebook, FaXTwitter, FaLinkedin, FaInstagram, FaWhatsapp } from "rea
 export default function Contact() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
+  const [showWhatsApp, setShowWhatsApp] = useState(false);
+  const [showPhone, setShowPhone] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -74,7 +76,16 @@ export default function Contact() {
                   </div>
                   <div>
                     <h4 className="font-bold text-lg mb-1 group-hover:text-green-600 transition-colors">WhatsApp</h4>
-                    <p className="text-muted-foreground group-hover:text-green-600 transition-colors">+265 993 732 694</p>
+                    {showWhatsApp ? (
+                      <p className="text-green-600 font-medium">+265 993 732 694</p>
+                    ) : (
+                      <button
+                        onClick={(e) => { e.preventDefault(); setShowWhatsApp(true); }}
+                        className="text-sm text-muted-foreground underline underline-offset-2 hover:text-green-600 transition-colors"
+                      >
+                        Tap to reveal number
+                      </button>
+                    )}
                   </div>
                 </a>
 
@@ -84,7 +95,16 @@ export default function Contact() {
                   </div>
                   <div>
                     <h4 className="font-bold text-lg mb-1 group-hover:text-accent transition-colors">Phone / Calls</h4>
-                    <p className="text-muted-foreground group-hover:text-accent transition-colors">+265 885 892 269</p>
+                    {showPhone ? (
+                      <p className="text-accent font-medium">+265 885 892 269</p>
+                    ) : (
+                      <button
+                        onClick={(e) => { e.preventDefault(); setShowPhone(true); }}
+                        className="text-sm text-muted-foreground underline underline-offset-2 hover:text-accent transition-colors"
+                      >
+                        Tap to reveal number
+                      </button>
+                    )}
                   </div>
                 </a>
 
