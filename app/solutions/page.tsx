@@ -44,11 +44,11 @@ export default function Solutions() {
               transition={{ duration: 0.5 }}
             >
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 text-blue-500 font-semibold mb-6">
-                <Activity className="h-4 w-4" /> Education & Finance
+                <Activity className="h-4 w-4" /> Financial Management
               </div>
               <h2 className="text-3xl md:text-4xl font-bold mb-6">Teachers Bank</h2>
               <p className="text-lg text-muted-foreground mb-6">
-                A specialized cooperative financial management system designed for teachers and educational institutions. Teachers Bank simplifies member contributions, loan management, and financial reporting with enterprise-grade security.
+                A robust cooperative financial management system designed for organizations and member-based groups. It simplifies member contributions, loan management, and financial reporting with enterprise-grade security.
               </p>
               <ul className="space-y-3 mb-8">
                 {["Member contributions and savings management", "Integrated loan application and approval workflows", "Real-time financial reporting and analytics", "Comprehensive audit trails and secure access"].map((feature, i) => (
