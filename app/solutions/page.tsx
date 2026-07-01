@@ -64,23 +64,40 @@ export default function Solutions() {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5 }}
-              className="relative h-[450px] md:h-[550px] w-full flex items-center justify-center overflow-hidden md:overflow-visible"
+              className="w-full"
             >
-              {/* Mobile Mockup 1 (Back/Left) */}
-              <div className="hidden md:block absolute left-[-5%] top-[10%] w-[220px] h-[450px] bg-card rounded-[2rem] border-[6px] border-muted shadow-2xl overflow-hidden transform -rotate-6 opacity-60 hover:opacity-100 hover:scale-105 hover:z-20 transition-all duration-500 cursor-pointer group">
-                <Image src="/images/tb-contributions.jpg" alt="Contributions Ledger" fill sizes="220px" className="object-cover" />
-                <div className="absolute inset-0 bg-primary/20 group-hover:bg-transparent transition-colors" />
-              </div>
-              
-              {/* Mobile Mockup 2 (Center/Front) */}
-              <div className="absolute z-10 w-[240px] h-[500px] md:w-[260px] md:h-[540px] bg-card rounded-[2rem] border-[8px] border-slate-800 shadow-2xl overflow-hidden transform hover:-translate-y-4 hover:scale-105 transition-all duration-500">
-                <Image src="/images/tb-overview.jpg" alt="Financial Overview" fill sizes="260px" className="object-cover" />
+              {/* Mobile: 2x2 grid — all 4 images visible */}
+              <div className="grid grid-cols-2 gap-3 md:hidden">
+                {[
+                  { src: "/images/tb-overview.jpg", alt: "Financial Overview" },
+                  { src: "/images/tb-contributions.jpg", alt: "Contributions Ledger" },
+                  { src: "/images/tb-loan-config.jpg", alt: "Loan Configurations" },
+                  { src: "/images/tb-report-full.jpg", alt: "Financial Report" },
+                ].map((img, i) => (
+                  <div key={i} className="relative rounded-2xl overflow-hidden border-4 border-slate-800 shadow-xl aspect-[9/16]">
+                    <Image src={img.src} alt={img.alt} fill sizes="50vw" className="object-cover" />
+                  </div>
+                ))}
               </div>
 
-              {/* Mobile Mockup 3 (Right/Back) */}
-              <div className="hidden md:block absolute right-[-5%] top-[15%] w-[220px] h-[450px] bg-card rounded-[2rem] border-[6px] border-muted shadow-2xl overflow-hidden transform rotate-6 opacity-60 hover:opacity-100 hover:scale-105 hover:z-20 transition-all duration-500 cursor-pointer group">
-                <Image src="/images/tb-loan-config.jpg" alt="Loan Configurations" fill sizes="220px" className="object-cover" />
-                <div className="absolute inset-0 bg-primary/20 group-hover:bg-transparent transition-colors" />
+              {/* Desktop: 4-phone layered layout */}
+              <div className="hidden md:flex items-end justify-center gap-3 h-[520px] w-full">
+                {/* Left outer – rotated back */}
+                <div className="relative w-[160px] h-[340px] rounded-[1.5rem] border-[5px] border-muted bg-card shadow-2xl overflow-hidden transform -rotate-6 translate-y-6 opacity-60 hover:opacity-100 hover:scale-105 hover:z-20 transition-all duration-500 cursor-pointer shrink-0">
+                  <Image src="/images/tb-contributions.jpg" alt="Contributions Ledger" fill sizes="160px" className="object-cover" />
+                </div>
+                {/* Left center – slightly raised */}
+                <div className="relative w-[190px] h-[420px] rounded-[1.5rem] border-[6px] border-slate-700 bg-card shadow-2xl overflow-hidden transform -rotate-2 translate-y-2 hover:-translate-y-2 hover:scale-105 hover:z-10 transition-all duration-500 cursor-pointer shrink-0">
+                  <Image src="/images/tb-overview.jpg" alt="Financial Overview" fill sizes="190px" className="object-cover" />
+                </div>
+                {/* Right center – hero / tallest */}
+                <div className="relative w-[190px] h-[420px] rounded-[1.5rem] border-[6px] border-slate-700 bg-card shadow-2xl overflow-hidden transform rotate-2 translate-y-2 hover:-translate-y-2 hover:scale-105 hover:z-10 transition-all duration-500 cursor-pointer shrink-0">
+                  <Image src="/images/tb-report-full.jpg" alt="Financial Report" fill sizes="190px" className="object-cover" />
+                </div>
+                {/* Right outer – rotated back */}
+                <div className="relative w-[160px] h-[340px] rounded-[1.5rem] border-[5px] border-muted bg-card shadow-2xl overflow-hidden transform rotate-6 translate-y-6 opacity-60 hover:opacity-100 hover:scale-105 hover:z-20 transition-all duration-500 cursor-pointer shrink-0">
+                  <Image src="/images/tb-loan-config.jpg" alt="Loan Configurations" fill sizes="160px" className="object-cover" />
+                </div>
               </div>
             </m.div>
           </div>
