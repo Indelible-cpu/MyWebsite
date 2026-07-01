@@ -1,14 +1,11 @@
 "use client";
 
-import React, { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { ArrowRight, CheckCircle2, Activity, MonitorSmartphone, ShieldCheck, X } from "lucide-react";
-import { m, AnimatePresence } from "framer-motion";
+import { ArrowRight, CheckCircle2, Activity, MonitorSmartphone, ShieldCheck } from "lucide-react";
+import { m } from "framer-motion";
 
 export default function Solutions() {
-  const [selectedImage, setSelectedImage] = useState<string | null>(null);
-
   return (
     <>
       {/* HEADER SECTION */}
@@ -77,42 +74,24 @@ export default function Solutions() {
                   { src: "/images/tb-loan-config.jpg", alt: "Loan Configurations" },
                   { src: "/images/tb-report-full.jpg", alt: "Financial Report" },
                 ].map((img, i) => (
-                  <div key={i} className="relative rounded-2xl overflow-hidden border-4 border-slate-800 shadow-xl aspect-[9/16] cursor-pointer" onClick={() => setSelectedImage(img.src)}>
+                  <div key={i} className="relative rounded-2xl overflow-hidden border-4 border-slate-800 shadow-xl aspect-[9/16]">
                     <Image src={img.src} alt={img.alt} fill sizes="50vw" className="object-cover" />
                   </div>
                 ))}
               </div>
 
-              {/* Desktop: 4-phone layered layout — flex-1 + px-6 prevents clipping edge images */}
-              <div className="hidden md:flex items-end justify-center gap-2 h-[460px] w-full px-6">
-                {/* Left outer – rotated back */}
-                <div 
-                  className="relative flex-1 max-w-[130px] h-[280px] rounded-[1.5rem] border-[5px] border-muted bg-card shadow-2xl overflow-hidden transform -rotate-6 translate-y-5 opacity-60 hover:opacity-100 hover:scale-105 hover:z-20 transition-all duration-500 cursor-pointer"
-                  onClick={() => setSelectedImage('/images/tb-contributions.jpg')}
-                >
-                  <Image src="/images/tb-contributions.jpg" alt="Contributions Ledger" fill sizes="130px" className="object-cover" />
-                </div>
-                {/* Left center – slightly raised */}
-                <div 
-                  className="relative flex-1 max-w-[155px] h-[350px] rounded-[1.5rem] border-[6px] border-slate-700 bg-card shadow-2xl overflow-hidden transform -rotate-2 translate-y-2 hover:-translate-y-2 hover:scale-105 hover:z-10 transition-all duration-500 cursor-pointer"
-                  onClick={() => setSelectedImage('/images/tb-overview.jpg')}
-                >
-                  <Image src="/images/tb-overview.jpg" alt="Financial Overview" fill sizes="155px" className="object-cover" />
-                </div>
-                {/* Right center */}
-                <div 
-                  className="relative flex-1 max-w-[155px] h-[350px] rounded-[1.5rem] border-[6px] border-slate-700 bg-card shadow-2xl overflow-hidden transform rotate-2 translate-y-2 hover:-translate-y-2 hover:scale-105 hover:z-10 transition-all duration-500 cursor-pointer"
-                  onClick={() => setSelectedImage('/images/tb-report-full.jpg')}
-                >
-                  <Image src="/images/tb-report-full.jpg" alt="Financial Report" fill sizes="155px" className="object-cover" />
-                </div>
-                {/* Right outer – rotated back */}
-                <div 
-                  className="relative flex-1 max-w-[130px] h-[280px] rounded-[1.5rem] border-[5px] border-muted bg-card shadow-2xl overflow-hidden transform rotate-6 translate-y-5 opacity-60 hover:opacity-100 hover:scale-105 hover:z-20 transition-all duration-500 cursor-pointer"
-                  onClick={() => setSelectedImage('/images/tb-loan-config.jpg')}
-                >
-                  <Image src="/images/tb-loan-config.jpg" alt="Loan Configurations" fill sizes="130px" className="object-cover" />
-                </div>
+              {/* Desktop: 4-phone side-by-side layout — no overlap, all fully visible */}
+              <div className="hidden md:grid grid-cols-4 gap-4 h-[460px] w-full">
+                {[
+                  { src: "/images/tb-contributions.jpg", alt: "Contributions Ledger" },
+                  { src: "/images/tb-overview.jpg", alt: "Financial Overview" },
+                  { src: "/images/tb-report-full.jpg", alt: "Financial Report" },
+                  { src: "/images/tb-loan-config.jpg", alt: "Loan Configurations" },
+                ].map((img, i) => (
+                  <div key={i} className="relative w-full h-full rounded-[1.5rem] border-[6px] border-slate-800 shadow-2xl overflow-hidden bg-card hover:-translate-y-2 transition-transform duration-300">
+                    <Image src={img.src} alt={img.alt} fill sizes="25vw" className="object-cover" />
+                  </div>
+                ))}
               </div>
             </m.div>
           </div>
@@ -220,31 +199,6 @@ export default function Solutions() {
           </Link>
         </div>
       </section>
-      {/* Lightbox */}
-      <AnimatePresence>
-        {selectedImage && (
-          <m.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm p-4"
-            onClick={() => setSelectedImage(null)}
-          >
-            <button 
-              className="absolute top-6 right-6 text-white hover:text-accent transition-colors bg-black/50 p-2 rounded-full"
-              onClick={() => setSelectedImage(null)}
-            >
-              <X className="h-8 w-8" />
-            </button>
-            <div 
-              className="relative w-full max-w-[500px] h-[80vh] md:h-[90vh] rounded-2xl overflow-hidden shadow-2xl border-4 border-slate-800"
-              onClick={(e) => e.stopPropagation()}
-            >
-              <Image src={selectedImage} alt="Fullscreen preview" fill className="object-contain bg-black" />
-            </div>
-          </m.div>
-        )}
-      </AnimatePresence>
     </>
   );
 }
