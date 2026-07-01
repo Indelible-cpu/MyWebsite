@@ -1,11 +1,14 @@
 "use client";
 
+import React, { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { ArrowRight, CheckCircle2, Activity, MonitorSmartphone, ShieldCheck } from "lucide-react";
-import { m } from "framer-motion";
+import { ArrowRight, CheckCircle2, Activity, MonitorSmartphone, ShieldCheck, X } from "lucide-react";
+import { m, AnimatePresence } from "framer-motion";
 
 export default function Solutions() {
+  const [selectedImage, setSelectedImage] = useState<string | null>(null);
+
   return (
     <>
       {/* HEADER SECTION */}
@@ -66,30 +69,20 @@ export default function Solutions() {
               transition={{ duration: 0.5 }}
               className="w-full"
             >
-              {/* Mobile: 2x2 grid — all 4 images visible */}
-              <div className="grid grid-cols-2 gap-3 md:hidden">
+              {/* Unified 2x2 Grid Layout for Mobile & Desktop — makes images wider/larger */}
+              <div className="grid grid-cols-2 gap-3 md:gap-6 w-full">
                 {[
                   { src: "/images/tb-overview.jpg", alt: "Financial Overview" },
                   { src: "/images/tb-contributions.jpg", alt: "Contributions Ledger" },
                   { src: "/images/tb-loan-config.jpg", alt: "Loan Configurations" },
                   { src: "/images/tb-report-full.jpg", alt: "Financial Report" },
                 ].map((img, i) => (
-                  <div key={i} className="relative rounded-2xl overflow-hidden border-4 border-slate-800 shadow-xl aspect-[9/16]">
-                    <Image src={img.src} alt={img.alt} fill sizes="50vw" className="object-cover" />
-                  </div>
-                ))}
-              </div>
-
-              {/* Desktop: 4-phone side-by-side layout — no overlap, all fully visible */}
-              <div className="hidden md:grid grid-cols-4 gap-4 h-[460px] w-full">
-                {[
-                  { src: "/images/tb-contributions.jpg", alt: "Contributions Ledger" },
-                  { src: "/images/tb-overview.jpg", alt: "Financial Overview" },
-                  { src: "/images/tb-report-full.jpg", alt: "Financial Report" },
-                  { src: "/images/tb-loan-config.jpg", alt: "Loan Configurations" },
-                ].map((img, i) => (
-                  <div key={i} className="relative w-full h-full rounded-[1.5rem] border-[6px] border-slate-800 shadow-2xl overflow-hidden bg-card hover:-translate-y-2 transition-transform duration-300">
-                    <Image src={img.src} alt={img.alt} fill sizes="25vw" className="object-cover" />
+                  <div 
+                    key={i} 
+                    className="relative rounded-2xl overflow-hidden border-4 md:border-[6px] border-slate-800 shadow-xl aspect-[9/16] cursor-pointer hover:-translate-y-2 hover:shadow-2xl transition-all duration-300"
+                    onClick={() => setSelectedImage(img.src)}
+                  >
+                    <Image src={img.src} alt={img.alt} fill sizes="(max-width: 768px) 50vw, 25vw" className="object-cover" />
                   </div>
                 ))}
               </div>
@@ -199,6 +192,31 @@ export default function Solutions() {
           </Link>
         </div>
       </section>
+      {/* Lightbox / Fullscreen Zoom */}
+      <AnimatePresence>
+        {selectedImage && (
+          <m.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-50 flex items-center justify-center bg-black/90 backdrop-blur-sm p-4 md:p-8"
+            onClick={() => setSelectedImage(null)}
+          >
+            <button 
+              className="absolute top-4 right-4 md:top-8 md:right-8 text-white hover:text-accent transition-colors bg-black/50 p-2 rounded-full z-50"
+              onClick={() => setSelectedImage(null)}
+            >
+              <X className="h-8 w-8" />
+            </button>
+            <div 
+              className="relative w-full max-w-[600px] h-full max-h-[90vh] rounded-2xl overflow-hidden"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <Image src={selectedImage} alt="Fullscreen preview" fill className="object-contain" />
+            </div>
+          </m.div>
+        )}
+      </AnimatePresence>
     </>
   );
 }
