@@ -25,7 +25,7 @@ export default function Services() {
       color: "from-emerald-500 to-teal-500"
     },
     {
-      title: "Financial & SACCO Systems",
+      title: "Financial Management Systems",
       description: "Robust financial tracking and cooperative management software with advanced security and reporting capabilities.",
       icon: Database,
       color: "from-orange-500 to-red-500"

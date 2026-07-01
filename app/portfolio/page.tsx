@@ -10,7 +10,7 @@ export default function Portfolio() {
     {
       title: "Cooperative Finance Platform",
       category: "Financial Systems",
-      description: "Digital transformation for a major SACCO, digitizing member records and automating loan disbursements.",
+      description: "A digital transformation platform designed for cooperative finance, digitizing member records and automating loan disbursements.",
       image: "/images/tb-report-full.jpg",
       tags: ["Finance", "Security", "Teachers Bank Engine"]
     },

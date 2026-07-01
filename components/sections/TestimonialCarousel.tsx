@@ -22,7 +22,7 @@ const testimonials = [
   },
   {
     name: 'Amara Okafor',
-    role: 'Finance Manager, Community SACCO',
+    role: 'Finance Manager, Community Finance',
     text: 'Teachers Bank transformed how we manage member contributions and loans. Financial oversight has never been this clear.',
     rating: 5,
   },

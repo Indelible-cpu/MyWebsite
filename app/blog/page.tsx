@@ -7,7 +7,7 @@ import { m } from "framer-motion";
 export default function Blog() {
   const posts = [
     {
-      title: "How Digital Transformation is Reshaping Education in Malawi",
+      title: "How Digital Transformation is Reshaping Education",
       excerpt: "Explore the impact of technology on local schools and how systems like Teachers Bank are leading the charge.",
       author: "Indelible Team",
       date: "Oct 15, 2024",
@@ -22,7 +22,7 @@ export default function Blog() {
     },
     {
       title: "Securing Financial Cooperatives Against Cyber Threats",
-      excerpt: "A deep dive into the security measures every modern SACCO needs to implement to protect member funds.",
+      excerpt: "A deep dive into the security measures every modern financial organization needs to implement to protect member funds.",
       author: "Security Team",
       date: "Sep 10, 2024",
       category: "Cybersecurity"

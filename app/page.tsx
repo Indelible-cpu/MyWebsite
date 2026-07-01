@@ -43,7 +43,7 @@ export default function Home() {
               transition={{ duration: 0.5, delay: 0.2 }}
               className="text-lg md:text-xl text-muted-foreground mb-10 max-w-2xl"
             >
-              We are a youth-led technology innovation company based in Malawi developing affordable, secure, and practical digital solutions for institutions across Africa.
+              We are a youth-led technology innovation company developing affordable, secure, and practical digital solutions for modern institutions.
             </m.p>
             
             <m.div 
@@ -66,13 +66,11 @@ export default function Home() {
       {/* TRUST INDICATORS */}
       <section className="py-10 border-y border-border/50 bg-muted/30">
         <div className="container mx-auto px-4 text-center">
-          <p className="text-sm font-semibold text-muted-foreground uppercase tracking-wider mb-6">Trusted by organizations & institutions across Africa</p>
-          <div className="flex flex-wrap justify-center gap-8 md:gap-16 opacity-70 grayscale">
-            {/* Logos Placeholders */}
-            <div className="text-xl font-bold font-serif">NGO Partners</div>
-            <div className="text-xl font-bold font-sans">EduTech Malawi</div>
-            <div className="text-xl font-bold font-mono">FINANCE SACCO</div>
-            <div className="text-xl font-bold">Gov Departments</div>
+          <p className="text-sm font-semibold text-muted-foreground uppercase tracking-wider mb-6">Built for modern organizations & institutions</p>
+          <div className="flex flex-wrap justify-center gap-8 md:gap-16 opacity-50 grayscale">
+            <div className="text-xl font-bold font-serif">Education Sector</div>
+            <div className="text-xl font-bold font-sans">Retail Businesses</div>
+            <div className="text-xl font-bold font-mono">Financial Institutions</div>
           </div>
         </div>
       </section>
@@ -122,14 +120,14 @@ export default function Home() {
             <div>
               <h2 className="text-3xl md:text-5xl font-bold mb-6">Why Choose Indelible Technologies?</h2>
               <p className="text-lg text-primary-foreground/80 mb-8 leading-relaxed">
-                We don't just build websites; we engineer digital solutions. Our approach focuses on affordability, security, and true digital transformation tailored to the African context.
+                We don't just build websites; we engineer digital solutions. Our approach focuses on affordability, security, and true digital transformation tailored to your unique context.
               </p>
               
-              <div className="space-y-4">
+              <ul className="space-y-4">
                 {[
-                  "Premium Corporate Design & Development",
-                  "Secure Financial & SACCO Systems",
-                  "Affordable Solutions for Schools & NGOs",
+                  "Tailored Custom Software Development",
+                  "Secure Financial Management Systems",
+                  "Affordable Solutions for Organizations",
                   "Dedicated Support & Maintenance"
                 ].map((item, i) => (
                   <div key={i} className="flex items-center gap-3">
@@ -139,7 +137,7 @@ export default function Home() {
                     <span className="font-medium">{item}</span>
                   </div>
                 ))}
-              </div>
+              </ul>
 
               <div className="mt-10">
                 <Link href="/about" className="bg-accent text-accent-foreground px-6 py-3 rounded-md font-semibold hover:bg-accent/90 transition-colors inline-flex items-center gap-2">

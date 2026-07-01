@@ -40,7 +40,7 @@ export default function Pricing() {
     {
       name: "Enterprise ERP",
       price: "Custom",
-      description: "Comprehensive digital transformation for large schools, SACCOs, or corporations.",
+      description: "Comprehensive digital transformation for large schools, financial institutions, or corporations.",
       features: [
         "Full Custom Software Architecture",
         "Integration with Existing APIs",
