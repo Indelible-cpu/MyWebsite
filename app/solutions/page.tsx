@@ -45,10 +45,10 @@ export default function Solutions() {
               </div>
               <h2 className="text-3xl md:text-4xl font-bold mb-6">Teachers Bank</h2>
               <p className="text-lg text-muted-foreground mb-6">
-                A specialized financial management system designed exclusively for educators and schools. Teachers Bank streamlines salary tracking, loan management, and cooperative savings with enterprise-grade security.
+                A specialized cooperative financial management system designed for teachers and educational institutions. Teachers Bank simplifies member contributions, loan management, and financial reporting with enterprise-grade security.
               </p>
               <ul className="space-y-3 mb-8">
-                {["Automated salary and deduction tracking", "Integrated loan application and approval workflows", "Real-time financial reporting and analytics", "Bank-level encryption and secure access"].map((feature, i) => (
+                {["Member contributions and savings management", "Integrated loan application and approval workflows", "Real-time financial reporting and analytics", "Comprehensive audit trails and secure access"].map((feature, i) => (
                   <li key={i} className="flex items-start gap-3">
                     <CheckCircle2 className="h-5 w-5 text-blue-500 shrink-0 mt-0.5" />
                     <span className="text-foreground">{feature}</span>
@@ -80,23 +80,23 @@ export default function Solutions() {
                 ))}
               </div>
 
-              {/* Desktop: 4-phone layered layout */}
-              <div className="hidden md:flex items-end justify-center gap-3 h-[520px] w-full">
+              {/* Desktop: 4-phone layered layout — uses flex-1 so phones scale to fit without overflow */}
+              <div className="hidden md:flex items-end justify-center gap-2 h-[460px] w-full overflow-hidden">
                 {/* Left outer – rotated back */}
-                <div className="relative w-[160px] h-[340px] rounded-[1.5rem] border-[5px] border-muted bg-card shadow-2xl overflow-hidden transform -rotate-6 translate-y-6 opacity-60 hover:opacity-100 hover:scale-105 hover:z-20 transition-all duration-500 cursor-pointer shrink-0">
-                  <Image src="/images/tb-contributions.jpg" alt="Contributions Ledger" fill sizes="160px" className="object-cover" />
+                <div className="relative flex-1 max-w-[130px] h-[280px] rounded-[1.5rem] border-[5px] border-muted bg-card shadow-2xl overflow-hidden transform -rotate-6 translate-y-5 opacity-60 hover:opacity-100 hover:scale-105 hover:z-20 transition-all duration-500 cursor-pointer">
+                  <Image src="/images/tb-contributions.jpg" alt="Contributions Ledger" fill sizes="130px" className="object-cover" />
                 </div>
                 {/* Left center – slightly raised */}
-                <div className="relative w-[190px] h-[420px] rounded-[1.5rem] border-[6px] border-slate-700 bg-card shadow-2xl overflow-hidden transform -rotate-2 translate-y-2 hover:-translate-y-2 hover:scale-105 hover:z-10 transition-all duration-500 cursor-pointer shrink-0">
-                  <Image src="/images/tb-overview.jpg" alt="Financial Overview" fill sizes="190px" className="object-cover" />
+                <div className="relative flex-1 max-w-[155px] h-[350px] rounded-[1.5rem] border-[6px] border-slate-700 bg-card shadow-2xl overflow-hidden transform -rotate-2 translate-y-2 hover:-translate-y-2 hover:scale-105 hover:z-10 transition-all duration-500 cursor-pointer">
+                  <Image src="/images/tb-overview.jpg" alt="Financial Overview" fill sizes="155px" className="object-cover" />
                 </div>
-                {/* Right center – hero / tallest */}
-                <div className="relative w-[190px] h-[420px] rounded-[1.5rem] border-[6px] border-slate-700 bg-card shadow-2xl overflow-hidden transform rotate-2 translate-y-2 hover:-translate-y-2 hover:scale-105 hover:z-10 transition-all duration-500 cursor-pointer shrink-0">
-                  <Image src="/images/tb-report-full.jpg" alt="Financial Report" fill sizes="190px" className="object-cover" />
+                {/* Right center */}
+                <div className="relative flex-1 max-w-[155px] h-[350px] rounded-[1.5rem] border-[6px] border-slate-700 bg-card shadow-2xl overflow-hidden transform rotate-2 translate-y-2 hover:-translate-y-2 hover:scale-105 hover:z-10 transition-all duration-500 cursor-pointer">
+                  <Image src="/images/tb-report-full.jpg" alt="Financial Report" fill sizes="155px" className="object-cover" />
                 </div>
                 {/* Right outer – rotated back */}
-                <div className="relative w-[160px] h-[340px] rounded-[1.5rem] border-[5px] border-muted bg-card shadow-2xl overflow-hidden transform rotate-6 translate-y-6 opacity-60 hover:opacity-100 hover:scale-105 hover:z-20 transition-all duration-500 cursor-pointer shrink-0">
-                  <Image src="/images/tb-loan-config.jpg" alt="Loan Configurations" fill sizes="160px" className="object-cover" />
+                <div className="relative flex-1 max-w-[130px] h-[280px] rounded-[1.5rem] border-[5px] border-muted bg-card shadow-2xl overflow-hidden transform rotate-6 translate-y-5 opacity-60 hover:opacity-100 hover:scale-105 hover:z-20 transition-all duration-500 cursor-pointer">
+                  <Image src="/images/tb-loan-config.jpg" alt="Loan Configurations" fill sizes="130px" className="object-cover" />
                 </div>
               </div>
             </m.div>
