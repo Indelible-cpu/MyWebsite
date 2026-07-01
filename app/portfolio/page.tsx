@@ -21,13 +21,7 @@ export default function Portfolio() {
       image: "bg-blue-900",
       tags: ["React", "Node.js", "MsikaPos Engine"]
     },
-    {
-      title: "EduPayTrack Fee Portal",
-      category: "Fee Management Systems",
-      description: "Automated payment tracking and AI-driven receipt reconciliation system for all levels of education, from primary schools to universities.",
-      image: "bg-purple-900",
-      tags: ["EduPayTrack", "AI OCR", "Finance Integration"]
-    }
+
   ];
 
   return (

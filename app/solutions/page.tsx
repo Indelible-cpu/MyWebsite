@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { ArrowRight, CheckCircle2, Activity, MonitorSmartphone, ShieldCheck } from "lucide-react";
+import { ArrowRight, CheckCircle2, Activity, MonitorSmartphone } from "lucide-react";
 import { m } from "framer-motion";
 import ImageCarousel from "@/components/ImageCarousel";
 
@@ -17,13 +17,6 @@ const msikaImages = [
   { src: "/images/msikapos-dashboard.jpg", alt: "Dashboard Overview" },
   { src: "/images/msikapos-sales.jpg", alt: "Sales Screen" },
   { src: "/images/msikapos-inventory.jpg", alt: "Inventory Management" },
-];
-
-// EduPayTrack placeholders — swap with real screenshots when ready
-const eduImages = [
-  { src: "/images/edu-dashboard.jpg", alt: "Admin Dashboard" },
-  { src: "/images/edu-payments.jpg", alt: "Payment Tracking" },
-  { src: "/images/edu-reports.jpg", alt: "Financial Reports" },
 ];
 
 export default function Solutions() {
@@ -131,48 +124,6 @@ export default function Solutions() {
               <Link href="/contact?subject=MsikaPos" className="bg-emerald-600 hover:bg-emerald-700 text-white px-6 py-3 rounded-lg font-semibold transition-all inline-flex items-center gap-2">
                 Request Demo <ArrowRight className="h-4 w-4" />
               </Link>
-            </m.div>
-          </div>
-        </div>
-      </section>
-
-      {/* EDUPAYTRACK */}
-      <section id="edupaytrack" className="py-24">
-        <div className="container mx-auto px-4 md:px-6">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
-            <m.div
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5 }}
-            >
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-purple-500/10 text-purple-500 font-semibold mb-6">
-                <ShieldCheck className="h-4 w-4" /> Education Management
-              </div>
-              <h2 className="text-3xl md:text-4xl font-bold mb-6">EduPayTrack</h2>
-              <p className="text-lg text-muted-foreground mb-6">
-                A secure, transparent, and highly efficient fee tracking system for all levels of education—from primary and secondary schools to colleges and universities. EduPayTrack eliminates manual receipting errors, provides parents with instant updates, and gives administrators complete financial oversight.
-              </p>
-              <ul className="space-y-3 mb-8">
-                {["Automated SMS/Email payment receipts", "Student balance tracking and reminders", "Integration with mobile money and bank APIs", "Comprehensive audit trails"].map((feature, i) => (
-                  <li key={i} className="flex items-start gap-3">
-                    <CheckCircle2 className="h-5 w-5 text-purple-500 shrink-0 mt-0.5" />
-                    <span className="text-foreground">{feature}</span>
-                  </li>
-                ))}
-              </ul>
-              <Link href="/contact?subject=EduPayTrack" className="bg-purple-600 hover:bg-purple-700 text-white px-6 py-3 rounded-lg font-semibold transition-all inline-flex items-center gap-2">
-                Request Demo <ArrowRight className="h-4 w-4" />
-              </Link>
-            </m.div>
-            <m.div
-              initial={{ opacity: 0, x: 20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5 }}
-              className="flex justify-center"
-            >
-              <ImageCarousel images={eduImages} accentColor="bg-purple-600" />
             </m.div>
           </div>
         </div>
