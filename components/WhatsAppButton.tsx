@@ -10,7 +10,7 @@ export function WhatsAppButton() {
   const url = `https://wa.me/${phone}?text=${message}`;
 
   return (
-    <div className="fixed bottom-24 right-6 z-50 flex items-center gap-3">
+    <div className="fixed bottom-[93px] right-6 z-50 flex items-center gap-3">
       <AnimatePresence>
         {hovered && (
           <m.div
