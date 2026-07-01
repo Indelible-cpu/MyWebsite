@@ -1,8 +1,9 @@
 "use client";
 
 import Link from "next/link";
-import { ArrowRight, CheckCircle2, MonitorSmartphone, Code2, Database, Zap, Layers, Activity } from "lucide-react";
-import { m } from "framer-motion";
+import { ArrowRight, CheckCircle2, MonitorSmartphone, Code2, Database, Zap, Layers, Activity, ChevronDown } from "lucide-react";
+import { m, AnimatePresence } from "framer-motion";
+import { useState } from "react";
 
 export default function Home() {
   return (
@@ -163,6 +164,47 @@ export default function Home() {
         </div>
       </section>
 
+      {/* HOW WE WORK */}
+      <section className="py-24 bg-muted/30 border-y border-border/50">
+        <div className="container mx-auto px-4 md:px-6">
+          <div className="text-center mb-16 max-w-3xl mx-auto">
+            <h2 className="text-3xl md:text-5xl font-bold mb-4">How We Work</h2>
+            <p className="text-lg text-muted-foreground">A clear, transparent process from first conversation to final delivery and beyond.</p>
+          </div>
+          <div className="relative">
+            {/* Connecting line */}
+            <div className="hidden md:block absolute top-8 left-[10%] right-[10%] h-0.5 bg-gradient-to-r from-secondary via-accent to-secondary opacity-30" />
+            <div className="grid md:grid-cols-5 gap-8 relative">
+              {[
+                { step: "01", title: "Consult", desc: "We start with a free consultation to understand your goals, challenges, and requirements.", color: "from-blue-500 to-cyan-500" },
+                { step: "02", title: "Plan", desc: "We design a clear roadmap with timelines, features, and cost breakdown — no surprises.", color: "from-indigo-500 to-purple-500" },
+                { step: "03", title: "Build", desc: "Our team engineers your solution with clean code, best practices, and regular progress updates.", color: "from-emerald-500 to-teal-500" },
+                { step: "04", title: "Deploy", desc: "We launch and configure your system, ensuring everything works perfectly in your environment.", color: "from-orange-500 to-amber-500" },
+                { step: "05", title: "Support", desc: "Post-launch, we provide training, maintenance, and responsive support whenever you need us.", color: "from-pink-500 to-rose-500" },
+              ].map((phase, i) => (
+                <m.div
+                  key={i}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: i * 0.1 }}
+                  className="flex flex-col items-center text-center"
+                >
+                  <div className={`w-16 h-16 rounded-full bg-gradient-to-br ${phase.color} flex items-center justify-center text-white font-bold text-lg mb-4 shadow-lg relative z-10`}>
+                    {phase.step}
+                  </div>
+                  <h3 className="text-xl font-bold mb-2">{phase.title}</h3>
+                  <p className="text-muted-foreground text-sm leading-relaxed">{phase.desc}</p>
+                </m.div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ SECTION */}
+      <FaqSection />
+
       {/* CALL TO ACTION */}
       <section className="py-24 relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-transparent to-secondary/5 -z-10"></div>
@@ -187,5 +229,80 @@ export default function Home() {
         </div>
       </section>
     </>
+  );
+}
+
+function FaqSection() {
+  const faqs = [
+    {
+      q: "How long does it take to build a custom system?",
+      a: "It depends on the complexity of the project. Simple websites typically take 1–2 weeks. Custom software systems like POS or management platforms typically take 4–12 weeks. We always provide a detailed timeline before we begin.",
+    },
+    {
+      q: "Do you offer ongoing support after delivery?",
+      a: "Yes. All our systems come with an initial support period. We also offer ongoing maintenance plans to ensure your system stays updated, secure, and running smoothly.",
+    },
+    {
+      q: "Can I request modifications after the project is done?",
+      a: "Absolutely. We understand that business needs evolve. We offer post-delivery change requests and version upgrades at reasonable rates.",
+    },
+    {
+      q: "What makes Indelible Technologies different from other developers?",
+      a: "We are a youth-led team that builds practical, real-world solutions \u2014 not generic templates. We focus on affordability, long-term support, and truly understanding your unique needs before writing a single line of code.",
+    },
+    {
+      q: "Do I own the software after it is built?",
+      a: "For custom-built solutions, yes \u2014 you own the final product. For our flagship products (Teachers Bank, MsikaPos), we operate on a licensing model. Full details are outlined in our Terms of Service.",
+    },
+  ];
+
+  const [open, setOpen] = useState<number | null>(null);
+
+  return (
+    <section className="py-24">
+      <div className="container mx-auto px-4 md:px-6 max-w-3xl">
+        <div className="text-center mb-14">
+          <h2 className="text-3xl md:text-5xl font-bold mb-4">Frequently Asked Questions</h2>
+          <p className="text-lg text-muted-foreground">Got questions? We have answers.</p>
+        </div>
+        <div className="space-y-3">
+          {faqs.map((faq, i) => (
+            <m.div
+              key={i}
+              initial={{ opacity: 0, y: 10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.3, delay: i * 0.07 }}
+              className="border border-border rounded-xl overflow-hidden bg-card"
+            >
+              <button
+                id={`faq-${i}`}
+                onClick={() => setOpen(open === i ? null : i)}
+                className="w-full flex items-center justify-between p-6 text-left font-semibold text-foreground hover:bg-muted/50 transition-colors"
+                aria-expanded={open === i}
+              >
+                <span>{faq.q}</span>
+                <m.span animate={{ rotate: open === i ? 180 : 0 }} transition={{ duration: 0.2 }}>
+                  <ChevronDown className="h-5 w-5 text-muted-foreground shrink-0" />
+                </m.span>
+              </button>
+              <AnimatePresence>
+                {open === i && (
+                  <m.div
+                    initial={{ height: 0, opacity: 0 }}
+                    animate={{ height: "auto", opacity: 1 }}
+                    exit={{ height: 0, opacity: 0 }}
+                    transition={{ duration: 0.25, ease: "easeInOut" }}
+                    className="overflow-hidden"
+                  >
+                    <p className="px-6 pb-6 text-muted-foreground leading-relaxed">{faq.a}</p>
+                  </m.div>
+                )}
+              </AnimatePresence>
+            </m.div>
+          ))}
+        </div>
+      </div>
+    </section>
   );
 }
