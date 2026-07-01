@@ -39,7 +39,7 @@ export default function TermsOfService() {
             <div className="space-y-4">
               <h2 className="text-2xl font-bold text-foreground">1. Acceptance of Terms</h2>
               <p className="text-muted-foreground leading-relaxed">
-                By accessing this website, purchasing licensing options, or requesting custom deployment for systems within the Indelible Technologies ecosystem (including MsikaPos, EduPayTrack, and Teachers Bank), you agree to comply with and be bound by these Terms of Service. If you do not agree to these terms, please do not use our services.
+                By accessing this website, purchasing licensing options, or requesting custom deployment for systems within the Indelible Technologies ecosystem (including MsikaPos and Teachers Bank), you agree to comply with and be bound by these Terms of Service. If you do not agree to these terms, please do not use our services.
               </p>
             </div>
 

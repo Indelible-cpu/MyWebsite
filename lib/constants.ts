@@ -58,23 +58,7 @@ export const PRODUCTS = [
     pricing: 'Custom',
     category: 'Retail',
   },
-  {
-    id: 'edupay-track',
-    name: 'EduPayTrack',
-    shortName: 'EduPayTrack',
-    description: 'Education payment and tracking platform',
-    fullDescription: 'Comprehensive payment processing and tracking system for educational institutions. Manage tuition, fees, grants, and scholarships with ease.',
-    features: [
-      'Tuition and fee management',
-      'Grant and scholarship tracking',
-      'Payment gateway integration',
-      'Parent and student portal',
-      'Automated reminders',
-      'Integration with accounting software',
-    ],
-    pricing: 'Custom',
-    category: 'Education',
-  },
+
 ];
 
 export const SERVICES = [

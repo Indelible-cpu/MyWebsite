@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { ArrowRight, CheckCircle2, MonitorSmartphone, Code2, Database, ShieldCheck, Zap, Layers, Activity } from "lucide-react";
+import { ArrowRight, CheckCircle2, MonitorSmartphone, Code2, Database, Zap, Layers, Activity } from "lucide-react";
 import { m } from "framer-motion";
 
 export default function Home() {
@@ -87,9 +87,8 @@ export default function Home() {
 
           <div className="grid md:grid-cols-3 gap-8">
             {[
-              { title: "Teachers Bank", desc: "Comprehensive financial management system designed specifically for educators and schools.", icon: Activity, color: "from-blue-500 to-cyan-500" },
+              { title: "Teachers Bank", desc: "Comprehensive financial management system for organizations and member-based groups.", icon: Activity, color: "from-blue-500 to-cyan-500" },
               { title: "MsikaPos", desc: "Advanced Point of Sale and Inventory Management System for modern retail businesses.", icon: MonitorSmartphone, color: "from-emerald-500 to-teal-500" },
-              { title: "EduPayTrack", desc: "Secure and efficient school fee payment tracking and management solution.", icon: ShieldCheck, color: "from-purple-500 to-indigo-500" }
             ].map((product, i) => (
               <m.div 
                 key={i}

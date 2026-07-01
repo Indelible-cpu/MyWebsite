@@ -10,9 +10,9 @@ import { Button } from '../ui/Button';
 const solutions = [
   {
     title: 'Teachers Bank',
-    description: 'Complete school financial management solution',
-    details: 'Streamline student payments, fee collection, and financial reporting. Designed specifically for educational institutions to manage finances efficiently.',
-    features: ['Student billing', 'Payment tracking', 'Financial reports', 'Multi-currency support'],
+    description: 'Cooperative financial management system',
+    details: 'Streamline member contributions, loan management, and financial reporting. Designed for organizations and member-based groups to manage finances efficiently.',
+    features: ['Member contributions & savings', 'Loan application & approval', 'Financial reports & analytics', 'Comprehensive audit trails'],
     icon: '🏦',
   },
   {
@@ -21,13 +21,6 @@ const solutions = [
     details: 'Modern POS solution for retail and food businesses. Real-time inventory management, sales analytics, and customer relationship tools.',
     features: ['Real-time inventory', 'Sales analytics', 'Customer management', 'Receipt printing'],
     icon: '🛒',
-  },
-  {
-    title: 'EduPayTrack',
-    description: 'Education payment and tracking platform',
-    details: 'Comprehensive payment processing and tracking system for educational institutions. Manage tuition, fees, and grants with ease.',
-    features: ['Tuition management', 'Grant tracking', 'Payment gateway integration', 'Parent portal'],
-    icon: '📚',
   },
 ];
 

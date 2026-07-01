@@ -22,8 +22,8 @@ const testimonials = [
   },
   {
     name: 'Amara Okafor',
-    role: 'Academic Administrator, Technology University',
-    text: 'EduPayTrack made student payments incredibly simple. The reporting features are outstanding.',
+    role: 'Finance Manager, Community SACCO',
+    text: 'Teachers Bank transformed how we manage member contributions and loans. Financial oversight has never been this clear.',
     rating: 5,
   },
   {

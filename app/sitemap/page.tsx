@@ -27,7 +27,7 @@ export default function Sitemap() {
       links: [
         { label: "Teachers Bank (Education & Finance)", href: "/solutions#teachersbank" },
         { label: "MsikaPos (Retail & Inventory)", href: "/solutions#msikapos" },
-        { label: "EduPayTrack (School Fee Management)", href: "/solutions#edupaytrack" },
+
       ],
     },
     {

@@ -98,7 +98,7 @@ export function Footer() {
             <ul className="flex flex-col gap-2 text-primary-foreground/80 text-sm">
               <li><Link href="/solutions#teachersbank" className="hover:text-accent transition-colors">Teachers Bank</Link></li>
               <li><Link href="/solutions#msikapos" className="hover:text-accent transition-colors">MsikaPos</Link></li>
-              <li><Link href="/solutions#edupaytrack" className="hover:text-accent transition-colors">EduPayTrack</Link></li>
+
             </ul>
           </div>
 
