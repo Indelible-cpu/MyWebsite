@@ -18,7 +18,7 @@ export default function Portfolio() {
       title: "Retail Chain Inventory",
       category: "Custom Software",
       description: "Multi-branch inventory and sales tracking system deployed across 15 locations.",
-      image: "bg-blue-900",
+      image: "/images/msikapos-dashboard.jpg",
       tags: ["React", "Node.js", "MsikaPos Engine"]
     },
 
