@@ -1,5 +1,6 @@
 import { NextResponse } from 'next/server';
 import nodemailer from 'nodemailer';
+import { prisma } from '@/lib/prisma';
 
 export async function POST(request: Request) {
   try {
@@ -9,6 +10,16 @@ export async function POST(request: Request) {
     if (!name || !email || !message) {
       return NextResponse.json({ error: 'Name, email, and message are required.' }, { status: 400 });
     }
+
+    // Save message to the database for the Admin Dashboard
+    await prisma.contactMessage.create({
+      data: {
+        name,
+        email,
+        subject: subject || 'General Inquiry',
+        message,
+      }
+    });
 
     const transporter = nodemailer.createTransport({
       service: 'gmail',
