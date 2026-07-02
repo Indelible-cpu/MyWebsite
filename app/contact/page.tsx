@@ -9,14 +9,37 @@ export default function Contact() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsSubmitting(true);
-    // Simulate API call
-    setTimeout(() => {
+    
+    const formData = new FormData(e.currentTarget);
+    const firstName = formData.get('firstName') as string;
+    const lastName = formData.get('lastName') as string;
+    const name = `${firstName} ${lastName}`.trim();
+    const email = formData.get('email') as string;
+    const subject = formData.get('inquiryType') as string;
+    const message = formData.get('message') as string;
+
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ name, email, subject, message }),
+      });
+
+      if (res.ok) {
+        setSubmitted(true);
+      } else {
+        alert('Failed to send message. Please try again.');
+      }
+    } catch (error) {
+      alert('An error occurred. Please check your connection and try again.');
+    } finally {
       setIsSubmitting(false);
-      setSubmitted(true);
-    }, 1500);
+    }
   };
 
   return (
@@ -157,22 +180,22 @@ export default function Contact() {
                     <div className="grid grid-cols-2 gap-4">
                       <div className="space-y-2">
                         <label htmlFor="firstName" className="text-sm font-medium">First Name</label>
-                        <input required id="firstName" type="text" className="w-full px-4 py-3 rounded-lg border border-border bg-background focus:outline-none focus:ring-2 focus:ring-secondary transition-all" placeholder="John" />
+                        <input name="firstName" required id="firstName" type="text" className="w-full px-4 py-3 rounded-lg border border-border bg-background focus:outline-none focus:ring-2 focus:ring-secondary transition-all" placeholder="John" />
                       </div>
                       <div className="space-y-2">
                         <label htmlFor="lastName" className="text-sm font-medium">Last Name</label>
-                        <input required id="lastName" type="text" className="w-full px-4 py-3 rounded-lg border border-border bg-background focus:outline-none focus:ring-2 focus:ring-secondary transition-all" placeholder="Doe" />
+                        <input name="lastName" required id="lastName" type="text" className="w-full px-4 py-3 rounded-lg border border-border bg-background focus:outline-none focus:ring-2 focus:ring-secondary transition-all" placeholder="Doe" />
                       </div>
                     </div>
 
                     <div className="space-y-2">
                       <label htmlFor="email" className="text-sm font-medium">Email Address</label>
-                      <input required id="email" type="email" className="w-full px-4 py-3 rounded-lg border border-border bg-background focus:outline-none focus:ring-2 focus:ring-secondary transition-all" placeholder="john@example.com" />
+                      <input name="email" required id="email" type="email" className="w-full px-4 py-3 rounded-lg border border-border bg-background focus:outline-none focus:ring-2 focus:ring-secondary transition-all" placeholder="john@example.com" />
                     </div>
 
                     <div className="space-y-2">
                       <label htmlFor="inquiryType" className="text-sm font-medium">Inquiry Type</label>
-                      <select id="inquiryType" className="w-full px-4 py-3 rounded-lg border border-border bg-background focus:outline-none focus:ring-2 focus:ring-secondary transition-all">
+                      <select name="inquiryType" id="inquiryType" className="w-full px-4 py-3 rounded-lg border border-border bg-background focus:outline-none focus:ring-2 focus:ring-secondary transition-all">
                         <option>General Inquiry</option>
                         <option>Website Development Quote</option>
                         <option>Software System Demo</option>
@@ -183,7 +206,7 @@ export default function Contact() {
 
                     <div className="space-y-2">
                       <label htmlFor="message" className="text-sm font-medium">Message</label>
-                      <textarea required id="message" rows={4} className="w-full px-4 py-3 rounded-lg border border-border bg-background focus:outline-none focus:ring-2 focus:ring-secondary transition-all" placeholder="Tell us about your project..."></textarea>
+                      <textarea name="message" required id="message" rows={4} className="w-full px-4 py-3 rounded-lg border border-border bg-background focus:outline-none focus:ring-2 focus:ring-secondary transition-all" placeholder="Tell us about your project..."></textarea>
                     </div>
 
                     <button disabled={isSubmitting} type="submit" className="w-full bg-primary hover:bg-secondary text-primary-foreground font-bold py-4 rounded-lg flex items-center justify-center gap-2 transition-all disabled:opacity-70 disabled:cursor-not-allowed">
