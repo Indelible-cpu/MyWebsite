@@ -1,5 +1,6 @@
 import { NextResponse } from 'next/server';
 import nodemailer from 'nodemailer';
+import { prisma } from '@/lib/prisma';
 
 export async function POST(request: Request) {
   try {
@@ -11,6 +12,23 @@ export async function POST(request: Request) {
         { status: 400 }
       );
     }
+
+    // Check if email is already subscribed
+    const existing = await prisma.newsletterSubscription.findUnique({
+      where: { email: email.toLowerCase() },
+    });
+
+    if (existing) {
+      return NextResponse.json(
+        { error: 'You are already subscribed to our newsletter!' },
+        { status: 400 }
+      );
+    }
+
+    // Save to database
+    await prisma.newsletterSubscription.create({
+      data: { email: email.toLowerCase() },
+    });
 
     const transporter = nodemailer.createTransport({
       service: 'gmail',
@@ -61,10 +79,12 @@ export async function POST(request: Request) {
       { status: 200 }
     );
   } catch (error) {
-    console.error('Error sending email:', error);
+    console.error('Error processing subscription:', error);
     return NextResponse.json(
       { error: 'An error occurred while processing your request. Please try again.' },
       { status: 500 }
     );
   }
 }
+
+
