@@ -1,10 +1,12 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { Lock, Mail, Users, MessageSquare, Send, CheckCircle2, AlertCircle, LogOut } from "lucide-react";
+import { Lock, Mail, Users, MessageSquare, Send, CheckCircle2, AlertCircle, LogOut, Eye, EyeOff } from "lucide-react";
 
 export default function AdminDashboard() {
   const [password, setPassword] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
+  const [rememberMe, setRememberMe] = useState(false);
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [loginError, setLoginError] = useState("");
   
@@ -17,9 +19,9 @@ export default function AdminDashboard() {
   const [isSending, setIsSending] = useState(false);
   const [sendResult, setSendResult] = useState<{success?: string, error?: string} | null>(null);
 
-  // Check sessionStorage on load
+  // Check storage on load
   useEffect(() => {
-    const savedPassword = sessionStorage.getItem("adminPassword");
+    const savedPassword = localStorage.getItem("adminPassword") || sessionStorage.getItem("adminPassword");
     if (savedPassword) {
       setPassword(savedPassword);
       setIsAuthenticated(true);
@@ -34,7 +36,11 @@ export default function AdminDashboard() {
     const success = await fetchData(password);
     if (success) {
       setIsAuthenticated(true);
-      sessionStorage.setItem("adminPassword", password);
+      if (rememberMe) {
+        localStorage.setItem("adminPassword", password);
+      } else {
+        sessionStorage.setItem("adminPassword", password);
+      }
     } else {
       setLoginError("Incorrect password");
     }
@@ -44,6 +50,7 @@ export default function AdminDashboard() {
   const handleLogout = () => {
     setIsAuthenticated(false);
     setPassword("");
+    localStorage.removeItem("adminPassword");
     sessionStorage.removeItem("adminPassword");
     setSubscribers([]);
     setMessages([]);
@@ -116,17 +123,40 @@ export default function AdminDashboard() {
             </div>
           )}
 
-          <form onSubmit={handleLogin} className="space-y-4">
+          <form onSubmit={handleLogin} className="space-y-6">
             <div>
               <label className="text-sm font-medium mb-1 block">Password</label>
-              <input 
-                type="password" 
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                className="w-full px-4 py-3 rounded-lg border border-border bg-background focus:outline-none focus:ring-2 focus:ring-primary"
-                required
-              />
+              <div className="relative">
+                <input 
+                  type={showPassword ? "text" : "password"} 
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  className="w-full pl-4 pr-12 py-3 rounded-lg border border-border bg-background focus:outline-none focus:ring-2 focus:ring-primary"
+                  required
+                />
+                <button
+                  type="button"
+                  onClick={() => setShowPassword(!showPassword)}
+                  className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground transition-colors"
+                >
+                  {showPassword ? <EyeOff className="w-5 h-5" /> : <Eye className="w-5 h-5" />}
+                </button>
+              </div>
             </div>
+
+            <div className="flex items-center gap-2">
+              <input 
+                type="checkbox"
+                id="rememberMe"
+                checked={rememberMe}
+                onChange={(e) => setRememberMe(e.target.checked)}
+                className="w-4 h-4 rounded border-border text-primary focus:ring-primary"
+              />
+              <label htmlFor="rememberMe" className="text-sm cursor-pointer select-none">
+                Remember me
+              </label>
+            </div>
+
             <button 
               type="submit" 
               disabled={loadingData}
