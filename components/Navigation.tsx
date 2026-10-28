@@ -87,14 +87,8 @@ export function Navigation() {
               ))}
             </div>
 
-            <div className="flex items-center gap-4">
+            <div className="flex items-center">
               <ThemeToggle />
-              <Link
-                href="/contact"
-                className="bg-primary hover:bg-secondary text-primary-foreground px-5 py-2.5 rounded-md text-sm font-medium transition-all shadow-md hover:shadow-lg transform hover:-translate-y-0.5"
-              >
-                Get Consultation
-              </Link>
             </div>
           </nav>
 
@@ -135,13 +129,6 @@ export function Navigation() {
                 {item.title}
               </Link>
             ))}
-            <Link
-              href="/contact"
-              onClick={() => setIsOpen(false)}
-              className="mt-2 rounded-xl bg-primary px-5 py-3.5 text-center text-sm font-semibold text-primary-foreground transition-colors hover:bg-secondary"
-            >
-              Get Free Consultation
-            </Link>
           </div>
         </div>
       )}
