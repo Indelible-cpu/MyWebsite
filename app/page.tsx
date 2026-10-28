@@ -87,7 +87,7 @@ export default function Home() {
           <div className="grid md:grid-cols-3 gap-8">
             {[
               { title: "Teachers Bank", desc: "Comprehensive financial management system for organizations and member-based groups.", icon: Activity, color: "from-blue-500 to-cyan-500", href: undefined, external: false },
-              { title: "MsikaPos", desc: "Advanced Point of Sale and Inventory Management System for modern retail businesses.", icon: MonitorSmartphone, color: "from-emerald-500 to-teal-500", href: undefined, external: false },
+              { title: "MsikaFlo", desc: "Advanced Point of Sale and Inventory Management System for modern retail businesses.", icon: MonitorSmartphone, color: "from-emerald-500 to-teal-500", href: undefined, external: false },
               { title: "ShopMe", desc: "Browse phone accessories, stationery, PhoneTech support and digital services from ShopMe.", icon: MonitorSmartphone, color: "from-violet-500 to-fuchsia-500", href: "https://f7ky9nc8.eyivo.com", external: true },
             ].map((product, i) => (
               <m.div 
@@ -253,7 +253,7 @@ function FaqSection() {
     },
     {
       q: "Do I own the software after it is built?",
-      a: "For custom-built solutions, yes \u2014 you own the final product. For our flagship products (Teachers Bank, MsikaPos), we operate on a licensing model. Full details are outlined in our Terms of Service.",
+      a: "For custom-built solutions, yes \u2014 you own the final product. For our flagship products (Teachers Bank, MsikaFlo), we operate on a licensing model. Full details are outlined in our Terms of Service.",
     },
   ];
 
