@@ -88,7 +88,7 @@ export default function Home() {
             {[
               { title: "Teachers Bank", desc: "Comprehensive financial management system for organizations and member-based groups.", icon: Activity, color: "from-blue-500 to-cyan-500", href: undefined, external: false },
               { title: "MsikaPos", desc: "Advanced Point of Sale and Inventory Management System for modern retail businesses.", icon: MonitorSmartphone, color: "from-emerald-500 to-teal-500", href: undefined, external: false },
-              { title: "ShopMe", desc: "Explore the ShopMe web experience from Indelible Technologies.", icon: MonitorSmartphone, color: "from-violet-500 to-fuchsia-500", href: "https://f7ky9nc8.eyivo.com", external: true },
+              { title: "ShopMe", desc: "Browse phone accessories, stationery, PhoneTech support and digital services from ShopMe.", icon: MonitorSmartphone, color: "from-violet-500 to-fuchsia-500", href: "https://f7ky9nc8.eyivo.com", external: true },
             ].map((product, i) => (
               <m.div 
                 key={i}
@@ -106,7 +106,7 @@ export default function Home() {
                 <h3 className="text-2xl font-bold mb-3">{product.title}</h3>
                 <p className="text-muted-foreground mb-6">{product.desc}</p>
                 <Link href={product.href ?? `/solutions#${product.title.toLowerCase().replace(" ", "")}`} target={product.external ? "_blank" : undefined} rel={product.external ? "noopener noreferrer" : undefined} className="text-secondary font-medium flex items-center gap-1 group-hover:gap-2 transition-all">
-                  Learn more <ArrowRight className="h-4 w-4" />
+                  {product.external ? "Visit ShopMe" : "Learn more"} <ArrowRight className="h-4 w-4" />
                 </Link>
               </m.div>
             ))}
