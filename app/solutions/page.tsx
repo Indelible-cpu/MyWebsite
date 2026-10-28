@@ -59,7 +59,7 @@ export default function Solutions() {
               </div>
               <h2 className="text-3xl md:text-4xl font-bold mb-6">Teachers Bank</h2>
               <p className="text-lg text-muted-foreground mb-6">
-                A robust cooperative financial management system designed for organizations and member-based groups. It simplifies member contributions, loan management, and financial reporting with enterprise-grade security.
+                A cooperative financial management system for organisations and member-based groups, designed to organise member contributions, loan workflows and financial reporting.
               </p>
               <ul className="space-y-3 mb-8">
                 {["Member contributions and savings management", "Integrated loan application and approval workflows", "Real-time financial reporting and analytics", "Comprehensive audit trails and secure access"].map((feature, i) => (
@@ -114,7 +114,7 @@ export default function Solutions() {
                 MsikaFlo brings sales and inventory workflows together in a practical retail management system, helping shop teams record transactions, keep track of stock and review business activity.
               </p>
               <ul className="space-y-3 mb-8">
-                {["Multi-store inventory management", "Offline capability with automatic cloud sync", "Detailed sales analytics and profit tracking", "Barcode scanning and receipt printing"].map((feature, i) => (
+                {["Inventory and sales record management", "Offline-first operation with later online synchronisation", "Sales and profit reporting", "AI-assisted product locating within the shop", "Store visit tracking and a WhatsApp storefront link"].map((feature, i) => (
                   <li key={i} className="flex items-start gap-3">
                     <CheckCircle2 className="h-5 w-5 text-emerald-500 shrink-0 mt-0.5" />
                     <span className="text-foreground">{feature}</span>
