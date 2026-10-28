@@ -12,11 +12,14 @@ const tbImages = [
   { src: "/images/tb-report-full.jpg", alt: "Financial Report" },
 ];
 
-// Existing screenshot assets are retained to preserve working image paths.
+// MsikaFlo management screenshots; identifying details have been removed from the portfolio assets.
 const msikaImages = [
-  { src: "/images/msikapos-dashboard.jpg", alt: "Dashboard Overview" },
-  { src: "/images/msikapos-sales.jpg", alt: "Sales Screen" },
-  { src: "/images/msikapos-inventory.jpg", alt: "Inventory Management" },
+  { src: "/images/msikaflo-login.jpg", alt: "MsikaFlo secure sign-in screen" },
+  { src: "/images/msikaflo-dashboard.jpg", alt: "MsikaFlo management dashboard" },
+  { src: "/images/msikaflo-navigation.jpg", alt: "MsikaFlo navigation and management modules" },
+  { src: "/images/msikaflo-pos.jpg", alt: "MsikaFlo point-of-sale screen" },
+  { src: "/images/msikaflo-product-location.jpg", alt: "MsikaFlo product-location assistant" },
+  { src: "/images/msikaflo-reports.jpg", alt: "MsikaFlo business reports" },
 ];
 
 export default function Solutions() {
