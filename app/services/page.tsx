@@ -8,7 +8,7 @@ export default function Services() {
   const services = [
     {
       title: "Website Development",
-      description: "Premium, responsive, and high-conversion corporate websites tailored to represent your brand and engage your audience.",
+      description: "Responsive websites that represent your brand clearly and help visitors understand what you offer.",
       icon: MonitorSmartphone,
       color: "from-blue-500 to-cyan-500"
     },
@@ -20,13 +20,13 @@ export default function Services() {
     },
     {
       title: "Business Management Systems",
-      description: "Comprehensive ERP and management solutions that bring your operations, HR, and finance under one secure roof.",
+      description: "Business management tools designed to bring important workflows and records into a more organised system.",
       icon: Layers,
       color: "from-emerald-500 to-teal-500"
     },
     {
       title: "Financial Management Systems",
-      description: "Robust financial tracking and cooperative management software with advanced security and reporting capabilities.",
+      description: "Financial tracking and member-management tools shaped around reporting, record keeping and day-to-day workflows.",
       icon: Database,
       color: "from-orange-500 to-red-500"
     },
@@ -38,7 +38,7 @@ export default function Services() {
     },
     {
       title: "Technology Consulting",
-      description: "Expert advice on technology strategy, infrastructure, and software architecture to ensure your business stays ahead.",
+      description: "Practical guidance on technology choices, infrastructure and software design to help you plan with confidence.",
       icon: Lightbulb,
       color: "from-pink-500 to-rose-500"
     }
@@ -47,13 +47,13 @@ export default function Services() {
   return (
     <>
       {/* HEADER SECTION */}
-      <section className="pt-32 pb-16 relative overflow-hidden bg-muted/30">
+      <section className="relative overflow-hidden bg-muted/30 pt-32 pb-14 sm:pt-36 sm:pb-16">
         <div className="container mx-auto px-4 text-center relative z-10">
           <m.h1 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-6"
+            className="mb-5 text-4xl font-bold tracking-tight sm:text-5xl lg:text-6xl"
           >
             Our <span className="text-secondary">Services</span>
           </m.h1>
@@ -61,7 +61,7 @@ export default function Services() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.1 }}
-            className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto"
+            className="mx-auto max-w-2xl text-base leading-8 text-muted-foreground sm:text-lg md:text-xl"
           >
             Comprehensive technology solutions designed to empower your business, streamline operations, and drive growth.
           </m.p>
@@ -69,9 +69,9 @@ export default function Services() {
       </section>
 
       {/* SERVICES GRID */}
-      <section className="py-20">
+      <section className="py-16 sm:py-20 lg:py-24">
         <div className="container mx-auto px-4 md:px-6">
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3 lg:gap-6">
             {services.map((service, i) => (
               <m.div 
                 key={i}
@@ -98,7 +98,7 @@ export default function Services() {
       </section>
 
       {/* OTHER SERVICES */}
-      <section className="py-20 bg-primary text-primary-foreground">
+      <section className="bg-primary py-16 text-primary-foreground sm:py-20 lg:py-24">
         <div className="container mx-auto px-4 md:px-6 text-center max-w-4xl">
           <h2 className="text-3xl font-bold mb-6">Additional Support Services</h2>
           <p className="text-lg text-primary-foreground/80 mb-10">

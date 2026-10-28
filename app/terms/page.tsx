@@ -6,7 +6,7 @@ export default function TermsOfService() {
   return (
     <>
       {/* HEADER SECTION */}
-      <section className="pt-32 pb-16 bg-muted/30">
+      <section className="bg-muted/30 pt-32 pb-14 sm:pt-36 sm:pb-16">
         <div className="container mx-auto px-4 text-center">
           <m.h1 
             initial={{ opacity: 0, y: 20 }}
@@ -28,7 +28,7 @@ export default function TermsOfService() {
       </section>
 
       {/* CONTENT SECTION */}
-      <section className="py-20">
+      <section className="py-16 sm:py-20 lg:py-24">
         <div className="container mx-auto px-4 md:px-6 max-w-4xl">
           <m.div
             initial={{ opacity: 0, y: 20 }}
@@ -39,7 +39,7 @@ export default function TermsOfService() {
             <div className="space-y-4">
               <h2 className="text-2xl font-bold text-foreground">1. Acceptance of Terms</h2>
               <p className="text-muted-foreground leading-relaxed">
-                By accessing this website, purchasing licensing options, or requesting custom deployment for systems within the Indelible Technologies ecosystem (including MsikaPos and Teachers Bank), you agree to comply with and be bound by these Terms of Service. If you do not agree to these terms, please do not use our services.
+                By accessing this website, purchasing licensing options, or requesting custom deployment for systems within the Indelible Technologies ecosystem (including MsikaFlo and Teachers Bank), you agree to comply with and be bound by these Terms of Service. If you do not agree to these terms, please do not use our services.
               </p>
             </div>
 

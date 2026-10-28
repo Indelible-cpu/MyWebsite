@@ -44,13 +44,13 @@ const projects = [
 export default function Portfolio() {
   return (
     <>
-      <section className="pt-32 pb-16 bg-muted/30">
-        <div className="container mx-auto px-4 text-center">
+      <section className="bg-muted/30 pt-32 pb-14 sm:pt-36 sm:pb-16">
+        <div className="container mx-auto max-w-5xl px-4 text-center md:px-6">
           <m.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-6"
+            className="mb-5 text-4xl font-bold tracking-tight sm:text-5xl lg:text-6xl"
           >
             Selected Work & <span className="text-accent">Case Studies</span>
           </m.h1>
@@ -58,16 +58,16 @@ export default function Portfolio() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.1 }}
-            className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto"
+            className="mx-auto max-w-3xl text-base leading-8 text-muted-foreground sm:text-lg md:text-xl"
           >
             Practical digital products and software solutions built to address real business needs. Explore live websites, review the technologies behind selected work, or discuss a solution for your organisation.
           </m.p>
         </div>
       </section>
 
-      <section className="py-20">
+      <section className="py-16 sm:py-20 lg:py-24">
         <div className="container mx-auto px-4 md:px-6">
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3 lg:gap-6">
             {projects.map((project, i) => (
               <m.article
                 key={project.title}
@@ -75,9 +75,9 @@ export default function Portfolio() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.45, delay: i * 0.08 }}
-                className="group rounded-2xl border border-border bg-background overflow-hidden hover:shadow-xl transition-all flex flex-col"
+                className="group flex flex-col overflow-hidden rounded-2xl border border-border/70 bg-background shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-secondary/40 hover:shadow-xl hover:shadow-secondary/5"
               >
-                <div className="aspect-video w-full relative overflow-hidden flex items-center justify-center bg-muted">
+                <div className="relative flex aspect-[16/10] w-full items-center justify-center overflow-hidden bg-muted">
                   <Image
                     src={project.image}
                     alt={project.title}
@@ -87,7 +87,7 @@ export default function Portfolio() {
                   />
                 </div>
 
-                <div className="p-6 flex flex-col flex-1">
+                <div className="flex flex-1 flex-col p-5 sm:p-6">
                   <div className="text-xs font-bold uppercase tracking-wider text-secondary mb-2">
                     {project.category}
                   </div>
@@ -127,7 +127,7 @@ export default function Portfolio() {
         </div>
       </section>
 
-      <section className="py-20 bg-primary text-primary-foreground">
+      <section className="bg-primary py-16 text-primary-foreground sm:py-20 lg:py-24">
         <div className="container mx-auto px-4 md:px-6 max-w-4xl text-center">
           <MessageCircle className="h-10 w-10 text-accent mx-auto mb-5" aria-hidden="true" />
           <h2 className="text-3xl md:text-4xl font-bold mb-4">

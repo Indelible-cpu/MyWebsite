@@ -50,14 +50,14 @@ export function Navigation() {
   return (
     <header
       ref={headerRef}
-      className={`fixed top-0 w-full z-50 transition-all duration-300 border-b border-transparent ${
+      className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 border-b border-transparent ${
         scrolled ? "bg-background/95 backdrop-blur-lg shadow-sm border-border/50 py-3" : "bg-transparent py-5"
       }`}
     >
       <div className="container mx-auto px-4 md:px-6">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <Link href="/" className="flex items-center">
+          <Link href="/" aria-label="Indelible Technologies home" className="flex shrink-0 items-center">
             <Image
               src="/logo.png"
               alt="Indelible Technologies Logo"
@@ -69,15 +69,16 @@ export function Navigation() {
           </Link>
 
           {/* Desktop Nav */}
-          <nav className="hidden md:flex items-center gap-8">
-            <div className="flex items-center gap-6">
+          <nav className="hidden lg:flex items-center gap-3 xl:gap-5">
+            <div className="flex items-center gap-3 xl:gap-4">
               {mainNav.map((item) => (
                 <Link
                   key={item.href}
                   href={item.href}
                   target={item.href.startsWith("http") ? "_blank" : undefined}
                   rel={item.href.startsWith("http") ? "noopener noreferrer" : undefined}
-                  className={`text-sm font-medium transition-colors hover:text-secondary ${
+                  aria-current={pathname === item.href ? "page" : undefined}
+                  className={`whitespace-nowrap text-xs xl:text-sm font-medium transition-colors hover:text-secondary ${
                     pathname === item.href ? "text-secondary font-semibold" : "text-foreground/80"
                   }`}
                 >
@@ -98,12 +99,14 @@ export function Navigation() {
           </nav>
 
           {/* Mobile Menu Toggle */}
-          <div className="flex items-center gap-4 md:hidden">
+          <div className="flex items-center gap-3 lg:hidden">
             <ThemeToggle />
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="text-foreground p-2"
-              aria-label="Toggle menu"
+              className="rounded-lg p-2 text-foreground transition-colors hover:bg-muted focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-secondary"
+              aria-label={isOpen ? "Close menu" : "Open menu"}
+              aria-expanded={isOpen}
+              aria-controls="mobile-navigation"
             >
               {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
             </button>
@@ -113,8 +116,8 @@ export function Navigation() {
 
       {/* Mobile Nav */}
       {isOpen && (
-        <div className="md:hidden bg-background border-t border-border/50 absolute top-full left-0 w-full shadow-lg">
-          <div className="container mx-auto px-4 py-4 flex flex-col gap-4">
+        <div id="mobile-navigation" className="absolute left-0 top-full w-full border-t border-border/70 bg-background shadow-xl lg:hidden">
+          <div className="container mx-auto flex max-h-[calc(100dvh-5rem)] flex-col gap-2 overflow-y-auto px-4 py-4">
             {mainNav.map((item) => (
               <Link
                 key={item.href}
@@ -122,7 +125,8 @@ export function Navigation() {
                 target={item.href.startsWith("http") ? "_blank" : undefined}
                 rel={item.href.startsWith("http") ? "noopener noreferrer" : undefined}
                 onClick={() => setIsOpen(false)}
-                className={`text-base font-medium p-2 rounded-md transition-colors ${
+                aria-current={pathname === item.href ? "page" : undefined}
+                className={`rounded-lg p-3 text-base font-medium transition-colors ${
                   pathname === item.href
                     ? "bg-secondary/10 text-secondary"
                     : "text-foreground/80 hover:bg-muted"
@@ -134,7 +138,7 @@ export function Navigation() {
             <Link
               href="/contact"
               onClick={() => setIsOpen(false)}
-              className="bg-primary text-primary-foreground text-center px-5 py-3 rounded-md text-sm font-medium mt-2"
+              className="mt-2 rounded-xl bg-primary px-5 py-3.5 text-center text-sm font-semibold text-primary-foreground transition-colors hover:bg-secondary"
             >
               Get Free Consultation
             </Link>
