@@ -13,7 +13,6 @@ const mainNav = [
   { title: "Solutions", href: "/solutions" },
   { title: "Services", href: "/services" },
   { title: "Portfolio", href: "/portfolio" },
-  { title: "ShopMe", href: "https://f7ky9nc8.eyivo.com" },
   { title: "Pricing", href: "/pricing" },
   { title: "Contact", href: "/contact" },
 ];

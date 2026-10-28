@@ -13,19 +13,8 @@ const projects = [
       "A retail management system built around practical shop workflows, including inventory and sales records. Its React, Firebase and Firestore stack supports an offline-first workflow with later synchronisation, plus an AI-assisted product finder.",
     image: "/images/msikapos-dashboard.jpg",
     tags: ["React", "Firebase", "Firestore", "Retail"],
-    href: "https://jefinvestment-e1fc1.web.app/",
-    linkLabel: "Explore live product",
-    external: true,
-  },
-  {
-    title: "ShopMe",
-    category: "Digital Storefront · Live Website",
-    description:
-      "A customer-facing ShopMe website for exploring phone accessories, stationery, PhoneTech support and digital services. The storefront connects the business website with the wider Indelible Technologies ecosystem.",
-    image: "/logo.png",
-    tags: ["E-commerce presence", "Customer experience", "Web"],
-    href: "https://f7ky9nc8.eyivo.com",
-    linkLabel: "Visit ShopMe",
+    href: "https://jefinvestment-e1fc1.web.app/store",
+    linkLabel: "Visit live storefront",
     external: true,
   },
   {
@@ -83,7 +72,7 @@ export default function Portfolio() {
                     alt={project.title}
                     fill
                     sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                    className={project.title === "ShopMe" ? "object-contain p-10" : "object-cover object-top"}
+                    className="object-cover object-top"
                   />
                 </div>
 

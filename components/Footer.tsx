@@ -65,7 +65,7 @@ export function Footer() {
             </p>
             <div className="mt-3 flex flex-wrap gap-3 text-sm">
               <Link href="/portfolio" className="inline-flex items-center gap-1.5 rounded-full border border-primary-foreground/20 px-3 py-2 font-medium transition-colors hover:border-accent hover:text-accent">Explore our work <ArrowUpRight className="h-3.5 w-3.5" /></Link>
-              <a href="https://f7ky9nc8.eyivo.com" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 rounded-full border border-primary-foreground/20 px-3 py-2 font-medium transition-colors hover:border-accent hover:text-accent">Visit ShopMe <ArrowUpRight className="h-3.5 w-3.5" /></a>
+              <a href="https://jefinvestment-e1fc1.web.app/store" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 rounded-full border border-primary-foreground/20 px-3 py-2 font-medium transition-colors hover:border-accent hover:text-accent">Visit MsikaFlo Storefront <ArrowUpRight className="h-3.5 w-3.5" /></a>
             </div>
           </div>
 
@@ -87,7 +87,6 @@ export function Footer() {
             <ul className="flex flex-col gap-2 text-primary-foreground/80 text-sm">
               <li><Link href="/solutions#teachersbank" className="hover:text-accent transition-colors">Teachers Bank</Link></li>
               <li><Link href="/solutions#msikaflo" className="hover:text-accent transition-colors">MsikaFlo</Link></li>
-              <li><a href="https://f7ky9nc8.eyivo.com" target="_blank" rel="noopener noreferrer" className="hover:text-accent transition-colors">ShopMe storefront</a></li>
 
             </ul>
           </div>
