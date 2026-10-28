@@ -66,7 +66,7 @@ export default function Pricing() {
             transition={{ duration: 0.5 }}
             className="mb-5 text-4xl font-bold tracking-tight sm:text-5xl lg:text-6xl"
           >
-            Transparent <span className="text-accent">Options</span>
+            Project <span className="text-accent">Pricing</span>
           </m.h1>
           <m.p 
             initial={{ opacity: 0, y: 20 }}
