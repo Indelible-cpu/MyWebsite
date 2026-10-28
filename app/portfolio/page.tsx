@@ -11,7 +11,7 @@ const projects = [
     category: "Retail Management · Live Product",
     description:
       "A retail management system built around practical shop workflows, including inventory and sales records. Its React, Firebase and Firestore stack supports an offline-first workflow with later synchronisation, plus an AI-assisted product finder.",
-    image: "/images/msikapos-dashboard.jpg",
+    image: "/images/msikaflo-storefront-showcase.jpg",
     tags: ["React", "Firebase", "Firestore", "Retail"],
     href: "https://jefinvestment-e1fc1.web.app/store",
     linkLabel: "Visit live storefront",
