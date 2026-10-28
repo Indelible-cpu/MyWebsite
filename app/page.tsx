@@ -9,85 +9,51 @@ export default function Home() {
   return (
     <>
       {/* HERO SECTION */}
-      <section className="relative pt-32 pb-20 md:pt-48 md:pb-32 overflow-hidden">
-        {/* Background Gradients */}
-        <div className="absolute top-0 left-0 w-full h-full overflow-hidden -z-10">
-          <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] rounded-full bg-secondary/20 blur-[100px]" />
-          <div className="absolute top-[20%] right-[-10%] w-[50%] h-[50%] rounded-full bg-accent/20 blur-[120px]" />
-          <div className="absolute bottom-[-20%] left-[20%] w-[60%] h-[60%] rounded-full bg-primary/10 blur-[150px]" />
-        </div>
-
-        <div className="container mx-auto px-4 md:px-6 relative z-10">
-          <div className="flex flex-col items-center text-center max-w-4xl mx-auto">
-            <m.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5 }}
-              className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full glass border border-secondary/20 text-secondary mb-6 text-sm font-medium"
-            >
-              <Zap className="h-4 w-4" />
-              <span>Innovate. Build. Empower.</span>
+      <section className="relative isolate overflow-hidden pt-28 pb-16 sm:pt-32 sm:pb-20 lg:pt-36 lg:pb-28">
+        <div className="absolute inset-0 -z-10 overflow-hidden"><div className="absolute -left-40 -top-32 h-96 w-96 rounded-full bg-secondary/15 blur-3xl" /><div className="absolute -right-24 top-24 h-80 w-80 rounded-full bg-accent/15 blur-3xl" /><div className="absolute inset-0 bg-[linear-gradient(to_right,var(--border)_1px,transparent_1px),linear-gradient(to_bottom,var(--border)_1px,transparent_1px)] bg-[size:56px_56px] opacity-[0.18] [mask-image:linear-gradient(to_bottom,black,transparent_82%)]" /></div>
+        <div className="container mx-auto px-4 md:px-6"><div className="grid items-center gap-12 lg:grid-cols-[1.02fr_0.98fr] lg:gap-14">
+          <div className="max-w-2xl">
+            <m.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.45 }} className="mb-6 inline-flex items-center gap-2 rounded-full border border-secondary/20 bg-secondary/5 px-4 py-2 text-sm font-semibold text-secondary"><Zap className="h-4 w-4" /><span>Digital products · Software · Web experiences</span></m.div>
+            <m.h1 initial={{ opacity: 0, y: 18 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.06 }} className="mb-6 text-4xl font-bold leading-[1.08] tracking-tight text-foreground sm:text-5xl lg:text-6xl xl:text-7xl">Practical technology.<span className="mt-1 block bg-gradient-to-r from-secondary via-blue-500 to-accent bg-clip-text text-transparent">Built for real work.</span></m.h1>
+            <m.p initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.12 }} className="mb-8 max-w-xl text-base leading-8 text-muted-foreground sm:text-lg">We design and build useful digital products, websites and custom software that help businesses, schools and organisations work with greater clarity.</m.p>
+            <m.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.18 }} className="flex flex-col gap-3 sm:flex-row">
+              <Link href="/portfolio" className="inline-flex min-h-12 items-center justify-center gap-2 rounded-xl bg-primary px-6 py-3.5 font-semibold text-primary-foreground shadow-lg shadow-primary/10 transition-all hover:-translate-y-0.5 hover:bg-secondary hover:shadow-xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-secondary focus-visible:ring-offset-2">Explore our work <ArrowRight className="h-4 w-4" /></Link>
+              <Link href="/contact" className="inline-flex min-h-12 items-center justify-center rounded-xl border border-border bg-background/80 px-6 py-3.5 font-semibold text-foreground transition-colors hover:border-secondary/50 hover:bg-muted focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-secondary focus-visible:ring-offset-2">Discuss a project</Link>
             </m.div>
-            
-            <m.h1 
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.1 }}
-              className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight text-foreground mb-6"
-            >
-              Engineering Digital Solutions That <span className="text-transparent bg-clip-text bg-gradient-to-r from-secondary to-accent">Power Businesses, Schools & Communities.</span>
-            </m.h1>
-            
-            <m.p 
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.2 }}
-              className="text-lg md:text-xl text-muted-foreground mb-10 max-w-2xl"
-            >
-              We are a youth-led technology innovation company developing affordable, secure, and practical digital solutions for modern institutions.
-            </m.p>
-            
-            <m.div 
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.3 }}
-              className="flex flex-col sm:flex-row gap-4"
-            >
-              <Link href="/contact" className="bg-primary hover:bg-secondary text-primary-foreground px-8 py-4 rounded-lg text-base font-semibold transition-all shadow-xl hover:shadow-2xl transform hover:-translate-y-1 flex items-center justify-center gap-2">
-                Get Free Consultation <ArrowRight className="h-5 w-5" />
-              </Link>
-              <Link href="/portfolio" className="glass hover:bg-white/10 dark:hover:bg-slate-800/50 text-foreground border border-border px-8 py-4 rounded-lg text-base font-semibold transition-all flex items-center justify-center">
-                View Portfolio
-              </Link>
-            </m.div>
+            <div className="mt-8 flex flex-wrap items-center gap-x-5 gap-y-2 text-sm text-muted-foreground"><span className="inline-flex items-center gap-2"><span className="h-2 w-2 rounded-full bg-emerald-500" /> Based in Malawi</span><span className="hidden h-1 w-1 rounded-full bg-border sm:block" /><span>Designed around real workflows</span></div>
           </div>
-        </div>
+          <m.div initial={{ opacity: 0, scale: 0.97, y: 12 }} animate={{ opacity: 1, scale: 1, y: 0 }} transition={{ duration: 0.65, delay: 0.12 }} className="relative mx-auto w-full max-w-xl lg:max-w-none">
+            <div className="absolute -inset-5 rounded-[2rem] bg-gradient-to-br from-secondary/20 via-transparent to-accent/20 blur-2xl" />
+            <div className="relative overflow-hidden rounded-[1.75rem] border border-border/80 bg-background/95 p-4 shadow-2xl shadow-slate-900/10 backdrop-blur sm:p-6">
+              <div className="flex items-center justify-between gap-4 border-b border-border pb-4"><div className="flex items-center gap-3"><div className="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-secondary to-accent text-white shadow-md"><Layers className="h-5 w-5" /></div><div><p className="font-semibold tracking-tight">Indelible Technologies</p><p className="text-xs text-muted-foreground">A connected digital ecosystem</p></div></div><span className="rounded-full border border-emerald-500/20 bg-emerald-500/10 px-2.5 py-1 text-xs font-medium text-emerald-600 dark:text-emerald-400">Built for people</span></div>
+              <div className="py-6"><p className="mb-1 text-xs font-semibold uppercase tracking-[0.18em] text-secondary">What we build</p><h2 className="text-2xl font-bold tracking-tight sm:text-3xl">Ideas into useful tools.</h2><p className="mt-2 max-w-md text-sm leading-6 text-muted-foreground">Purposeful interfaces backed by practical systems, shaped around the needs of each organisation.</p></div>
+              <div className="grid gap-3 sm:grid-cols-2">
+                <div className="group rounded-2xl border border-border bg-muted/40 p-4 transition-colors hover:border-emerald-500/40"><div className="mb-5 flex items-center justify-between"><div className="flex h-10 w-10 items-center justify-center rounded-xl bg-emerald-500/10 text-emerald-600 dark:text-emerald-400"><MonitorSmartphone className="h-5 w-5" /></div><span className="text-xs font-medium text-muted-foreground">Retail systems</span></div><p className="font-semibold">MsikaFlo</p><p className="mt-1 text-sm leading-5 text-muted-foreground">Sales, stock and shop workflows.</p><div className="mt-4 h-1.5 overflow-hidden rounded-full bg-emerald-500/10"><div className="h-full w-3/4 rounded-full bg-emerald-500/70" /></div></div>
+                <div className="group rounded-2xl border border-border bg-muted/40 p-4 transition-colors hover:border-violet-500/40"><div className="mb-5 flex items-center justify-between"><div className="flex h-10 w-10 items-center justify-center rounded-xl bg-violet-500/10 text-violet-600 dark:text-violet-400"><Activity className="h-5 w-5" /></div><span className="text-xs font-medium text-muted-foreground">Online storefront</span></div><p className="font-semibold">ShopMe</p><p className="mt-1 text-sm leading-5 text-muted-foreground">A clear path from browsing to business.</p><div className="mt-4 h-1.5 overflow-hidden rounded-full bg-violet-500/10"><div className="h-full w-2/3 rounded-full bg-violet-500/70" /></div></div>
+                <div className="flex items-center gap-3 rounded-2xl border border-border/80 bg-background p-4 sm:col-span-2"><div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-secondary/10 text-secondary"><Code2 className="h-5 w-5" /></div><div className="min-w-0 flex-1"><p className="font-semibold">Custom digital solutions</p><p className="mt-1 text-sm text-muted-foreground">Websites, data systems and software shaped around your workflow.</p></div><ArrowRight className="h-4 w-4 shrink-0 text-secondary" /></div>
+              </div>
+              <div className="mt-4 flex items-center gap-2 rounded-xl bg-primary px-4 py-3 text-primary-foreground"><CheckCircle2 className="h-4 w-4 shrink-0 text-accent" /><p className="text-sm font-medium">Thoughtful design. Useful functionality. Clear communication.</p></div>
+            </div>
+            <div className="absolute -bottom-5 -left-3 -z-10 h-24 w-24 rounded-full border border-secondary/20 sm:-left-6" /><div className="absolute -right-3 -top-5 -z-10 h-16 w-16 rotate-12 rounded-2xl border border-accent/30 sm:-right-6" />
+          </m.div>
+        </div></div>
       </section>
 
-      {/* TRUST INDICATORS */}
-      <section className="py-10 border-y border-border/50 bg-muted/30">
-        <div className="container mx-auto px-4 text-center">
-          <p className="text-sm font-semibold text-muted-foreground uppercase tracking-wider mb-6">Built for modern organizations & institutions</p>
-          <div className="flex flex-wrap justify-center gap-8 md:gap-16 opacity-50 grayscale">
-            <div className="text-xl font-bold font-serif">Education Sector</div>
-            <div className="text-xl font-bold font-sans">Retail Businesses</div>
-            <div className="text-xl font-bold font-mono">Financial Institutions</div>
-          </div>
-        </div>
-      </section>
+      {/* CAPABILITIES STRIP */}
+      <section className="border-y border-border/70 bg-muted/35 py-6 sm:py-7"><div className="container mx-auto flex flex-col items-center justify-between gap-4 px-4 text-center sm:flex-row sm:px-6 sm:text-left"><p className="text-xs font-bold uppercase tracking-[0.16em] text-muted-foreground">Technology for everyday progress</p><div className="flex flex-wrap justify-center gap-x-6 gap-y-3 text-sm font-medium text-foreground/80 sm:justify-end"><span className="inline-flex items-center gap-2"><Code2 className="h-4 w-4 text-secondary" /> Web & software</span><span className="inline-flex items-center gap-2"><Database className="h-4 w-4 text-secondary" /> Data systems</span><span className="inline-flex items-center gap-2"><MonitorSmartphone className="h-4 w-4 text-secondary" /> Digital products</span></div></div></section>
 
       {/* INNOVATION ECOSYSTEM */}
-      <section className="py-24 relative">
+      <section className="relative py-20 sm:py-24 lg:py-28">
         <div className="container mx-auto px-4 md:px-6">
-          <div className="text-center mb-16 max-w-3xl mx-auto">
+          <div className="mx-auto mb-12 max-w-3xl text-center sm:mb-16">
             <h2 className="text-3xl md:text-5xl font-bold mb-4">Our Innovation Ecosystem</h2>
             <p className="text-lg text-muted-foreground">Discover our flagship products designed to streamline operations, enhance financial management, and drive digital transformation.</p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-3 xl:gap-6">
             {[
-              { title: "Teachers Bank", desc: "Comprehensive financial management system for organizations and member-based groups.", icon: Activity, color: "from-blue-500 to-cyan-500", href: undefined, external: false },
-              { title: "MsikaFlo", desc: "Advanced Point of Sale and Inventory Management System for modern retail businesses.", icon: MonitorSmartphone, color: "from-emerald-500 to-teal-500", href: undefined, external: false },
+              { title: "Teachers Bank", desc: "A financial management solution concept for organisations and member-based groups.", icon: Activity, color: "from-blue-500 to-cyan-500", href: "/solutions#teachersbank", external: false },
+              { title: "MsikaFlo", desc: "Retail management tools for sales, inventory and everyday shop workflows.", icon: MonitorSmartphone, color: "from-emerald-500 to-teal-500", href: "/solutions#msikaflo", external: false },
               { title: "ShopMe", desc: "Browse phone accessories, stationery, PhoneTech support and digital services from ShopMe.", icon: MonitorSmartphone, color: "from-violet-500 to-fuchsia-500", href: "https://f7ky9nc8.eyivo.com", external: true },
             ].map((product, i) => (
               <m.div 
@@ -96,7 +62,7 @@ export default function Home() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: i * 0.1 }}
-                className="glass p-8 rounded-2xl border border-border/50 hover:border-secondary/50 transition-colors group"
+                className="group rounded-2xl border border-border/70 bg-background p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-secondary/40 hover:shadow-xl hover:shadow-secondary/5 sm:p-8"
               >
                 <div className={`w-14 h-14 rounded-xl bg-gradient-to-br ${product.color} p-0.5 mb-6 shadow-lg transform group-hover:scale-110 transition-transform`}>
                   <div className="w-full h-full bg-background rounded-[10px] flex items-center justify-center">
@@ -115,7 +81,7 @@ export default function Home() {
       </section>
 
       {/* WHY CHOOSE US / SERVICES OVERVIEW */}
-      <section className="py-24 bg-primary text-primary-foreground relative overflow-hidden">
+      <section className="relative overflow-hidden bg-primary py-20 text-primary-foreground sm:py-24 lg:py-28">
         <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10 mix-blend-overlay"></div>
         <div className="container mx-auto px-4 md:px-6 relative z-10">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
@@ -166,7 +132,7 @@ export default function Home() {
       </section>
 
       {/* HOW WE WORK */}
-      <section className="py-24 bg-muted/30 border-y border-border/50">
+      <section className="border-y border-border/50 bg-muted/30 py-20 sm:py-24 lg:py-28">
         <div className="container mx-auto px-4 md:px-6">
           <div className="text-center mb-16 max-w-3xl mx-auto">
             <h2 className="text-3xl md:text-5xl font-bold mb-4">How We Work</h2>
@@ -207,7 +173,7 @@ export default function Home() {
       <FaqSection />
 
       {/* CALL TO ACTION */}
-      <section className="py-24 relative overflow-hidden">
+      <section className="relative overflow-hidden py-20 sm:py-24 lg:py-28">
         <div className="absolute inset-0 bg-gradient-to-b from-transparent to-secondary/5 -z-10"></div>
         <div className="container mx-auto px-4 md:px-6">
           <div className="glass rounded-3xl p-10 md:p-16 text-center border border-border/50 max-w-5xl mx-auto shadow-2xl relative overflow-hidden">
@@ -260,7 +226,7 @@ function FaqSection() {
   const [open, setOpen] = useState<number | null>(null);
 
   return (
-    <section className="py-24">
+    <section className="py-20 sm:py-24 lg:py-28">
       <div className="container mx-auto px-4 md:px-6 max-w-3xl">
         <div className="text-center mb-14">
           <h2 className="text-3xl md:text-5xl font-bold mb-4">Frequently Asked Questions</h2>
