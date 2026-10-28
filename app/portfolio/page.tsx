@@ -164,8 +164,6 @@ export default function Portfolio() {
                 transition={{ duration: 0.45, delay: i * 0.08 }}
                 className="group flex flex-col overflow-hidden rounded-2xl border border-border/70 bg-background shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-secondary/40 hover:shadow-xl hover:shadow-secondary/5"
               >
-                <ScreenshotCarousel images={project.images} title={project.title} />
-
                 <div className="flex flex-1 flex-col p-5 sm:p-6">
                   <div className="mb-2 text-xs font-bold uppercase tracking-wider text-secondary">
                     {project.category}
@@ -187,7 +185,7 @@ export default function Portfolio() {
                     ))}
                   </div>
 
-                  <div className="mt-auto flex flex-wrap items-center gap-x-5 gap-y-3">
+                  <div className="mb-5 flex flex-wrap items-center gap-x-5 gap-y-3">
                     <Link
                       href={project.href}
                       target="_blank"
@@ -198,6 +196,10 @@ export default function Portfolio() {
                       <ExternalLink className="h-4 w-4" />
                     </Link>
                   </div>
+                </div>
+
+                <div className="border-t border-border/60">
+                  <ScreenshotCarousel images={project.images} title={project.title} />
                 </div>
               </m.article>
             ))}
