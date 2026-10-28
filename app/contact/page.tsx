@@ -200,7 +200,7 @@ export default function Contact() {
                         <option>Website Development Quote</option>
                         <option>Software System Demo</option>
                         <option>Teachers Bank Implementation</option>
-                        <option>MsikaPos Setup</option>
+                        <option>MsikaFlo Setup</option>
                       </select>
                     </div>
 
