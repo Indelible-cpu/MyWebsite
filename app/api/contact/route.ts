@@ -2,23 +2,62 @@ import { NextResponse } from 'next/server';
 import nodemailer from 'nodemailer';
 import { prisma } from '@/lib/prisma';
 
+const escapeHtml = (value: string) =>
+  value.replace(/[&<>"']/g, (character) => {
+    const entities: Record<string, string> = {
+      '&': '&amp;',
+      '<': '&lt;',
+      '>': '&gt;',
+      '"': '&quot;',
+      "'": '&#39;',
+    };
+    return entities[character];
+  });
+
 export async function POST(request: Request) {
   try {
     const body = await request.json();
-    const { name, email, subject, message } = body;
+    const { name, email, subject, message } = body ?? {};
 
-    if (!name || !email || !message) {
-      return NextResponse.json({ error: 'Name, email, and message are required.' }, { status: 400 });
+    if (
+      typeof name !== 'string' || !name.trim() ||
+      typeof email !== 'string' || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email) ||
+      typeof message !== 'string' || !message.trim()
+    ) {
+      return NextResponse.json(
+        { error: 'Please provide a name, valid email address, and message.' },
+        { status: 400 }
+      );
     }
 
-    // Save message to the database for the Admin Dashboard
+    if (name.length > 120 || email.length > 254 || message.length > 10000 ||
+        (subject !== undefined && subject !== null && (typeof subject !== 'string' || subject.length > 160))) {
+      return NextResponse.json(
+        { error: 'One or more fields exceed the allowed length.' },
+        { status: 400 }
+      );
+    }
+
+    const cleanName = name.trim();
+    const cleanEmail = email.trim().toLowerCase();
+    const cleanSubject = typeof subject === 'string' && subject.trim()
+      ? subject.trim().replace(/[\r\n]+/g, ' ').slice(0, 160)
+      : 'General Inquiry';
+    const cleanMessage = message.trim();
+
+    // Escape user-controlled content before embedding it in HTML emails.
+    const htmlName = escapeHtml(cleanName);
+    const htmlEmail = escapeHtml(cleanEmail);
+    const htmlSubject = escapeHtml(cleanSubject);
+    const htmlMessage = escapeHtml(cleanMessage).replace(/\r?\n/g, '<br>');
+
     await prisma.contactMessage.create({
       data: {
-        name,
-        email,
-        subject: subject || 'General Inquiry',
-        message,
-      }
+        name: cleanName,
+        email: cleanEmail,
+        subject: cleanSubject,
+        message: cleanMessage,
+      },
     });
 
     const transporter = nodemailer.createTransport({
@@ -31,48 +70,44 @@ export async function POST(request: Request) {
 
     const mailOptions = {
       from: process.env.GMAIL_USER,
-      to: process.env.GMAIL_USER, // Send to yourself
-      replyTo: email,
-      subject: `New Contact Message: ${subject || 'No Subject'}`,
-      text: `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`,
+      to: process.env.GMAIL_USER,
+      replyTo: cleanEmail,
+      subject: `New Contact Message: ${cleanSubject}`,
+      text: `Name: ${cleanName}\nEmail: ${cleanEmail}\n\nMessage:\n${cleanMessage}`,
       html: `<h3>New Contact Message</h3>
-             <p><strong>Name:</strong> ${name}</p>
-             <p><strong>Email:</strong> ${email}</p>
-             <p><strong>Subject:</strong> ${subject || 'No Subject'}</p>
+             <p><strong>Name:</strong> ${htmlName}</p>
+             <p><strong>Email:</strong> ${htmlEmail}</p>
+             <p><strong>Subject:</strong> ${htmlSubject}</p>
              <p><strong>Message:</strong></p>
-             <p>${message.replace(/\n/g, '<br>')}</p>`,
+             <p>${htmlMessage}</p>`,
     };
 
-    // Auto-reply to the user who contacted
     const autoReplyOptions = {
       from: `"Indelible Technologies" <${process.env.GMAIL_USER}>`,
-      to: email, // Send back to the person who filled out the form
-      subject: `We received your message!`,
-      text: `Hi ${name},\n\nThank you for reaching out to Indelible Technologies!\n\nWe have received your message regarding "${subject || 'your inquiry'}" and our team is reviewing it. We will get back to you within 24 hours.\n\nFor urgent matters, please contact us on WhatsApp at +265993732694.\n\nBest regards,\nThe Indelible Technologies Team`,
+      to: cleanEmail,
+      subject: 'We received your message!',
+      text: `Hi ${cleanName},\n\nThank you for reaching out to Indelible Technologies! We have received your message regarding "${cleanSubject}" and will get back to you as soon as we can.\n\nFor urgent matters, please contact us on WhatsApp at +265993732694.\n\nBest regards,\nThe Indelible Technologies Team`,
       html: `
         <div style="font-family: sans-serif; max-width: 600px; margin: 0 auto; color: #333;">
           <h2 style="color: #2563eb;">Thank you for reaching out!</h2>
-          <p>Hi ${name},</p>
-          <p>We have successfully received your message regarding <strong>"${subject || 'your inquiry'}"</strong>.</p>
-          <p>One of our team members is reviewing your request and will get back to you within 24 hours.</p>
-          <hr style="border: 0; border-top: 1px solid #eee; margin: 20px 0;"/>
+          <p>Hi ${htmlName},</p>
+          <p>We have received your message regarding <strong>"${htmlSubject}"</strong>.</p>
+          <p>Our team will review your request and get back to you as soon as we can.</p>
+          <hr style="border: 0; border-top: 1px solid #eee; margin: 20px 0;" />
           <p style="font-size: 14px; color: #666;"><strong>A copy of your message:</strong></p>
           <blockquote style="background: #f9fafb; padding: 15px; border-left: 4px solid #2563eb; margin: 0; font-size: 14px;">
-            ${message.replace(/\n/g, '<br>')}
+            ${htmlMessage}
           </blockquote>
-          <hr style="border: 0; border-top: 1px solid #eee; margin: 20px 0;"/>
+          <hr style="border: 0; border-top: 1px solid #eee; margin: 20px 0;" />
           <p>If your inquiry is urgent, please feel free to <a href="https://wa.me/265993732694" style="color: #2563eb;">contact us on WhatsApp</a>.</p>
-          <br/>
-          <p>Best regards,</p>
-          <p><strong>The Indelible Technologies Team</strong></p>
+          <p>Best regards,<br /><strong>The Indelible Technologies Team</strong></p>
         </div>
       `,
     };
 
-    // Send both emails simultaneously
     await Promise.all([
       transporter.sendMail(mailOptions),
-      transporter.sendMail(autoReplyOptions)
+      transporter.sendMail(autoReplyOptions),
     ]);
 
     return NextResponse.json(
