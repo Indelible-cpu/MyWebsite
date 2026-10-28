@@ -7,24 +7,24 @@ import { FramerProvider } from "@/components/framer-provider";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://indelibletechnologies.com"),
-  title: "Indelible Technologies | Innovate. Build. Empower.",
-  description: "Youth-led technology company developing affordable, secure, and practical digital solutions for modern institutions — from POS systems to financial management platforms.",
-  keywords: ["software development", "digital transformation", "POS system", "financial management", "web development", "Indelible Technologies", "MsikaPos", "Teachers Bank"],
+  metadataBase: new URL("https://indelibletech.vercel.app"),
+  title: "Indelible Technologies | Digital Products & Software",
+  description: "Indelible Technologies builds practical websites, digital products and custom software for businesses, schools and organisations. Explore MsikaFlo, ShopMe and selected work.",
+  keywords: ["software development Malawi", "web development", "custom software", "digital products", "retail management system", "MsikaFlo", "ShopMe", "Indelible Technologies"],
   authors: [{ name: "Indelible Technologies" }],
   robots: "index, follow",
   openGraph: {
     type: "website",
-    url: "https://indelibletechnologies.com",
-    title: "Indelible Technologies | Innovate. Build. Empower.",
-    description: "Youth-led technology company developing affordable, secure, and practical digital solutions — POS, financial management, and custom software.",
+    url: "https://indelibletech.vercel.app",
+    title: "Indelible Technologies | Digital Products & Software",
+    description: "Practical websites, digital products and custom software for businesses, schools and organisations.",
     siteName: "Indelible Technologies",
     images: [{ url: "/logo.png", width: 400, height: 400, alt: "Indelible Technologies Logo" }],
   },
   twitter: {
     card: "summary",
-    title: "Indelible Technologies | Innovate. Build. Empower.",
-    description: "Youth-led technology company developing affordable, secure, and practical digital solutions.",
+    title: "Indelible Technologies | Digital Products & Software",
+    description: "Practical websites, digital products and custom software from Indelible Technologies.",
     images: ["/logo.png"],
   },
 };
