@@ -103,7 +103,7 @@ export default function Pricing() {
                   ))}
                 </ul>
                 <Link
-                  href={`/contact?subject=${encodeURIComponent(plan.name)}#quote`}
+                  href="/contact#quote"
                   className={`w-full rounded-lg py-3 text-center font-semibold transition-all ${plan.popular ? "bg-secondary text-secondary-foreground shadow-md hover:bg-secondary/90" : "border border-border bg-muted text-foreground hover:bg-muted/80"}`}
                 >
                   Request a quote
