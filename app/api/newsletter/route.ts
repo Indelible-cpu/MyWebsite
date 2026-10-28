@@ -77,10 +77,19 @@ export async function POST(request: Request) {
       `,
     };
 
-    await Promise.all([
-      transporter.sendMail(mailOptions),
-      transporter.sendMail(autoReplyOptions),
-    ]);
+    try {
+      await Promise.all([
+        transporter.sendMail(mailOptions),
+        transporter.sendMail(autoReplyOptions),
+      ]);
+    } catch (emailError) {
+      // The subscription is already stored. Avoid reporting failure that encourages duplicate retries.
+      console.error('Newsletter subscription saved, but email delivery failed:', emailError);
+      return NextResponse.json(
+        { message: 'Your subscription is saved, but the confirmation email could not be delivered. You are still subscribed.' },
+        { status: 202 }
+      );
+    }
 
     return NextResponse.json(
       { message: 'Thank you for subscribing to our newsletter!' },

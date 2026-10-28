@@ -105,10 +105,19 @@ export async function POST(request: Request) {
       `,
     };
 
-    await Promise.all([
-      transporter.sendMail(mailOptions),
-      transporter.sendMail(autoReplyOptions),
-    ]);
+    try {
+      await Promise.all([
+        transporter.sendMail(mailOptions),
+        transporter.sendMail(autoReplyOptions),
+      ]);
+    } catch (emailError) {
+      // The message is already stored. Do not tell the visitor to retry and create a duplicate record.
+      console.error('Contact message saved, but email delivery failed:', emailError);
+      return NextResponse.json(
+        { message: 'Your message was saved, but email delivery is temporarily unavailable. For urgent enquiries, please contact us on WhatsApp.' },
+        { status: 202 }
+      );
+    }
 
     return NextResponse.json(
       { message: 'Message sent successfully!' },
