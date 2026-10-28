@@ -32,8 +32,8 @@ export async function POST(request: Request) {
 
     if (existing) {
       return NextResponse.json(
-        { error: 'You are already subscribed to our newsletter!' },
-        { status: 400 }
+        { message: 'This email is already subscribed. No further action is needed.' },
+        { status: 200 }
       );
     }
 

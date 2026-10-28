@@ -144,6 +144,7 @@ export function Footer() {
                   )}
                 </button>
               </form>
+              <p className="mt-2 text-xs leading-5 text-primary-foreground/60">Occasional updates only. See our <Link href="/privacy" className="underline underline-offset-2 hover:text-accent">Privacy Policy</Link>. To stop receiving updates, contact us by email.</p>
 
               {message && (
                 <div className={`mt-3 flex items-start gap-2 text-sm ${status === "success" ? "text-green-400" : "text-red-400"}`}>
