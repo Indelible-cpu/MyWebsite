@@ -17,7 +17,15 @@ const escapeHtml = (value: string) =>
 export async function POST(request: Request) {
   try {
     const body = await request.json();
-    const { name, email, subject, message } = body ?? {};
+    const { name, email, subject, message, website } = body ?? {};
+
+    // Honeypot: real visitors never see or fill this field. Silently accept bot submissions.
+    if (typeof website === 'string' && website.trim()) {
+      return NextResponse.json(
+        { message: 'Your message was received. Thank you for contacting us.' },
+        { status: 200 }
+      );
+    }
 
     if (
       typeof name !== 'string' || !name.trim() ||
