@@ -13,6 +13,7 @@ const mainNav = [
   { title: "Solutions", href: "/solutions" },
   { title: "Services", href: "/services" },
   { title: "Portfolio", href: "/portfolio" },
+  { title: "ShopMe", href: "https://f7ky9nc8.eyivo.com" },
   { title: "Pricing", href: "/pricing" },
   { title: "Contact", href: "/contact" },
 ];
@@ -74,6 +75,8 @@ export function Navigation() {
                 <Link
                   key={item.href}
                   href={item.href}
+                  target={item.href.startsWith("http") ? "_blank" : undefined}
+                  rel={item.href.startsWith("http") ? "noopener noreferrer" : undefined}
                   className={`text-sm font-medium transition-colors hover:text-secondary ${
                     pathname === item.href ? "text-secondary font-semibold" : "text-foreground/80"
                   }`}
@@ -116,6 +119,8 @@ export function Navigation() {
               <Link
                 key={item.href}
                 href={item.href}
+                target={item.href.startsWith("http") ? "_blank" : undefined}
+                rel={item.href.startsWith("http") ? "noopener noreferrer" : undefined}
                 onClick={() => setIsOpen(false)}
                 className={`text-base font-medium p-2 rounded-md transition-colors ${
                   pathname === item.href
