@@ -8,9 +8,9 @@ import { WhatsAppButton } from "@/components/WhatsAppButton";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://indelibletech.vercel.app"),
-  title: "Indelible Technologies | Digital Products & Software",
-  description: "Indelible Technologies builds practical websites, digital products and custom software for businesses, schools and organisations. Explore MsikaFlo, ShopMe and selected work.",
-  keywords: ["software development Malawi", "web development", "custom software", "digital products", "retail management system", "MsikaFlo", "ShopMe", "Indelible Technologies"],
+  title: { default: "Indelible Technologies | Software & Web Development in Malawi", template: "%s | Indelible Technologies" },
+  description: "Indelible Technologies builds practical websites, business software and digital products in Malawi, including MsikaFlo retail management. Explore our solutions, services and project portfolio.",
+  keywords: ["software development Malawi", "web development Malawi", "custom software", "business management systems", "retail management system", "MsikaFlo", "Indelible Technologies"],
   authors: [{ name: "Indelible Technologies" }],
   robots: "index, follow",
   openGraph: {
