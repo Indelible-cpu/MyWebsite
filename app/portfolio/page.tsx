@@ -126,7 +126,6 @@ function ScreenshotCarousel({ images, title }: { images: Screenshot[]; title: st
           />
         ))}
       </div>
-      <p className="px-4 pb-2 text-center text-xs text-muted-foreground">{images[current].alt}</p>
     </div>
   );
 }
