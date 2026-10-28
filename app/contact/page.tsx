@@ -37,7 +37,7 @@ export default function Contact() {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ name, email, subject, message }),
+        body: JSON.stringify({ name, email, subject, message, website: formData.get('website') }),
       });
 
       const data = await res.json().catch(() => ({}));
@@ -181,6 +181,10 @@ export default function Contact() {
                   <>
                     {submitError && <p role="alert" className="mb-5 rounded-xl border border-red-500/20 bg-red-500/10 p-4 text-sm leading-6 text-red-600 dark:text-red-400">{submitError}</p>}
                     <form onSubmit={handleSubmit} className="space-y-6">
+                    <div aria-hidden="true" className="absolute -left-[10000px] top-auto h-px w-px overflow-hidden">
+                      <label htmlFor="website">Leave this field empty</label>
+                      <input id="website" name="website" type="text" tabIndex={-1} autoComplete="off" />
+                    </div>
                     <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
                       <div className="space-y-2">
                         <label htmlFor="firstName" className="text-sm font-medium">First Name</label>
