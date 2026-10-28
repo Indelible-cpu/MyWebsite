@@ -84,7 +84,7 @@ export default function Services() {
             ))}
           </div>
           <p className="mx-auto mt-10 max-w-3xl text-center text-sm leading-6 text-muted-foreground">
-            Phone accessories and stationery are available through our ShopMe storefront. We keep this page focused on our technology services so each offer has a clear place.
+            Explore the live MsikaFlo storefront to see how our digital products connect with real-world business needs. We keep this page focused on our technology services so each offer has a clear place.
           </p>
           <div className="mt-5 text-center">
             <a
