@@ -23,15 +23,17 @@ A retail product built with React, Firebase, and Firestore. It supports shop wor
 
 ### Cooperative Finance Platform / Teachers Bank
 
-A finance-workflow solution concept for member-based organisations. Contact Indelible Technologies to discuss requirements and implementation scope.
+A cooperative finance management platform for member-based organisations, with workflows for member records, contributions, loans, and financial reporting. The frontend is deployed on Vercel. The TeachersBank repository includes a separate Express API, Prisma/PostgreSQL integration, and Firebase integration. The repository contains Vercel deployment configuration for the backend, but the exact live API hostname is not confirmed by committed source code; verify the active deployment and frontend API environment variable before documenting a production backend URL.
 
 ## Technology
 
 - **Framework:** Next.js (App Router)
 - **UI:** React, Tailwind CSS, Framer Motion, Lucide icons
 - **Data layer:** Prisma with PostgreSQL for website data
-- **Deployment:** Vercel
+- **Website deployment:** Vercel
+- **Website data:** PostgreSQL via Prisma
 - **Additional integrations:** Email handling and API routes
+- **Separate TeachersBank project:** Vercel frontend; Express API with Vercel deployment configuration, Prisma/PostgreSQL, and Firebase integration. The live API host still needs verification.
 
 ## Local development
 
