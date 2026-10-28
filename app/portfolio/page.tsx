@@ -26,9 +26,9 @@ const projects = [
     image: "/images/tb-report-full.jpg",
     imageAlt: "Teachers Bank financial reporting interface",
     tags: ["React", "Vercel", "Express API", "PostgreSQL", "Firebase"],
-    href: "/contact",
-    linkLabel: "Request a platform demo",
-    external: false,
+    href: "https://teachers-bank.vercel.app/",
+    linkLabel: "Visit Teachers Bank platform",
+    external: true,
   },
 ];
 
