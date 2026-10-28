@@ -60,7 +60,7 @@ function ScreenshotCarousel({ images, title }: { images: Screenshot[]; title: st
 
   return (
     <div className="w-full">
-      <div className="relative aspect-[16/10] overflow-hidden bg-muted">
+      <div className="relative w-full overflow-hidden bg-muted">
         <AnimatePresence initial={false} mode="wait" custom={direction}>
           <m.div
             key={images[current].src}
@@ -76,15 +76,16 @@ function ScreenshotCarousel({ images, title }: { images: Screenshot[]; title: st
               if (info.offset.x < -45) goTo(current + 1);
               else if (info.offset.x > 45) goTo(current - 1);
             }}
-            className="absolute inset-0 cursor-grab active:cursor-grabbing"
+            className="relative w-full cursor-grab active:cursor-grabbing"
           >
             <Image
               src={images[current].src}
               alt={images[current].alt}
-              fill
+              width={1200}
+              height={800}
               priority={current === 0}
               sizes="(max-width: 768px) 100vw, 50vw"
-              className="object-contain"
+              className="block h-auto w-full"
             />
           </m.div>
         </AnimatePresence>
