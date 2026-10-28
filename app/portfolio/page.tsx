@@ -17,18 +17,22 @@ const projects = [
     href: "https://jefinvestment-e1fc1.web.app/store",
     linkLabel: "Visit live storefront",
     external: true,
+    repoHref: "https://github.com/Indelible-cpu/Jefinvestment",
+    repoLabel: "View source code",
   },
   {
     title: "Cooperative Finance Platform",
-    category: "Financial Management · Deployed Frontend",
+    category: "Financial Management · Deployed on Vercel",
     description:
-      "Teachers Bank is a cooperative finance management platform for member-based organisations, with workflows for member records, contributions, loans, and financial reporting. Its frontend is deployed on Vercel; the source repository includes a separate Express API, Prisma/PostgreSQL data access, and Firebase integration.",
+      "Teachers Bank is a cooperative finance management platform for member-based organisations, with workflows for member records, contributions, loans, and financial reporting. Both its frontend and backend are deployed on Vercel. The codebase includes an Express API, Prisma/PostgreSQL data access, and Firebase integration.",
     image: "/images/tb-report-full.jpg",
     imageAlt: "Teachers Bank financial reporting interface",
     tags: ["React", "Vercel", "Express API", "PostgreSQL", "Firebase"],
     href: "https://teachers-bank.vercel.app/",
     linkLabel: "Visit Teachers Bank platform",
     external: true,
+    repoHref: "https://github.com/Indelible-cpu/TeachersBank",
+    repoLabel: "View source code",
   },
 ];
 
@@ -100,7 +104,7 @@ export default function Portfolio() {
                     ))}
                   </div>
 
-                  <div className="mt-auto">
+                  <div className="mt-auto flex flex-wrap items-center gap-x-5 gap-y-3">
                     <Link
                       href={project.href}
                       target={project.external ? "_blank" : undefined}
@@ -109,6 +113,15 @@ export default function Portfolio() {
                     >
                       {project.linkLabel}
                       {project.external ? <ExternalLink className="h-4 w-4" /> : <ArrowUpRight className="h-4 w-4" />}
+                    </Link>
+                    <Link
+                      href={project.repoHref}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 text-sm font-medium text-muted-foreground transition-colors hover:text-secondary focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-secondary"
+                    >
+                      {project.repoLabel}
+                      <ExternalLink className="h-3.5 w-3.5" />
                     </Link>
                   </div>
                 </div>
