@@ -17,7 +17,7 @@ const testimonials = [
   {
     name: 'Michael Chen',
     role: 'Retail Manager, Urban Market',
-    text: 'MsikaPos streamlined our entire POS operations. Customer support is exceptional and responsive.',
+    text: 'MsikaFlo streamlined our entire POS operations. Customer support is exceptional and responsive.',
     rating: 5,
   },
   {
@@ -29,7 +29,7 @@ const testimonials = [
   {
     name: 'David Rodriguez',
     role: 'Operations Head, Retail Chain',
-    text: 'The integration capabilities of MsikaPos were exactly what we needed for our multi-location setup.',
+    text: 'The integration capabilities of MsikaFlo were exactly what we needed for our multi-location setup.',
     rating: 5,
   },
 ];
