@@ -149,7 +149,7 @@ export default function Contact() {
                 <h4 className="mb-4 text-lg font-bold">Explore our work</h4>
                 <div className="flex flex-wrap gap-3">
                   <Link href="/portfolio" className="inline-flex items-center gap-2 rounded-xl border border-border bg-background px-4 py-3 text-sm font-semibold transition-colors hover:border-secondary/50 hover:text-secondary">Portfolio <ArrowUpRight className="h-4 w-4" /></Link>
-                  <a href="https://f7ky9nc8.eyivo.com" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 rounded-xl border border-border bg-background px-4 py-3 text-sm font-semibold transition-colors hover:border-secondary/50 hover:text-secondary">ShopMe <ArrowUpRight className="h-4 w-4" /></a>
+                  <a href="https://jefinvestment-e1fc1.web.app/store" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 rounded-xl border border-border bg-background px-4 py-3 text-sm font-semibold transition-colors hover:border-secondary/50 hover:text-secondary">MsikaFlo Storefront <ArrowUpRight className="h-4 w-4" /></a>
                 </div>
               </div>
             </m.div>
