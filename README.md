@@ -19,11 +19,11 @@ The official portfolio and business website for Indelible Technologies, a Malawi
 
 ### MsikaFlo — retail management
 
-A retail product built with React, Firebase, and Firestore. It supports shop workflows such as sales and inventory management, with an offline-first workflow and an AI-assisted product finder. The public storefront is available at the link above.
+A retail product built with React, Firebase, and Firestore. It supports shop workflows such as sales and inventory management, with an offline-first workflow and an AI-assisted product finder. The public storefront is available at the link above. Source code: https://github.com/Indelible-cpu/Jefinvestment. Hosting is Firebase Hosting, with application data stored in Cloud Firestore.
 
 ### Cooperative Finance Platform / Teachers Bank
 
-A cooperative finance management platform for member-based organisations, with workflows for member records, contributions, loans, and financial reporting. The live platform is available at https://teachers-bank.vercel.app/. The repository includes an Express API under `api/index.ts`, root Vercel routing that directs `/api/*` requests to that API, and frontend configuration that defaults to the same-origin `/api` path in production. This indicates the backend is designed to run as Vercel serverless functions alongside the frontend on the same Vercel project/domain. The API uses Prisma/PostgreSQL and includes Firebase integration. The actual production API health and database connectivity still require a live check in Vercel.
+A cooperative finance management platform for member-based organisations, with workflows for member records, contributions, loans, and financial reporting. The live platform is available at https://teachers-bank.vercel.app/ and both its frontend and backend are deployed on Vercel. The source code is available at https://github.com/Indelible-cpu/TeachersBank. The codebase includes an Express API, Prisma/PostgreSQL data access, and Firebase integration.
 
 ## Technology
 
@@ -33,7 +33,8 @@ A cooperative finance management platform for member-based organisations, with w
 - **Website deployment:** Vercel
 - **Website data:** PostgreSQL via Prisma
 - **Additional integrations:** Email handling and API routes
-- **Teachers Bank platform:** [teachers-bank.vercel.app](https://teachers-bank.vercel.app/) is the live platform URL provided by the owner. The repository routes `/api/*` to an Express API and configures the frontend to use same-origin `/api` in production, indicating the API is intended to run as Vercel serverless functions on the same Vercel deployment. Backend health and database connectivity should be verified from the Vercel deployment logs and environment settings.
+- **Teachers Bank platform:** Frontend and backend deployed on Vercel; Express API with Prisma/PostgreSQL and Firebase integration. Live URL: [teachers-bank.vercel.app](https://teachers-bank.vercel.app/). Source: [GitHub repository](https://github.com/Indelible-cpu/TeachersBank).
+- **MsikaFlo:** React application deployed on Firebase Hosting with Cloud Firestore data. Live storefront: [MsikaFlo Store](https://jefinvestment-e1fc1.web.app/store). Source: [GitHub repository](https://github.com/Indelible-cpu/Jefinvestment).
 
 ## Local development
 
