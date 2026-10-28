@@ -10,6 +10,7 @@ export default function Contact() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const [submitError, setSubmitError] = useState("");
+  const [submittedMessage, setSubmittedMessage] = useState("Thank you for reaching out to Indelible Technologies. We’ll review your message and get back to you as soon as we can.");
   const [inquiryType, setInquiryType] = useState("General Inquiry");
 
   useEffect(() => {
@@ -39,7 +40,9 @@ export default function Contact() {
         body: JSON.stringify({ name, email, subject, message }),
       });
 
+      const data = await res.json().catch(() => ({}));
       if (res.ok) {
+        setSubmittedMessage(data.message || "Thank you for reaching out to Indelible Technologies. We’ll review your message and get back to you as soon as we can.");
         setSubmitted(true);
       } else {
         setSubmitError('We could not send your message just now. Please try again or contact us directly.');
@@ -168,8 +171,8 @@ export default function Contact() {
                 {submitted ? (
                   <div className="bg-emerald-500/10 border border-emerald-500/20 text-emerald-600 p-6 rounded-xl text-center">
                     <CheckCircle2 className="h-12 w-12 mx-auto mb-4 text-emerald-500" />
-                    <h3 className="text-xl font-bold mb-2">Message Sent Successfully!</h3>
-                    <p>Thank you for reaching out to Indelible Technologies. We’ll review your message and get back to you as soon as we can.</p>
+                    <h3 className="text-xl font-bold mb-2">Thank you for contacting us</h3>
+                    <p>{submittedMessage}</p>
                     <button onClick={() => setSubmitted(false)} className="mt-6 text-emerald-600 font-semibold underline">
                       Send another message
                     </button>
