@@ -1,9 +1,10 @@
 "use client";
 
 import { useState } from "react";
-import { Mail, Phone, MapPin, Clock, Send, Zap, CheckCircle2 } from "lucide-react";
+import Link from "next/link";
+import { Mail, Phone, MapPin, Clock, Send, Zap, CheckCircle2, ArrowUpRight } from "lucide-react";
 import { m } from "framer-motion";
-import { FaFacebook, FaXTwitter, FaLinkedin, FaInstagram, FaWhatsapp } from "react-icons/fa6";
+import { FaWhatsapp } from "react-icons/fa6";
 
 export default function Contact() {
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -45,31 +46,31 @@ export default function Contact() {
   return (
     <>
       {/* HEADER */}
-      <section className="pt-32 pb-16 bg-muted/30">
+      <section className="bg-muted/30 pt-32 pb-14 sm:pt-36 sm:pb-16">
         <div className="container mx-auto px-4 text-center">
-          <m.h2 
+          <m.h1 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.1 }}
             className="text-3xl font-bold mb-6"
           >
             Get In Touch
-          </m.h2>
+          </m.h1>
           <m.p 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
             className="text-lg text-muted-foreground mb-8"
           >
-            Reach out for any inquiries, quotes, or collaboration ideas. We’ll respond within 24 hours.
+            Reach out with a question, quote request or collaboration idea. We’ll get back to you as soon as we can.
           </m.p>
         </div>
       </section>
 
       {/* CONTACT CONTENT */}
-      <section className="py-20">
+      <section className="py-16 sm:py-20 lg:py-24">
         <div className="container mx-auto px-4 md:px-6">
-          <div className="grid lg:grid-cols-2 gap-12 lg:gap-20">
+          <div className="grid gap-10 lg:grid-cols-2 lg:gap-16">
             
             {/* Contact Info */}
             <m.div 
@@ -134,20 +135,10 @@ export default function Contact() {
               
 
 
-                <h4 className="font-bold text-lg mb-4">Connect With Us</h4>
-                <div className="flex gap-3">
-                  <a href="#" aria-label="Facebook" className="w-10 h-10 rounded-full bg-muted flex items-center justify-center hover:bg-secondary hover:text-secondary-foreground transition-colors">
-                    <FaFacebook className="w-4 h-4" />
-                  </a>
-                  <a href="#" aria-label="X (Twitter)" className="w-10 h-10 rounded-full bg-muted flex items-center justify-center hover:bg-secondary hover:text-secondary-foreground transition-colors">
-                    <FaXTwitter className="w-4 h-4" />
-                  </a>
-                  <a href="#" aria-label="LinkedIn" className="w-10 h-10 rounded-full bg-muted flex items-center justify-center hover:bg-secondary hover:text-secondary-foreground transition-colors">
-                    <FaLinkedin className="w-4 h-4" />
-                  </a>
-                  <a href="#" aria-label="Instagram" className="w-10 h-10 rounded-full bg-muted flex items-center justify-center hover:bg-secondary hover:text-secondary-foreground transition-colors">
-                    <FaInstagram className="w-4 h-4" />
-                  </a>
+                <h4 className="mb-4 text-lg font-bold">Explore our work</h4>
+                <div className="flex flex-wrap gap-3">
+                  <Link href="/portfolio" className="inline-flex items-center gap-2 rounded-xl border border-border bg-background px-4 py-3 text-sm font-semibold transition-colors hover:border-secondary/50 hover:text-secondary">Portfolio <ArrowUpRight className="h-4 w-4" /></Link>
+                  <a href="https://f7ky9nc8.eyivo.com" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 rounded-xl border border-border bg-background px-4 py-3 text-sm font-semibold transition-colors hover:border-secondary/50 hover:text-secondary">ShopMe <ArrowUpRight className="h-4 w-4" /></a>
                 </div>
               </div>
             </m.div>
@@ -170,14 +161,14 @@ export default function Contact() {
                   <div className="bg-emerald-500/10 border border-emerald-500/20 text-emerald-600 p-6 rounded-xl text-center">
                     <CheckCircle2 className="h-12 w-12 mx-auto mb-4 text-emerald-500" />
                     <h3 className="text-xl font-bold mb-2">Message Sent Successfully!</h3>
-                    <p>Thank you for reaching out to Indelible Technologies. Our team will get back to you within 24 hours.</p>
+                    <p>Thank you for reaching out to Indelible Technologies. We’ll review your message and get back to you as soon as we can.</p>
                     <button onClick={() => setSubmitted(false)} className="mt-6 text-emerald-600 font-semibold underline">
                       Send another message
                     </button>
                   </div>
                 ) : (
                   <form onSubmit={handleSubmit} className="space-y-6">
-                    <div className="grid grid-cols-2 gap-4">
+                    <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
                       <div className="space-y-2">
                         <label htmlFor="firstName" className="text-sm font-medium">First Name</label>
                         <input name="firstName" required id="firstName" type="text" className="w-full px-4 py-3 rounded-lg border border-border bg-background focus:outline-none focus:ring-2 focus:ring-secondary transition-all" placeholder="John" />
