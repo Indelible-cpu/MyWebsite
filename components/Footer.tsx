@@ -3,8 +3,8 @@
 import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { MapPin, Phone, Mail, Loader2, CheckCircle2, AlertCircle } from "lucide-react";
-import { FaFacebook, FaXTwitter, FaLinkedin, FaInstagram, FaWhatsapp } from "react-icons/fa6";
+import { MapPin, Phone, Mail, Loader2, CheckCircle2, AlertCircle, ArrowUpRight } from "lucide-react";
+import { FaWhatsapp } from "react-icons/fa6";
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
@@ -45,9 +45,9 @@ export function Footer() {
   };
 
   return (
-    <footer className="bg-primary text-primary-foreground pt-16 pb-8 border-t border-border">
+    <footer className="mt-auto border-t border-border bg-primary pt-14 pb-8 text-primary-foreground sm:pt-16">
       <div className="container mx-auto px-4 md:px-6">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
+        <div className="mb-12 grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-4 lg:gap-8">
           
           {/* Company Info */}
           <div className="flex flex-col gap-4">
@@ -63,19 +63,9 @@ export function Footer() {
             <p className="text-primary-foreground/80 text-sm mt-2 leading-relaxed">
               Digital Transformation & Innovation Partner. Developing affordable, secure, innovative and practical digital solutions for businesses and communities.
             </p>
-            <div className="flex items-center gap-3 mt-2">
-              <a href="#" className="p-2 bg-white/10 rounded-full hover:bg-secondary transition-colors" aria-label="Facebook">
-                <FaFacebook className="w-4 h-4" />
-              </a>
-              <a href="#" className="p-2 bg-white/10 rounded-full hover:bg-secondary transition-colors" aria-label="X (Twitter)">
-                <FaXTwitter className="w-4 h-4" />
-              </a>
-              <a href="#" className="p-2 bg-white/10 rounded-full hover:bg-secondary transition-colors" aria-label="LinkedIn">
-                <FaLinkedin className="w-4 h-4" />
-              </a>
-              <a href="#" className="p-2 bg-white/10 rounded-full hover:bg-secondary transition-colors" aria-label="Instagram">
-                <FaInstagram className="w-4 h-4" />
-              </a>
+            <div className="mt-3 flex flex-wrap gap-3 text-sm">
+              <Link href="/portfolio" className="inline-flex items-center gap-1.5 rounded-full border border-primary-foreground/20 px-3 py-2 font-medium transition-colors hover:border-accent hover:text-accent">Explore our work <ArrowUpRight className="h-3.5 w-3.5" /></Link>
+              <a href="https://f7ky9nc8.eyivo.com" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 rounded-full border border-primary-foreground/20 px-3 py-2 font-medium transition-colors hover:border-accent hover:text-accent">Visit ShopMe <ArrowUpRight className="h-3.5 w-3.5" /></a>
             </div>
           </div>
 
@@ -97,7 +87,8 @@ export function Footer() {
             <h4 className="font-semibold text-lg">Our Ecosystem</h4>
             <ul className="flex flex-col gap-2 text-primary-foreground/80 text-sm">
               <li><Link href="/solutions#teachersbank" className="hover:text-accent transition-colors">Teachers Bank</Link></li>
-              <li><Link href="/solutions#msikapos" className="hover:text-accent transition-colors">MsikaPos</Link></li>
+              <li><Link href="/solutions#msikaflo" className="hover:text-accent transition-colors">MsikaFlo</Link></li>
+              <li><a href="https://f7ky9nc8.eyivo.com" target="_blank" rel="noopener noreferrer" className="hover:text-accent transition-colors">ShopMe storefront</a></li>
 
             </ul>
           </div>
@@ -169,7 +160,7 @@ export function Footer() {
 
         </div>
 
-        <div className="pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-primary-foreground/60">
+        <div className="flex flex-col items-center justify-between gap-4 border-t border-white/10 pt-7 text-center text-xs text-primary-foreground/60 md:flex-row md:text-left">
           <p>&copy; {currentYear} Indelible Technologies. Powered by JEF Investment.</p>
           <div className="flex items-center gap-4">
             <Link href="/privacy" className="hover:text-white transition-colors">Privacy Policy</Link>
