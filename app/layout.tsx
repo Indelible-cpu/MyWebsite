@@ -23,8 +23,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary",
-    title: "Indelible Technologies | Software & Web Development in Malawi"
-    description: "Web development, business software and practical digital products from Indelible Technologies in Malawi."
+    title: "Indelible Technologies | Software & Web Development in Malawi",
+    description: "Web development, business software and practical digital products from Indelible Technologies in Malawi.",
     images: ["/logo.png"],
   },
 };
