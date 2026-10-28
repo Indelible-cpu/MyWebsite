@@ -199,6 +199,9 @@ export default function Portfolio() {
                 </div>
 
                 <div className="border-t border-border/60">
+                  <h3 className="px-5 pt-5 text-sm font-bold uppercase tracking-wider text-secondary sm:px-6">
+                    Features
+                  </h3>
                   <ScreenshotCarousel images={project.images} title={project.title} />
                 </div>
               </m.article>
