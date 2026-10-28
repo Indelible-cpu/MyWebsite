@@ -23,7 +23,6 @@ const projects = [
       { src: "/images/Screenshot_20261028_135430_Chrome.jpg", alt: "MsikaFlo Sidebar Navigation — reports and settings" },
       { src: "/images/Screenshot_20261028_135454_Chrome.jpg", alt: "MsikaFlo Point of Sale (POS)" },
       { src: "/images/Screenshot_20261028_135544_Chrome.jpg", alt: "MsikaFlo Dashboard" },
-      { src: "/images/Screenshot_20261028_135551_Chrome.jpg", alt: "MsikaFlo screenshot 9" },
     ] as Screenshot[],
     tags: ["React", "Firebase", "Firestore", "Retail"],
     href: "https://jefinvestment-e1fc1.web.app/store",
