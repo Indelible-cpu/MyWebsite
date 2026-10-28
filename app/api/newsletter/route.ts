@@ -2,20 +2,32 @@ import { NextResponse } from 'next/server';
 import nodemailer from 'nodemailer';
 import { prisma } from '@/lib/prisma';
 
+const escapeHtml = (value: string) =>
+  value.replace(/[&<>"']/g, (character) => {
+    const entities: Record<string, string> = {
+      '&': '&amp;',
+      '<': '&lt;',
+      '>': '&gt;',
+      '"': '&quot;',
+      "'": '&#39;',
+    };
+    return entities[character];
+  });
+
 export async function POST(request: Request) {
   try {
-    const { email } = await request.json();
+    const body = await request.json();
+    const email = typeof body?.email === 'string' ? body.email.trim().toLowerCase() : '';
 
-    if (!email || !email.includes('@')) {
+    if (email.length > 254 || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
       return NextResponse.json(
         { error: 'Please enter a valid email address.' },
         { status: 400 }
       );
     }
 
-    // Check if email is already subscribed
     const existing = await prisma.newsletterSubscription.findUnique({
-      where: { email: email.toLowerCase() },
+      where: { email },
     });
 
     if (existing) {
@@ -25,9 +37,8 @@ export async function POST(request: Request) {
       );
     }
 
-    // Save to database
     await prisma.newsletterSubscription.create({
-      data: { email: email.toLowerCase() },
+      data: { email },
     });
 
     const transporter = nodemailer.createTransport({
@@ -38,40 +49,37 @@ export async function POST(request: Request) {
       },
     });
 
+    const htmlEmail = escapeHtml(email);
     const mailOptions = {
       from: process.env.GMAIL_USER,
-      to: process.env.GMAIL_USER, // Send to yourself
-      subject: `New Newsletter Subscriber!`,
+      to: process.env.GMAIL_USER,
+      subject: 'New Newsletter Subscriber!',
       text: `You have a new subscriber to your newsletter!\n\nEmail: ${email}`,
       html: `<h3>New Newsletter Subscriber!</h3>
-             <p>A new user has just subscribed to your newsletter.</p>
-             <p><strong>Subscriber Email:</strong> ${email}</p>`,
+             <p>A new user has subscribed to the newsletter.</p>
+             <p><strong>Subscriber Email:</strong> ${htmlEmail}</p>`,
     };
 
-    // Auto-reply to the subscriber
     const autoReplyOptions = {
       from: `"Indelible Technologies" <${process.env.GMAIL_USER}>`,
-      to: email, // Send to the subscriber
-      subject: `Welcome to Indelible Technologies!`,
-      text: `Hi there,\n\nThank you for subscribing to the Indelible Technologies newsletter! We are excited to have you on board.\n\nWe will keep you updated with the latest news on our software systems, technology tips, and exclusive offers.\n\nBest regards,\nThe Indelible Technologies Team`,
+      to: email,
+      subject: 'Welcome to Indelible Technologies!',
+      text: `Hi there,\n\nThank you for subscribing to the Indelible Technologies newsletter! We will occasionally share updates about MsikaFlo, Teachers Bank, helpful technology tips, and new services.\n\nBest regards,\nThe Indelible Technologies Team`,
       html: `
         <div style="font-family: sans-serif; max-width: 600px; margin: 0 auto; color: #333;">
           <h2 style="color: #2563eb;">Welcome to Indelible Technologies!</h2>
           <p>Hi there,</p>
-          <p>Thank you for subscribing to our newsletter! We are absolutely thrilled to have you on board.</p>
-          <p>We'll occasionally send you updates about our latest software systems (like Teachers Bank and MsikaPos), helpful technology tips for your business, and exclusive insights.</p>
-          <p>If you ever have any questions or need custom software developed, just reply to this email!</p>
-          <br/>
-          <p>Best regards,</p>
-          <p><strong>The Indelible Technologies Team</strong></p>
+          <p>Thank you for subscribing to our newsletter.</p>
+          <p>We'll occasionally send updates about MsikaFlo, Teachers Bank, helpful technology tips, and services for your business or organisation.</p>
+          <p>If you have questions or need custom software, you can reply to this email.</p>
+          <p>Best regards,<br /><strong>The Indelible Technologies Team</strong></p>
         </div>
       `,
     };
 
-    // Send both emails simultaneously
     await Promise.all([
       transporter.sendMail(mailOptions),
-      transporter.sendMail(autoReplyOptions)
+      transporter.sendMail(autoReplyOptions),
     ]);
 
     return NextResponse.json(
@@ -86,5 +94,3 @@ export async function POST(request: Request) {
     );
   }
 }
-
-
