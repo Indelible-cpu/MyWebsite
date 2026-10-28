@@ -13,7 +13,9 @@ const projects = [
     title: "MsikaFlo",
     category: "Retail Management · Live Product",
     description:
-      "A retail management system built for real shop workflows and deployed for active use. Its React, Firebase and Firestore stack supports sales and inventory records, an offline-first workflow with later synchronisation, and an AI-assisted product finder.",
+      "I built MsikaFlo to support real retail workflows, including sales and inventory records, offline-first use with later synchronisation, and an AI-assisted product finder. The system is deployed for active use, with a public storefront customers can explore.",
+    role:
+      "My role: Sole developer handling the work end to end—from product planning and interface design to frontend and backend implementation, database integration, testing, deployment, and ongoing improvements.",
     images: [
       { src: "/images/Screenshot_20261028_134905_Chrome.jpg", alt: "MsikaFlo screenshot 1" },
       { src: "/images/Screenshot_20261028_135152_Chrome.jpg", alt: "MsikaFlo screenshot 2" },
@@ -33,7 +35,9 @@ const projects = [
     title: "Cooperative Finance Platform",
     category: "Financial Management · Deployed on Vercel",
     description:
-      "Teachers Bank is a cooperative finance management platform for member-based organisations, with workflows for member records, contributions, loans, and financial reporting. Both its frontend and backend are deployed on Vercel. The codebase includes an Express API, Prisma/PostgreSQL data access, and Firebase integration.",
+      "I built Teachers Bank as a cooperative finance management platform for member-based organisations. It brings together member records, contributions, loan workflows, and financial reporting. The frontend and backend are deployed on Vercel.",
+    role:
+      "My role: Sole developer responsible for the full delivery process, including planning, interface and workflow design, frontend development, API and database integration, testing, deployment, and subsequent maintenance.",
     images: [
       { src: "/images/tb-overview.jpg", alt: "Teachers Bank financial overview" },
       { src: "/images/tb-contributions.jpg", alt: "Teachers Bank contributions ledger" },
@@ -173,9 +177,17 @@ export default function Portfolio() {
                   <h2 className="mb-3 text-xl font-bold transition-colors group-hover:text-secondary">
                     {project.title}
                   </h2>
-                  <p className="mb-5 text-sm leading-relaxed text-muted-foreground">
+                  <p className="mb-4 text-sm leading-relaxed text-muted-foreground">
                     {project.description}
                   </p>
+                  <div className="mb-5 rounded-xl border border-secondary/20 bg-secondary/5 p-4">
+                    <p className="mb-1 text-xs font-bold uppercase tracking-wider text-secondary">
+                      My role
+                    </p>
+                    <p className="text-sm leading-relaxed text-foreground/85">
+                      {project.role}
+                    </p>
+                  </div>
 
                   <div className="mb-6 flex flex-wrap gap-2">
                     {project.tags.map((tag) => (
