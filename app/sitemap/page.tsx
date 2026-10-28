@@ -14,9 +14,9 @@ export default function Sitemap() {
         { label: "Home", href: "/" },
         { label: "About Us", href: "/about" },
         { label: "Our Services", href: "/services" },
+        { label: "Solutions", href: "/solutions" },
         { label: "Portfolio & Case Studies", href: "/portfolio" },
         { label: "Pricing & Quotes", href: "/pricing" },
-        { label: "Innovation Blog", href: "/blog" },
         { label: "Contact Us", href: "/contact" },
       ],
     },
@@ -26,8 +26,8 @@ export default function Sitemap() {
       color: "text-emerald-500 bg-emerald-500/10",
       links: [
         { label: "Teachers Bank (Education & Finance)", href: "/solutions#teachersbank" },
-        { label: "MsikaPos (Retail & Inventory)", href: "/solutions#msikapos" },
-
+        { label: "MsikaFlo (Retail & Inventory)", href: "/solutions#msikaflo" },
+        { label: "ShopMe Storefront", href: "https://f7ky9nc8.eyivo.com" },
       ],
     },
     {
