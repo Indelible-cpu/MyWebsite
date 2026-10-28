@@ -16,10 +16,10 @@ const solutions = [
     icon: '🏦',
   },
   {
-    title: 'MsikaPos',
-    description: 'Powerful point-of-sale system',
-    details: 'Modern POS solution for retail and food businesses. Real-time inventory management, sales analytics, and customer relationship tools.',
-    features: ['Real-time inventory', 'Sales analytics', 'Customer management', 'Receipt printing'],
+    title: 'MsikaFlo',
+    description: 'Retail management and storefront system',
+    details: 'Practical shop management with inventory and sales records, reporting, offline-first operation, AI-assisted product locating, and a connected online storefront.',
+    features: ['Inventory and sales records', 'Sales and profit reports', 'AI-assisted product locating', 'Online storefront'],
     icon: '🛒',
   },
 ];
