@@ -20,14 +20,14 @@ const projects = [
   },
   {
     title: "Cooperative Finance Platform",
-    category: "Financial Management · Solution Concept",
+    category: "Financial Management · Deployed Frontend",
     description:
-      "A digital finance solution concept for member-based organisations, focused on organising records and everyday financial workflows. Contact us to discuss requirements and confirm the scope of an implementation for your organisation.",
+      "Teachers Bank is a cooperative finance management platform for member-based organisations, with workflows for member records, contributions, loans, and financial reporting. Its frontend is deployed on Vercel; the source repository includes a separate Express API, Prisma/PostgreSQL data access, and Firebase integration.",
     image: "/images/tb-report-full.jpg",
-    imageAlt: "Financial reporting interface used to illustrate finance workflow capabilities",
-    tags: ["Financial workflows", "Records", "Custom software"],
+    imageAlt: "Teachers Bank financial reporting interface",
+    tags: ["React", "Vercel", "Express API", "PostgreSQL", "Firebase"],
     href: "/contact",
-    linkLabel: "Discuss a similar solution",
+    linkLabel: "Request a platform demo",
     external: false,
   },
 ];
