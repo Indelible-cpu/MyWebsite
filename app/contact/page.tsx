@@ -169,8 +169,9 @@ export default function Contact() {
                     </button>
                   </div>
                 ) : (
-                  {submitError && <p role="alert" className="mb-5 rounded-xl border border-red-500/20 bg-red-500/10 p-4 text-sm leading-6 text-red-600 dark:text-red-400">{submitError}</p>}
-                  <form onSubmit={handleSubmit} className="space-y-6">
+                  <>
+                    {submitError && <p role="alert" className="mb-5 rounded-xl border border-red-500/20 bg-red-500/10 p-4 text-sm leading-6 text-red-600 dark:text-red-400">{submitError}</p>}
+                    <form onSubmit={handleSubmit} className="space-y-6">
                     <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
                       <div className="space-y-2">
                         <label htmlFor="firstName" className="text-sm font-medium">First Name</label>
@@ -206,7 +207,8 @@ export default function Contact() {
                     <button disabled={isSubmitting} type="submit" className="w-full bg-primary hover:bg-secondary text-primary-foreground font-bold py-4 rounded-lg flex items-center justify-center gap-2 transition-all disabled:opacity-70 disabled:cursor-not-allowed">
                       {isSubmitting ? "Sending..." : "Send Message"} <Send className="h-4 w-4" />
                     </button>
-                  </form>
+                    </form>
+                  </>
                 )}
               </div>
             </m.div>
