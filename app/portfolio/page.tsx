@@ -28,8 +28,6 @@ const projects = [
     tags: ["React", "Firebase", "Firestore", "Retail"],
     href: "https://jefinvestment-e1fc1.web.app/store",
     linkLabel: "Visit live storefront",
-    repoHref: "https://github.com/Indelible-cpu/Jefinvestment",
-    repoLabel: "View source code",
   },
   {
     title: "Cooperative Finance Platform",
@@ -45,8 +43,6 @@ const projects = [
     tags: ["React", "Vercel", "Express API", "PostgreSQL", "Firebase"],
     href: "https://teachers-bank.vercel.app/",
     linkLabel: "Visit Teachers Bank platform",
-    repoHref: "https://github.com/Indelible-cpu/TeachersBank",
-    repoLabel: "View source code",
   },
 ];
 
@@ -201,15 +197,6 @@ export default function Portfolio() {
                     >
                       {project.linkLabel}
                       <ExternalLink className="h-4 w-4" />
-                    </Link>
-                    <Link
-                      href={project.repoHref}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 text-sm font-medium text-muted-foreground transition-colors hover:text-secondary focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-secondary"
-                    >
-                      {project.repoLabel}
-                      <ExternalLink className="h-3.5 w-3.5" />
                     </Link>
                   </div>
                 </div>
