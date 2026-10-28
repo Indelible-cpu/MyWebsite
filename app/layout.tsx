@@ -16,15 +16,15 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     url: "https://indelibletech.vercel.app",
-    title: "Indelible Technologies | Digital Products & Software",
-    description: "Practical websites, digital products and custom software for businesses, schools and organisations.",
+    title: "Indelible Technologies | Software & Web Development in Malawi",
+    description: "Web development, business software and practical digital products for businesses, schools and organisations in Malawi.",
     siteName: "Indelible Technologies",
     images: [{ url: "/logo.png", width: 400, height: 400, alt: "Indelible Technologies Logo" }],
   },
   twitter: {
     card: "summary",
-    title: "Indelible Technologies | Digital Products & Software",
-    description: "Practical websites, digital products and custom software from Indelible Technologies.",
+    title: "Indelible Technologies | Software & Web Development in Malawi"
+    description: "Web development, business software and practical digital products from Indelible Technologies in Malawi."
     images: ["/logo.png"],
   },
 };
