@@ -27,7 +27,6 @@ export default function Sitemap() {
       links: [
         { label: "Teachers Bank (Education & Finance)", href: "/solutions#teachersbank" },
         { label: "MsikaFlo (Retail & Inventory)", href: "/solutions#msikaflo" },
-        { label: "ShopMe Storefront", href: "https://f7ky9nc8.eyivo.com" },
       ],
     },
     {
@@ -37,7 +36,6 @@ export default function Sitemap() {
       links: [
         { label: "Privacy Policy", href: "/privacy" },
         { label: "Terms of Service", href: "/terms" },
-        { label: "Sitemap", href: "/sitemap" },
       ],
     },
   ];
