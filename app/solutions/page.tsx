@@ -14,9 +14,9 @@ const tbImages = [
 
 // MsikaFlo placeholders — swap with real screenshots when ready
 const msikaImages = [
-  { src: "/images/msikaflo-dashboard.jpg", alt: "Dashboard Overview" },
-  { src: "/images/msikaflo-sales.jpg", alt: "Sales Screen" },
-  { src: "/images/msikaflo-inventory.jpg", alt: "Inventory Management" },
+  { src: "/images/msikapos-dashboard.jpg", alt: "Dashboard Overview" },
+  { src: "/images/msikapos-sales.jpg", alt: "Sales Screen" },
+  { src: "/images/msikapos-inventory.jpg", alt: "Inventory Management" },
 ];
 
 export default function Solutions() {
@@ -86,7 +86,7 @@ export default function Solutions() {
         </div>
       </section>
 
-      {/* MSIKAPOS */}
+      {/* MSIKAFLO */}
       <section id="msikaflo" className="py-24 bg-muted/30 border-y border-border/50">
         <div className="container mx-auto px-4 md:px-6">
           <div className="grid md:grid-cols-2 gap-12 items-center">
