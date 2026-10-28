@@ -12,7 +12,7 @@ const tbImages = [
   { src: "/images/tb-report-full.jpg", alt: "Financial Report" },
 ];
 
-// MsikaPos placeholders — swap with real screenshots when ready
+// MsikaFlo placeholders — swap with real screenshots when ready
 const msikaImages = [
   { src: "/images/msikapos-dashboard.jpg", alt: "Dashboard Overview" },
   { src: "/images/msikapos-sales.jpg", alt: "Sales Screen" },
@@ -86,8 +86,8 @@ export default function Solutions() {
         </div>
       </section>
 
-      {/* MSIKAPOS */}
-      <section id="msikapos" className="py-24 bg-muted/30 border-y border-border/50">
+      {/* MSIKAFLO */}
+      <section id="msikaflo" className="py-24 bg-muted/30 border-y border-border/50">
         <div className="container mx-auto px-4 md:px-6">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <m.div
@@ -109,9 +109,9 @@ export default function Solutions() {
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 text-emerald-500 font-semibold mb-6">
                 <MonitorSmartphone className="h-4 w-4" /> Retail & Inventory
               </div>
-              <h2 className="text-3xl md:text-4xl font-bold mb-6">MsikaPos</h2>
+              <h2 className="text-3xl md:text-4xl font-bold mb-6">MsikaFlo</h2>
               <p className="text-lg text-muted-foreground mb-6">
-                The ultimate Point of Sale and Inventory Management System. MsikaPos empowers businesses of all sizes to manage sales, track stock in real-time, and analyze business performance from any device.
+                The ultimate Point of Sale and Inventory Management System. MsikaFlo empowers businesses of all sizes to manage sales, track stock in real-time, and analyze business performance from any device.
               </p>
               <ul className="space-y-3 mb-8">
                 {["Multi-store inventory management", "Offline capability with automatic cloud sync", "Detailed sales analytics and profit tracking", "Barcode scanning and receipt printing"].map((feature, i) => (
@@ -121,7 +121,7 @@ export default function Solutions() {
                   </li>
                 ))}
               </ul>
-              <Link href="/contact?subject=MsikaPos" className="bg-emerald-600 hover:bg-emerald-700 text-white px-6 py-3 rounded-lg font-semibold transition-all inline-flex items-center gap-2">
+              <Link href="/contact?subject=MsikaFlo" className="bg-emerald-600 hover:bg-emerald-700 text-white px-6 py-3 rounded-lg font-semibold transition-all inline-flex items-center gap-2">
                 Request Demo <ArrowRight className="h-4 w-4" />
               </Link>
             </m.div>
