@@ -10,8 +10,9 @@ const projects = [
     title: "MsikaFlo",
     category: "Retail Management · Live Product",
     description:
-      "A retail management system built around practical shop workflows, including inventory and sales records. Its React, Firebase and Firestore stack supports an offline-first workflow with later synchronisation, plus an AI-assisted product finder.",
+      "A retail management system built for real shop workflows and deployed for active use. Its React, Firebase and Firestore stack supports sales and inventory records, an offline-first workflow with later synchronisation, and an AI-assisted product finder.",
     image: "/images/msikaflo-storefront-showcase.jpg",
+    imageAlt: "MsikaFlo public online storefront showcase",
     tags: ["React", "Firebase", "Firestore", "Retail"],
     href: "https://jefinvestment-e1fc1.web.app/store",
     linkLabel: "Visit live storefront",
@@ -19,10 +20,11 @@ const projects = [
   },
   {
     title: "Cooperative Finance Platform",
-    category: "Financial Management",
+    category: "Financial Management · Solution Concept",
     description:
-      "A digital finance solution concept for member-based organisations, focused on making records and everyday financial workflows easier to manage. Contact us to discuss the relevant requirements and available implementation.",
+      "A digital finance solution concept for member-based organisations, focused on organising records and everyday financial workflows. Contact us to discuss requirements and confirm the scope of an implementation for your organisation.",
     image: "/images/tb-report-full.jpg",
+    imageAlt: "Financial reporting interface used to illustrate finance workflow capabilities",
     tags: ["Financial workflows", "Records", "Custom software"],
     href: "/contact",
     linkLabel: "Discuss a similar solution",
@@ -49,7 +51,7 @@ export default function Portfolio() {
             transition={{ duration: 0.5, delay: 0.1 }}
             className="mx-auto max-w-3xl text-base leading-8 text-muted-foreground sm:text-lg md:text-xl"
           >
-            Practical digital products and software solutions built to address real business needs. Explore live websites, review the technologies behind selected work, or discuss a solution for your organisation.
+            Practical digital products and software solutions built to address real business needs. Explore a live product, review the technologies behind selected work, or discuss a solution for your organisation.
           </m.p>
         </div>
       </section>
@@ -69,7 +71,7 @@ export default function Portfolio() {
                 <div className="relative flex aspect-[16/10] w-full items-center justify-center overflow-hidden bg-muted">
                   <Image
                     src={project.image}
-                    alt={project.title}
+                    alt={project.imageAlt}
                     fill
                     sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                     className="object-cover object-top"
@@ -77,21 +79,21 @@ export default function Portfolio() {
                 </div>
 
                 <div className="flex flex-1 flex-col p-5 sm:p-6">
-                  <div className="text-xs font-bold uppercase tracking-wider text-secondary mb-2">
+                  <div className="mb-2 text-xs font-bold uppercase tracking-wider text-secondary">
                     {project.category}
                   </div>
-                  <h2 className="text-xl font-bold mb-3 group-hover:text-secondary transition-colors">
+                  <h2 className="mb-3 text-xl font-bold transition-colors group-hover:text-secondary">
                     {project.title}
                   </h2>
-                  <p className="text-muted-foreground text-sm leading-relaxed mb-5">
+                  <p className="mb-5 text-sm leading-relaxed text-muted-foreground">
                     {project.description}
                   </p>
 
-                  <div className="flex flex-wrap gap-2 mb-6">
+                  <div className="mb-6 flex flex-wrap gap-2">
                     {project.tags.map((tag) => (
                       <span
                         key={tag}
-                        className="text-xs px-2 py-1 bg-muted text-muted-foreground rounded-md font-medium border border-border/50"
+                        className="rounded-md border border-border/50 bg-muted px-2 py-1 text-xs font-medium text-muted-foreground"
                       >
                         {tag}
                       </span>
@@ -103,7 +105,7 @@ export default function Portfolio() {
                       href={project.href}
                       target={project.external ? "_blank" : undefined}
                       rel={project.external ? "noopener noreferrer" : undefined}
-                      className="inline-flex items-center gap-2 text-secondary font-semibold hover:gap-3 transition-all focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-secondary"
+                      className="inline-flex items-center gap-2 font-semibold text-secondary transition-all hover:gap-3 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-secondary"
                     >
                       {project.linkLabel}
                       {project.external ? <ExternalLink className="h-4 w-4" /> : <ArrowUpRight className="h-4 w-4" />}
@@ -117,17 +119,17 @@ export default function Portfolio() {
       </section>
 
       <section className="bg-primary py-16 text-primary-foreground sm:py-20 lg:py-24">
-        <div className="container mx-auto px-4 md:px-6 max-w-4xl text-center">
-          <MessageCircle className="h-10 w-10 text-accent mx-auto mb-5" aria-hidden="true" />
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
+        <div className="mx-auto max-w-4xl px-4 text-center md:px-6">
+          <MessageCircle className="mx-auto mb-5 h-10 w-10 text-accent" aria-hidden="true" />
+          <h2 className="mb-4 text-3xl font-bold md:text-4xl">
             Have a problem worth solving?
           </h2>
-          <p className="text-primary-foreground/80 text-lg max-w-2xl mx-auto mb-8">
+          <p className="mx-auto mb-8 max-w-2xl text-lg text-primary-foreground/80">
             Tell us what your business or organisation needs. We can discuss the scope, suitable technology, timeline and next steps before any work begins.
           </p>
           <Link
             href="/contact"
-            className="inline-flex items-center justify-center gap-2 bg-accent text-accent-foreground px-7 py-3.5 rounded-lg font-semibold hover:opacity-90 transition-opacity focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent"
+            className="inline-flex items-center justify-center gap-2 rounded-lg bg-accent px-7 py-3.5 font-semibold text-accent-foreground transition-opacity hover:opacity-90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent"
           >
             Discuss your project <ArrowUpRight className="h-5 w-5" />
           </Link>
