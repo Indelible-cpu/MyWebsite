@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import { Mail, Phone, MapPin, Clock, Send, Zap, CheckCircle2, ArrowUpRight } from "lucide-react";
 import { m } from "framer-motion";
@@ -10,6 +10,12 @@ export default function Contact() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const [submitError, setSubmitError] = useState("");
+  const [inquiryType, setInquiryType] = useState("General Inquiry");
+
+  useEffect(() => {
+    const requestedSubject = new URLSearchParams(window.location.search).get("subject");
+    if (requestedSubject?.trim()) setInquiryType(requestedSubject.trim().slice(0, 160));
+  }, []);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -21,7 +27,7 @@ export default function Contact() {
     const lastName = formData.get('lastName') as string;
     const name = `${firstName} ${lastName}`.trim();
     const email = formData.get('email') as string;
-    const subject = formData.get('inquiryType') as string;
+    const subject = inquiryType;
     const message = formData.get('message') as string;
 
     try {
@@ -190,7 +196,8 @@ export default function Contact() {
 
                     <div className="space-y-2">
                       <label htmlFor="inquiryType" className="text-sm font-medium">Inquiry Type</label>
-                      <select name="inquiryType" id="inquiryType" className="w-full px-4 py-3 rounded-lg border border-border bg-background focus:outline-none focus:ring-2 focus:ring-secondary transition-all">
+                      <select name="inquiryType" id="inquiryType" value={inquiryType} onChange={(e) => setInquiryType(e.target.value)} className="w-full px-4 py-3 rounded-lg border border-border bg-background focus:outline-none focus:ring-2 focus:ring-secondary transition-all">
+                        {!["General Inquiry", "Website Development Quote", "Software System Demo", "Teachers Bank Implementation", "MsikaFlo Setup"].includes(inquiryType) && <option value={inquiryType}>{inquiryType}</option>}
                         <option>General Inquiry</option>
                         <option>Website Development Quote</option>
                         <option>Software System Demo</option>
