@@ -15,14 +15,14 @@ const projects = [
     description:
       "I built MsikaFlo to support real retail workflows, including sales and inventory records, offline-first use with later synchronisation, and an AI-assisted product finder. The system is deployed for active use, with a public storefront customers can explore.",
     images: [
-      { src: "/images/Screenshot_20261028_134905_Chrome.jpg", alt: "MsikaFlo screenshot 1" },
-      { src: "/images/Screenshot_20261028_135152_Chrome.jpg", alt: "MsikaFlo screenshot 2" },
-      { src: "/images/Screenshot_20261028_135354_Chrome.jpg", alt: "MsikaFlo screenshot 3" },
-      { src: "/images/Screenshot_20261028_135402_Chrome.jpg", alt: "MsikaFlo screenshot 4" },
-      { src: "/images/Screenshot_20261028_135416_Chrome.jpg", alt: "MsikaFlo screenshot 5" },
-      { src: "/images/Screenshot_20261028_135430_Chrome.jpg", alt: "MsikaFlo screenshot 6" },
-      { src: "/images/Screenshot_20261028_135454_Chrome.jpg", alt: "MsikaFlo screenshot 7" },
-      { src: "/images/Screenshot_20261028_135544_Chrome.jpg", alt: "MsikaFlo screenshot 8" },
+      { src: "/images/Screenshot_20261028_134905_Chrome.jpg", alt: "MsikaFlo Login" },
+      { src: "/images/Screenshot_20261028_135152_Chrome.jpg", alt: "MsikaFlo Business Reports — summary" },
+      { src: "/images/Screenshot_20261028_135354_Chrome.jpg", alt: "MsikaFlo Business Reports — trends and payment breakdown" },
+      { src: "/images/Screenshot_20261028_135402_Chrome.jpg", alt: "MsikaFlo Product Map — find product location" },
+      { src: "/images/Screenshot_20261028_135416_Chrome.jpg", alt: "MsikaFlo Sidebar Navigation — sales and operations" },
+      { src: "/images/Screenshot_20261028_135430_Chrome.jpg", alt: "MsikaFlo Sidebar Navigation — reports and settings" },
+      { src: "/images/Screenshot_20261028_135454_Chrome.jpg", alt: "MsikaFlo Point of Sale (POS)" },
+      { src: "/images/Screenshot_20261028_135544_Chrome.jpg", alt: "MsikaFlo Dashboard" },
       { src: "/images/Screenshot_20261028_135551_Chrome.jpg", alt: "MsikaFlo screenshot 9" },
     ] as Screenshot[],
     tags: ["React", "Firebase", "Firestore", "Retail"],
@@ -112,6 +112,7 @@ function ScreenshotCarousel({ images, title }: { images: Screenshot[]; title: st
           </>
         )}
       </div>
+      <p className="px-4 pt-3 text-center text-sm font-semibold text-foreground" aria-live="polite">{images[current].alt.replace(/^MsikaFlo\s*/, "").replace(/^Teachers Bank\s*/, "")}</p>
       <div className="flex items-center justify-center gap-1.5 px-3 py-3" aria-label={`${title} screenshot selection`}>
         {images.map((image, index) => (
           <button
