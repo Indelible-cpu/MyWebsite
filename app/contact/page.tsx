@@ -9,10 +9,12 @@ import { FaWhatsapp } from "react-icons/fa6";
 export default function Contact() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
+  const [submitError, setSubmitError] = useState("");
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsSubmitting(true);
+    setSubmitError("");
     
     const formData = new FormData(e.currentTarget);
     const firstName = formData.get('firstName') as string;
@@ -34,10 +36,10 @@ export default function Contact() {
       if (res.ok) {
         setSubmitted(true);
       } else {
-        alert('Failed to send message. Please try again.');
+        setSubmitError('We could not send your message just now. Please try again or contact us directly.');
       }
     } catch (error) {
-      alert('An error occurred. Please check your connection and try again.');
+      setSubmitError('A connection problem prevented your message from sending. Please try again or contact us directly.');
     } finally {
       setIsSubmitting(false);
     }
@@ -52,7 +54,7 @@ export default function Contact() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.1 }}
-            className="text-3xl font-bold mb-6"
+            className="mb-5 text-4xl font-bold tracking-tight sm:text-5xl"
           >
             Get In Touch
           </m.h1>
@@ -167,6 +169,7 @@ export default function Contact() {
                     </button>
                   </div>
                 ) : (
+                  {submitError && <p role="alert" className="mb-5 rounded-xl border border-red-500/20 bg-red-500/10 p-4 text-sm leading-6 text-red-600 dark:text-red-400">{submitError}</p>}
                   <form onSubmit={handleSubmit} className="space-y-6">
                     <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
                       <div className="space-y-2">
