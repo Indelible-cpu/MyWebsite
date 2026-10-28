@@ -1,9 +1,12 @@
 "use client";
 
+import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { ArrowUpRight, ExternalLink, MessageCircle } from "lucide-react";
-import { m } from "framer-motion";
+import { ArrowUpRight, ChevronLeft, ChevronRight, ExternalLink, MessageCircle } from "lucide-react";
+import { m, AnimatePresence } from "framer-motion";
+
+type Screenshot = { src: string; alt: string };
 
 const projects = [
   {
@@ -11,12 +14,18 @@ const projects = [
     category: "Retail Management · Live Product",
     description:
       "A retail management system built for real shop workflows and deployed for active use. Its React, Firebase and Firestore stack supports sales and inventory records, an offline-first workflow with later synchronisation, and an AI-assisted product finder.",
-    image: "/images/msikaflo-storefront-showcase.jpg",
-    imageAlt: "MsikaFlo public online storefront showcase",
+    images: [
+      { src: "/images/msikaflo-storefront-showcase.jpg", alt: "MsikaFlo public storefront" },
+      { src: "/images/msikaflo-login.jpg", alt: "MsikaFlo secure sign-in screen" },
+      { src: "/images/msikaflo-dashboard.jpg", alt: "MsikaFlo management dashboard" },
+      { src: "/images/msikaflo-navigation.jpg", alt: "MsikaFlo management navigation" },
+      { src: "/images/msikaflo-pos.jpg", alt: "MsikaFlo point-of-sale screen" },
+      { src: "/images/msikaflo-product-location.jpg", alt: "MsikaFlo product-location assistant" },
+      { src: "/images/msikaflo-reports.jpg", alt: "MsikaFlo business reports" },
+    ] as Screenshot[],
     tags: ["React", "Firebase", "Firestore", "Retail"],
     href: "https://jefinvestment-e1fc1.web.app/store",
     linkLabel: "Visit live storefront",
-    external: true,
     repoHref: "https://github.com/Indelible-cpu/Jefinvestment",
     repoLabel: "View source code",
   },
@@ -25,16 +34,101 @@ const projects = [
     category: "Financial Management · Deployed on Vercel",
     description:
       "Teachers Bank is a cooperative finance management platform for member-based organisations, with workflows for member records, contributions, loans, and financial reporting. Both its frontend and backend are deployed on Vercel. The codebase includes an Express API, Prisma/PostgreSQL data access, and Firebase integration.",
-    image: "/images/tb-report-full.jpg",
-    imageAlt: "Teachers Bank financial reporting interface",
+    images: [
+      { src: "/images/tb-overview.jpg", alt: "Teachers Bank financial overview" },
+      { src: "/images/tb-contributions.jpg", alt: "Teachers Bank contributions ledger" },
+      { src: "/images/tb-loan-config.jpg", alt: "Teachers Bank loan configuration" },
+      { src: "/images/tb-report-full.jpg", alt: "Teachers Bank financial reporting interface" },
+    ] as Screenshot[],
     tags: ["React", "Vercel", "Express API", "PostgreSQL", "Firebase"],
     href: "https://teachers-bank.vercel.app/",
     linkLabel: "Visit Teachers Bank platform",
-    external: true,
     repoHref: "https://github.com/Indelible-cpu/TeachersBank",
     repoLabel: "View source code",
   },
 ];
+
+function ScreenshotCarousel({ images, title }: { images: Screenshot[]; title: string }) {
+  const [current, setCurrent] = useState(0);
+  const [direction, setDirection] = useState(0);
+
+  const goTo = (index: number) => {
+    const next = (index + images.length) % images.length;
+    setDirection(next > current ? 1 : -1);
+    setCurrent(next);
+  };
+
+  return (
+    <div className="w-full">
+      <div className="relative aspect-[16/10] overflow-hidden bg-muted">
+        <AnimatePresence initial={false} mode="wait" custom={direction}>
+          <m.div
+            key={images[current].src}
+            custom={direction}
+            initial={{ x: direction >= 0 ? 70 : -70, opacity: 0 }}
+            animate={{ x: 0, opacity: 1 }}
+            exit={{ x: direction >= 0 ? -70 : 70, opacity: 0 }}
+            transition={{ duration: 0.22 }}
+            drag="x"
+            dragConstraints={{ left: 0, right: 0 }}
+            dragElastic={0.12}
+            onDragEnd={(_, info) => {
+              if (info.offset.x < -45) goTo(current + 1);
+              else if (info.offset.x > 45) goTo(current - 1);
+            }}
+            className="absolute inset-0 cursor-grab active:cursor-grabbing"
+          >
+            <Image
+              src={images[current].src}
+              alt={images[current].alt}
+              fill
+              priority={current === 0}
+              sizes="(max-width: 768px) 100vw, 50vw"
+              className="object-contain"
+            />
+          </m.div>
+        </AnimatePresence>
+
+        {images.length > 1 && (
+          <>
+            <button
+              type="button"
+              onClick={() => goTo(current - 1)}
+              aria-label={`Previous ${title} screenshot`}
+              className="absolute left-2 top-1/2 z-10 flex h-9 w-9 -translate-y-1/2 items-center justify-center rounded-full bg-black/65 text-white shadow transition hover:bg-black/85"
+            >
+              <ChevronLeft className="h-5 w-5" />
+            </button>
+            <button
+              type="button"
+              onClick={() => goTo(current + 1)}
+              aria-label={`Next ${title} screenshot`}
+              className="absolute right-2 top-1/2 z-10 flex h-9 w-9 -translate-y-1/2 items-center justify-center rounded-full bg-black/65 text-white shadow transition hover:bg-black/85"
+            >
+              <ChevronRight className="h-5 w-5" />
+            </button>
+            <div className="absolute bottom-2 right-2 z-10 rounded-full bg-black/70 px-2.5 py-1 text-xs font-medium text-white">
+              {current + 1} / {images.length}
+            </div>
+          </>
+        )}
+      </div>
+      <div className="flex items-center justify-center gap-1.5 px-3 py-3" aria-label={`${title} screenshot selection`}>
+        {images.map((image, index) => (
+          <button
+            key={image.src}
+            type="button"
+            onClick={() => goTo(index)}
+            aria-label={`Show screenshot ${index + 1}: ${image.alt}`}
+            aria-current={index === current ? "true" : undefined}
+            className={`h-1.5 rounded-full transition-all ${index === current ? "w-6 bg-secondary" : "w-1.5 bg-muted-foreground/40 hover:bg-muted-foreground/70"}`}
+          />
+        ))}
+      </div>
+      <p className="px-4 pb-2 text-center text-xs text-muted-foreground">{images[current].alt}</p>
+    </div>
+  );
+}
 
 export default function Portfolio() {
   return (
@@ -72,15 +166,7 @@ export default function Portfolio() {
                 transition={{ duration: 0.45, delay: i * 0.08 }}
                 className="group flex flex-col overflow-hidden rounded-2xl border border-border/70 bg-background shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-secondary/40 hover:shadow-xl hover:shadow-secondary/5"
               >
-                <div className="relative flex aspect-[16/10] w-full items-center justify-center overflow-hidden bg-muted">
-                  <Image
-                    src={project.image}
-                    alt={project.imageAlt}
-                    fill
-                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                    className="object-cover object-top"
-                  />
-                </div>
+                <ScreenshotCarousel images={project.images} title={project.title} />
 
                 <div className="flex flex-1 flex-col p-5 sm:p-6">
                   <div className="mb-2 text-xs font-bold uppercase tracking-wider text-secondary">
@@ -107,12 +193,12 @@ export default function Portfolio() {
                   <div className="mt-auto flex flex-wrap items-center gap-x-5 gap-y-3">
                     <Link
                       href={project.href}
-                      target={project.external ? "_blank" : undefined}
-                      rel={project.external ? "noopener noreferrer" : undefined}
+                      target="_blank"
+                      rel="noopener noreferrer"
                       className="inline-flex items-center gap-2 font-semibold text-secondary transition-all hover:gap-3 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-secondary"
                     >
                       {project.linkLabel}
-                      {project.external ? <ExternalLink className="h-4 w-4" /> : <ArrowUpRight className="h-4 w-4" />}
+                      <ExternalLink className="h-4 w-4" />
                     </Link>
                     <Link
                       href={project.repoHref}
