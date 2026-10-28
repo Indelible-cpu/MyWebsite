@@ -121,9 +121,9 @@ export default function Solutions() {
                   </li>
                 ))}
               </ul>
-              <Link href="/contact?subject=MsikaFlo" className="bg-emerald-600 hover:bg-emerald-700 text-white px-6 py-3 rounded-lg font-semibold transition-all inline-flex items-center gap-2">
-                Request Demo <ArrowRight className="h-4 w-4" />
-              </Link>
+              <a href="https://jefinvestment-e1fc1.web.app/store" target="_blank" rel="noopener noreferrer" className="bg-emerald-600 hover:bg-emerald-700 text-white px-6 py-3 rounded-lg font-semibold transition-all inline-flex items-center gap-2">
+                Open Live Storefront <ArrowRight className="h-4 w-4" />
+              </a>
             </m.div>
           </div>
         </div>
