@@ -56,7 +56,7 @@ export default function Portfolio() {
 
       <section className="py-16 sm:py-20 lg:py-24">
         <div className="container mx-auto px-4 md:px-6">
-          <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3 lg:gap-6">
+          <div className="mx-auto grid max-w-5xl gap-5 md:grid-cols-2 lg:gap-6">
             {projects.map((project, i) => (
               <m.article
                 key={project.title}
