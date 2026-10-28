@@ -22,7 +22,7 @@ export default function TermsOfService() {
             transition={{ duration: 0.5, delay: 0.1 }}
             className="text-lg text-muted-foreground max-w-2xl mx-auto"
           >
-            Last Updated: June 30, 2026. Please read these terms carefully before using our digital systems.
+            Last Updated: October 28, 2026. Please read these terms carefully before using our digital systems.
           </m.p>
         </div>
       </section>
@@ -39,14 +39,14 @@ export default function TermsOfService() {
             <div className="space-y-4">
               <h2 className="text-2xl font-bold text-foreground">1. Acceptance of Terms</h2>
               <p className="text-muted-foreground leading-relaxed">
-                By accessing this website, purchasing licensing options, or requesting custom deployment for systems within the Indelible Technologies ecosystem (including MsikaFlo and Teachers Bank), you agree to comply with and be bound by these Terms of Service. If you do not agree to these terms, please do not use our services.
+                By accessing this website or using a product or service offered by Indelible Technologies, you agree to these terms where applicable. Project-specific proposals, licences, purchase agreements and service contracts may set additional terms or override these general terms for the relevant project. If you do not agree, do not use the applicable service.
               </p>
             </div>
 
             <div className="space-y-4">
               <h2 className="text-2xl font-bold text-foreground">2. Licensing and System Use</h2>
               <p className="text-muted-foreground leading-relaxed">
-                All software systems provided by Indelible Technologies are licensed on a subscription, per-branch, or per-institution basis, and are not sold outright. You are granted a limited, non-exclusive, non-transferable, and revocable license to access and use the software systems solely for your internal business or institutional operations.
+                Pricing and usage rights depend on the particular product and written agreement. A project may be provided under a licence, subscription, custom-development agreement or sale, where expressly agreed in writing. Before payment or deployment, the applicable agreement should state what is included, who owns the deliverables, permitted use, fees, support and any renewal or cancellation terms. Do not assume that access to a product transfers ownership of its source code.
               </p>
             </div>
 
@@ -65,14 +65,14 @@ export default function TermsOfService() {
             <div className="space-y-4">
               <h2 className="text-2xl font-bold text-foreground">4. System Uptime and Maintenance</h2>
               <p className="text-muted-foreground leading-relaxed">
-                While we strive to ensure 99.9% uptime for cloud-hosted deployments, Indelible Technologies is not liable for temporary service interruptions caused by maintenance updates, hardware failures, local internet provider outages, or factors beyond our control. Scheduled maintenance is typically performed during low-traffic periods.
+                We aim to keep hosted services available and maintain them responsibly, but we do not promise a specific uptime level unless it is expressly stated in a written service-level agreement. Availability may be affected by maintenance, hosting providers, connectivity, device issues or other factors outside our reasonable control. Any agreed maintenance and support arrangements will be described in the applicable project agreement.
               </p>
             </div>
 
             <div className="space-y-4">
               <h2 className="text-2xl font-bold text-foreground">5. Intellectual Property</h2>
               <p className="text-muted-foreground leading-relaxed">
-                All source code, design systems, algorithms, graphics, databases, and structural assets within our software systems are the exclusive intellectual property of Indelible Technologies. You may not copy, reverse-engineer, modify, or distribute any code, trademarks, or proprietary elements without explicit written permission from JEF Investment or Indelible Technologies management.
+                Intellectual-property ownership and usage rights depend on the relevant product, third-party licences and any written client agreement. Unless a written agreement says otherwise, you may not copy, redistribute or misuse proprietary materials, branding or software beyond the permission granted to you. Third-party tools and open-source components remain subject to their own licences. For custom projects, ownership, source-code handover and reuse rights should be agreed in writing before work begins.
               </p>
             </div>
 
