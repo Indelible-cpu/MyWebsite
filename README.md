@@ -23,7 +23,7 @@ A retail product built with React, Firebase, and Firestore. It supports shop wor
 
 ### Cooperative Finance Platform / Teachers Bank
 
-A cooperative finance management platform for member-based organisations, with workflows for member records, contributions, loans, and financial reporting. The frontend is deployed on Vercel. The TeachersBank repository includes a separate Express API, Prisma/PostgreSQL integration, and Firebase integration. The repository contains Vercel deployment configuration for the backend, but the exact live API hostname is not confirmed by committed source code; verify the active deployment and frontend API environment variable before documenting a production backend URL.
+A cooperative finance management platform for member-based organisations, with workflows for member records, contributions, loans, and financial reporting. The live platform is available at https://teachers-bank.vercel.app/. The repository includes an Express API under `api/index.ts`, root Vercel routing that directs `/api/*` requests to that API, and frontend configuration that defaults to the same-origin `/api` path in production. This indicates the backend is designed to run as Vercel serverless functions alongside the frontend on the same Vercel project/domain. The API uses Prisma/PostgreSQL and includes Firebase integration. The actual production API health and database connectivity still require a live check in Vercel.
 
 ## Technology
 
@@ -33,7 +33,7 @@ A cooperative finance management platform for member-based organisations, with w
 - **Website deployment:** Vercel
 - **Website data:** PostgreSQL via Prisma
 - **Additional integrations:** Email handling and API routes
-- **Separate TeachersBank project:** Vercel frontend; Express API with Vercel deployment configuration, Prisma/PostgreSQL, and Firebase integration. The live API host still needs verification.
+- **Teachers Bank platform:** [teachers-bank.vercel.app](https://teachers-bank.vercel.app/) is the live platform URL provided by the owner. The repository routes `/api/*` to an Express API and configures the frontend to use same-origin `/api` in production, indicating the API is intended to run as Vercel serverless functions on the same Vercel deployment. Backend health and database connectivity should be verified from the Vercel deployment logs and environment settings.
 
 ## Local development
 
