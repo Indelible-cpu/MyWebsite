@@ -83,19 +83,6 @@ export default function Services() {
               </m.div>
             ))}
           </div>
-          <p className="mx-auto mt-10 max-w-3xl text-center text-sm leading-6 text-muted-foreground">
-            Explore the live MsikaFlo storefront to see how our digital products connect with real-world business needs. We keep this page focused on our technology services so each offer has a clear place.
-          </p>
-          <div className="mt-5 text-center">
-            <a
-              href="https://f7ky9nc8.eyivo.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 rounded-xl border border-border px-5 py-3 font-semibold transition-colors hover:border-secondary/50 hover:bg-muted"
-            >
-              Visit ShopMe <ArrowRight className="h-4 w-4" />
-            </a>
-          </div>
         </div>
       </section>
     </>
