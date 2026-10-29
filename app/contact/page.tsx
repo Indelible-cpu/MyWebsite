@@ -188,17 +188,17 @@ export default function Contact() {
                     <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
                       <div className="space-y-2">
                         <label htmlFor="firstName" className="text-sm font-medium">First Name</label>
-                        <input name="firstName" required id="firstName" type="text" className="w-full px-4 py-3 rounded-lg border border-border bg-background focus:outline-none focus:ring-2 focus:ring-secondary transition-all" placeholder="John" />
+                        <input name="firstName" required id="firstName" type="text" autoComplete="given-name" maxLength={59} className="w-full px-4 py-3 rounded-lg border border-border bg-background focus:outline-none focus:ring-2 focus:ring-secondary transition-all" placeholder="John" />
                       </div>
                       <div className="space-y-2">
                         <label htmlFor="lastName" className="text-sm font-medium">Last Name</label>
-                        <input name="lastName" required id="lastName" type="text" className="w-full px-4 py-3 rounded-lg border border-border bg-background focus:outline-none focus:ring-2 focus:ring-secondary transition-all" placeholder="Doe" />
+                        <input name="lastName" required id="lastName" type="text" autoComplete="family-name" maxLength={60} className="w-full px-4 py-3 rounded-lg border border-border bg-background focus:outline-none focus:ring-2 focus:ring-secondary transition-all" placeholder="Doe" />
                       </div>
                     </div>
 
                     <div className="space-y-2">
                       <label htmlFor="email" className="text-sm font-medium">Email Address</label>
-                      <input name="email" required id="email" type="email" className="w-full px-4 py-3 rounded-lg border border-border bg-background focus:outline-none focus:ring-2 focus:ring-secondary transition-all" placeholder="john@example.com" />
+                      <input name="email" required id="email" type="email" autoComplete="email" maxLength={254} className="w-full px-4 py-3 rounded-lg border border-border bg-background focus:outline-none focus:ring-2 focus:ring-secondary transition-all" placeholder="john@example.com" />
                     </div>
 
                     <div className="space-y-2">
@@ -215,7 +215,7 @@ export default function Contact() {
 
                     <div className="space-y-2">
                       <label htmlFor="message" className="text-sm font-medium">Message</label>
-                      <textarea name="message" required id="message" rows={4} className="w-full px-4 py-3 rounded-lg border border-border bg-background focus:outline-none focus:ring-2 focus:ring-secondary transition-all" placeholder="Tell us about your project..."></textarea>
+                      <textarea name="message" required id="message" rows={4} maxLength={10000} className="w-full px-4 py-3 rounded-lg border border-border bg-background focus:outline-none focus:ring-2 focus:ring-secondary transition-all" placeholder="Tell us about your project..."></textarea>
                     </div>
 
                     <button disabled={isSubmitting} type="submit" className="w-full bg-primary hover:bg-secondary text-primary-foreground font-bold py-4 rounded-lg flex items-center justify-center gap-2 transition-all disabled:opacity-70 disabled:cursor-not-allowed">
