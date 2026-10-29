@@ -15,14 +15,7 @@ const projects = [
     description:
       "I built MsikaFlo to support real retail workflows, including sales and inventory records, offline-first use with later synchronisation, and an AI-assisted product finder. The system is deployed for active use, with a public storefront customers can explore.",
     images: [
-      { src: "/images/Screenshot_20261028_134905_Chrome.jpg", alt: "MsikaFlo Login" },
-      { src: "/images/Screenshot_20261028_135152_Chrome.jpg", alt: "MsikaFlo Business Reports" },
-      { src: "/images/Screenshot_20261028_135354_Chrome.jpg", alt: "MsikaFlo Business Reports — Trends & Payment Breakdown" },
-      { src: "/images/Screenshot_20261028_135402_Chrome.jpg", alt: "MsikaFlo Product Finder — Find Product Location" },
-      { src: "/images/Screenshot_20261028_135416_Chrome.jpg", alt: "MsikaFlo Sidebar Navigation — sales and operations" },
-      { src: "/images/Screenshot_20261028_135430_Chrome.jpg", alt: "MsikaFlo Sidebar Navigation — reports and settings" },
-      { src: "/images/Screenshot_20261028_135454_Chrome.jpg", alt: "MsikaFlo Point of Sale (POS)" },
-      { src: "/images/Screenshot_20261028_135544_Chrome.jpg", alt: "MsikaFlo Dashboard" },
+      { src: "/images/Login.jpg", alt: "MsikaFlo Login" },
     ] as Screenshot[],
     tags: ["React", "Firebase", "Firestore", "Retail"],
     href: "https://jefinvestment-e1fc1.web.app/store",
