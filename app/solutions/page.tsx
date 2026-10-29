@@ -14,12 +14,13 @@ const tbImages = [
 
 // MsikaFlo management screenshots; identifying details have been removed from the portfolio assets.
 const msikaImages = [
-  { src: "/images/msikaflo-login.jpg", alt: "MsikaFlo secure sign-in screen" },
-  { src: "/images/msikaflo-dashboard.jpg", alt: "MsikaFlo management dashboard" },
-  { src: "/images/msikaflo-navigation.jpg", alt: "MsikaFlo navigation and management modules" },
-  { src: "/images/msikaflo-pos.jpg", alt: "MsikaFlo point-of-sale screen" },
-  { src: "/images/msikaflo-product-location.jpg", alt: "MsikaFlo product-location assistant" },
-  { src: "/images/msikaflo-reports.jpg", alt: "MsikaFlo business reports" },
+  { src: "/images/Login.jpg", alt: "MsikaFlo secure sign-in screen" },
+  { src: "/images/Dashboard.jpg", alt: "MsikaFlo management dashboard" },
+  { src: "/images/Sidebar.jpg", alt: "MsikaFlo navigation and management modules" },
+  { src: "/images/Pos.jpg", alt: "MsikaFlo point-of-sale screen" },
+  { src: "/images/Product%20finder.jpg", alt: "MsikaFlo AI-assisted product finder" },
+  { src: "/images/Reports.jpg", alt: "MsikaFlo business reports" },
+  { src: "/images/Storefront.jpg", alt: "MsikaFlo public storefront" },
 ];
 
 export default function Solutions() {
