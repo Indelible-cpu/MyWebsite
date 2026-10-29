@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useRef, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { ArrowUpRight, ChevronLeft, ChevronRight, ExternalLink, MessageCircle } from "lucide-react";
@@ -47,6 +47,7 @@ const projects = [
 function ScreenshotCarousel({ images, title }: { images: Screenshot[]; title: string }) {
   const [current, setCurrent] = useState(0);
   const [direction, setDirection] = useState(0);
+  const touchStart = useRef<{ x: number; y: number } | null>(null);
 
   const goTo = (index: number) => {
     const next = (index + images.length) % images.length;
@@ -56,7 +57,23 @@ function ScreenshotCarousel({ images, title }: { images: Screenshot[]; title: st
 
   return (
     <div className="w-full">
-      <div className="relative w-full overflow-hidden bg-muted">
+      <div
+        className="relative w-full overflow-hidden bg-muted touch-pan-y"
+        onTouchStart={(event) => {
+          const touch = event.touches[0];
+          touchStart.current = { x: touch.clientX, y: touch.clientY };
+        }}
+        onTouchEnd={(event) => {
+          if (!touchStart.current) return;
+          const touch = event.changedTouches[0];
+          const deltaX = touch.clientX - touchStart.current.x;
+          const deltaY = touch.clientY - touchStart.current.y;
+          if (Math.abs(deltaX) > 45 && Math.abs(deltaX) > Math.abs(deltaY)) {
+            goTo(current + (deltaX < 0 ? 1 : -1));
+          }
+          touchStart.current = null;
+        }}
+      >
         <AnimatePresence initial={false} mode="wait" custom={direction}>
           <m.div
             key={images[current].src}
@@ -65,14 +82,7 @@ function ScreenshotCarousel({ images, title }: { images: Screenshot[]; title: st
             animate={{ x: 0, opacity: 1 }}
             exit={{ x: direction >= 0 ? -70 : 70, opacity: 0 }}
             transition={{ duration: 0.22 }}
-            drag="x"
-            dragConstraints={{ left: 0, right: 0 }}
-            dragElastic={0.12}
-            onDragEnd={(_, info) => {
-              if (info.offset.x < -45) goTo(current + 1);
-              else if (info.offset.x > 45) goTo(current - 1);
-            }}
-            className="relative w-full cursor-grab active:cursor-grabbing"
+            className="relative w-full"
           >
             <Image
               src={images[current].src}
