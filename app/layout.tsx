@@ -5,6 +5,7 @@ import { Footer } from "@/components/Footer";
 import { ThemeProvider } from "@/components/theme-provider";
 import { FramerProvider } from "@/components/framer-provider";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
+import { ProductAdToast } from "@/components/ProductAdToast";
 
 export const viewport: Viewport = {
   themeColor: "#0f172a",
@@ -238,6 +239,7 @@ export default function RootLayout({
             <main className="flex-grow flex flex-col">{children}</main>
             <Footer />
             <WhatsAppButton />
+            <ProductAdToast />
           </FramerProvider>
         </ThemeProvider>
       </body>
