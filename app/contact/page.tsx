@@ -171,9 +171,18 @@ export default function Contact() {
                 {submitted ? (
                   <div className="bg-emerald-500/10 border border-emerald-500/20 text-emerald-600 p-6 rounded-xl text-center">
                     <CheckCircle2 className="h-12 w-12 mx-auto mb-4 text-emerald-500" />
-                    <h3 className="text-xl font-bold mb-3">Thank you for reaching out to Indelible Technologies!</h3>
-                    <p className="text-emerald-700 dark:text-emerald-300 leading-relaxed">
-                      Your message has been received and our team will get back to you within 24 hours. For urgent inquiries, feel free to contact us on WhatsApp.
+                    <h3 className="text-xl font-bold mb-3">Message Sent Successfully!</h3>
+                    <p className="text-emerald-700 dark:text-emerald-300 leading-relaxed mb-4">
+                      Thank you for reaching out to Indelible Technologies! Your message has been received and our team will get back to you within 24 hours. For urgent inquiries, feel free to{' '}
+                      <a
+                        href="https://wa.me/265993732694"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="font-semibold underline hover:text-emerald-900 dark:hover:text-emerald-100 inline-flex items-center gap-1"
+                      >
+                        contact us on WhatsApp
+                      </a>
+                      .
                     </p>
                     <button onClick={() => setSubmitted(false)} className="mt-6 text-emerald-600 font-semibold underline">
                       Send another message
