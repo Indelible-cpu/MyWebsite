@@ -1,4 +1,5 @@
 import type { Metadata, Viewport } from "next";
+import { Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
 import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
@@ -6,6 +7,13 @@ import { ThemeProvider } from "@/components/theme-provider";
 import { FramerProvider } from "@/components/framer-provider";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
 import { ProductAdToast } from "@/components/ProductAdToast";
+
+const plusJakarta = Plus_Jakarta_Sans({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-sans",
+  weight: ["400", "500", "600", "700", "800"],
+});
 
 export const viewport: Viewport = {
   themeColor: "#0f172a",
@@ -225,14 +233,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning className="antialiased">
+    <html lang="en" suppressHydrationWarning className={`${plusJakarta.variable} antialiased`}>
       <head>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body suppressHydrationWarning className="min-h-screen bg-background font-sans text-foreground flex flex-col">
+      <body suppressHydrationWarning className="min-h-screen bg-background font-sans text-foreground flex flex-col selection:bg-secondary/20 selection:text-secondary">
         <ThemeProvider>
           <FramerProvider>
             <Navigation />

@@ -24,15 +24,64 @@ export default function Home() {
           </div>
           <m.div initial={{ opacity: 0, scale: 0.97, y: 12 }} animate={{ opacity: 1, scale: 1, y: 0 }} transition={{ duration: 0.65, delay: 0.12 }} className="relative mx-auto w-full max-w-xl lg:max-w-none">
             <div className="absolute -inset-5 rounded-[2rem] bg-gradient-to-br from-secondary/20 via-transparent to-accent/20 blur-2xl" />
-            <div className="relative overflow-hidden rounded-[1.75rem] border border-border/80 bg-background/95 p-4 shadow-2xl shadow-slate-900/10 backdrop-blur sm:p-6">
-              <div className="flex items-center justify-between gap-4 border-b border-border pb-4"><div className="flex items-center gap-3"><div className="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-secondary to-accent text-white shadow-md"><Layers className="h-5 w-5" /></div><div><p className="font-semibold tracking-tight">Indelible Technologies</p><p className="text-xs text-muted-foreground">A connected digital ecosystem</p></div></div><span className="rounded-full border border-emerald-500/20 bg-emerald-500/10 px-2.5 py-1 text-xs font-medium text-emerald-600 dark:text-emerald-400">Built for people</span></div>
-              <div className="py-6"><p className="mb-1 text-xs font-semibold uppercase tracking-[0.18em] text-secondary">What we build</p><h2 className="text-2xl font-bold tracking-tight sm:text-3xl">Ideas into useful tools.</h2><p className="mt-2 max-w-md text-sm leading-6 text-muted-foreground">Purposeful interfaces backed by practical systems, shaped around the needs of each organisation.</p></div>
-              <div className="grid gap-3 sm:grid-cols-2">
-                <div className="group rounded-2xl border border-border bg-muted/40 p-4 transition-colors hover:border-emerald-500/40"><div className="mb-5 flex items-center justify-between"><div className="flex h-10 w-10 items-center justify-center rounded-xl bg-emerald-500/10 text-emerald-600 dark:text-emerald-400"><MonitorSmartphone className="h-5 w-5" /></div><span className="text-xs font-medium text-muted-foreground">Retail systems</span></div><p className="font-semibold">MsikaFlo</p><p className="mt-1 text-sm leading-5 text-muted-foreground">Sales, stock and shop workflows.</p><div className="mt-4 h-1.5 overflow-hidden rounded-full bg-emerald-500/10"><div className="h-full w-3/4 rounded-full bg-emerald-500/70" /></div></div>
-                <div className="group rounded-2xl border border-border bg-muted/40 p-4 transition-colors hover:border-violet-500/40"><div className="mb-5 flex items-center justify-between"><div className="flex h-10 w-10 items-center justify-center rounded-xl bg-violet-500/10 text-violet-600 dark:text-violet-400"><Activity className="h-5 w-5" /></div><span className="text-xs font-medium text-muted-foreground">Online storefront</span></div><p className="font-semibold">MsikaFlo Storefront</p><p className="mt-1 text-sm leading-5 text-muted-foreground">A direct route to the live retail storefront.</p><div className="mt-4 h-1.5 overflow-hidden rounded-full bg-violet-500/10"><div className="h-full w-2/3 rounded-full bg-violet-500/70" /></div></div>
-                <div className="flex items-center gap-3 rounded-2xl border border-border/80 bg-background p-4 sm:col-span-2"><div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-secondary/10 text-secondary"><Code2 className="h-5 w-5" /></div><div className="min-w-0 flex-1"><p className="font-semibold">Custom digital solutions</p><p className="mt-1 text-sm text-muted-foreground">Websites, data systems and software shaped around your workflow.</p></div><ArrowRight className="h-4 w-4 shrink-0 text-secondary" /></div>
+            <div className="relative overflow-hidden rounded-[1.75rem] border border-border/80 bg-background/95 p-5 shadow-2xl shadow-slate-900/10 backdrop-blur sm:p-7">
+              <div className="flex items-center justify-between gap-4 border-b border-border pb-4">
+                <div className="flex items-center gap-3">
+                  <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-secondary to-accent text-white shadow-md">
+                    <Layers className="h-5 w-5" />
+                  </div>
+                  <div>
+                    <p className="font-bold tracking-tight text-foreground">Indelible Technologies</p>
+                    <p className="text-xs text-muted-foreground font-medium">Software Engineering & Digital Products</p>
+                  </div>
+                </div>
+                <span className="rounded-full border border-emerald-500/20 bg-emerald-500/10 px-3 py-1 text-xs font-semibold text-emerald-600 dark:text-emerald-400">
+                  Active Systems
+                </span>
               </div>
-              <div className="mt-4 flex items-center gap-2 rounded-xl bg-primary px-4 py-3 text-primary-foreground"><CheckCircle2 className="h-4 w-4 shrink-0 text-accent" /><p className="text-sm font-medium">Thoughtful design. Useful functionality. Clear communication.</p></div>
+              <div className="py-5">
+                <p className="mb-1 text-xs font-bold uppercase tracking-[0.16em] text-secondary">Flagship Ecosystem</p>
+                <h2 className="text-2xl font-bold tracking-tight sm:text-3xl text-foreground">Built for everyday operations.</h2>
+                <p className="mt-2 text-sm leading-relaxed text-slate-600 dark:text-slate-300">Robust tools engineered specifically for retail businesses, educational institutions, and digital commerce in Malawi.</p>
+              </div>
+              <div className="grid gap-3 sm:grid-cols-2">
+                <Link href="/solutions#msikaflo" className="group rounded-2xl border border-border bg-muted/40 p-4 transition-all hover:border-emerald-500/50 hover:bg-background">
+                  <div className="mb-3 flex items-center justify-between">
+                    <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-emerald-500/10 text-emerald-600 dark:text-emerald-400">
+                      <MonitorSmartphone className="h-5 w-5" />
+                    </div>
+                    <span className="text-[11px] font-semibold px-2 py-0.5 rounded-full bg-emerald-500/10 text-emerald-600">POS & Retail</span>
+                  </div>
+                  <p className="font-bold text-foreground">MsikaFlo</p>
+                  <p className="mt-1 text-xs leading-5 text-muted-foreground">Smart sales, inventory control & digital storefront.</p>
+                </Link>
+
+                <a href="https://indemarket.vercel.app/" target="_blank" rel="noopener noreferrer" className="group rounded-2xl border border-border bg-muted/40 p-4 transition-all hover:border-violet-500/50 hover:bg-background">
+                  <div className="mb-3 flex items-center justify-between">
+                    <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-violet-500/10 text-violet-600 dark:text-violet-400">
+                      <ShoppingBag className="h-5 w-5" />
+                    </div>
+                    <span className="text-[11px] font-semibold px-2 py-0.5 rounded-full bg-violet-500/10 text-violet-600">Live Marketplace</span>
+                  </div>
+                  <p className="font-bold text-foreground">IndeMarket</p>
+                  <p className="mt-1 text-xs leading-5 text-muted-foreground">Multi-vendor marketplace connecting shops & buyers.</p>
+                </a>
+
+                <div className="flex items-center gap-3 rounded-2xl border border-border/80 bg-background p-4 sm:col-span-2">
+                  <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-secondary/10 text-secondary">
+                    <Code2 className="h-5 w-5" />
+                  </div>
+                  <div className="min-w-0 flex-1">
+                    <p className="font-bold text-foreground">Custom Software Development</p>
+                    <p className="mt-0.5 text-xs text-muted-foreground">Web applications, database systems and portals engineered to your workflow.</p>
+                  </div>
+                  <ArrowRight className="h-4 w-4 shrink-0 text-secondary" />
+                </div>
+              </div>
+              <div className="mt-4 flex items-center gap-2 rounded-xl bg-primary px-4 py-3 text-primary-foreground">
+                <CheckCircle2 className="h-4 w-4 shrink-0 text-accent" />
+                <p className="text-xs sm:text-sm font-medium">Reliable engineering • Direct local support • Clear timelines</p>
+              </div>
             </div>
             <div className="absolute -bottom-5 -left-3 -z-10 h-24 w-24 rounded-full border border-secondary/20 sm:-left-6" /><div className="absolute -right-3 -top-5 -z-10 h-16 w-16 rotate-12 rounded-2xl border border-accent/30 sm:-right-6" />
           </m.div>
