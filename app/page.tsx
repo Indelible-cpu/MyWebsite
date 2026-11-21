@@ -23,7 +23,7 @@ export default function Home() {
                 className="mb-6 inline-flex items-center gap-2 rounded-md border border-secondary/25 bg-secondary/10 px-3 py-1 font-mono text-xs font-medium text-secondary"
               >
                 <span className="h-1.5 w-1.5 rounded-full bg-secondary" />
-                <span>Technology &amp; Product Engineering</span>
+                <span>innovate.build.empower</span>
               </m.div>
 
               {/* Display Headline */}
