@@ -1,6 +1,6 @@
 export const COMPANY = {
   name: 'Indelible Technologies',
-  tagline: 'Transforming Business Through Innovation',
+  tagline: 'Innovate. Build. Empower.',
   description: 'Indelible Technologies delivers innovative software solutions for education, retail, and financial sectors.',
   email: 'hello@indelible.tech',
   phone: '+1 (800) 123-4567',
