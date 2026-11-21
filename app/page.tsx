@@ -1,9 +1,8 @@
 "use client";
 
 import Link from "next/link";
-import { ArrowRight, CheckCircle2, MonitorSmartphone, Code2, Database, Zap, Layers, Activity, ChevronDown, GraduationCap, ShoppingBag } from "lucide-react";
-import { m, AnimatePresence } from "framer-motion";
-import { useState } from "react";
+import { ArrowRight, CheckCircle2, MonitorSmartphone, Code2, Database, Zap, Layers, Activity, GraduationCap, ShoppingBag } from "lucide-react";
+import { m } from "framer-motion";
 
 export default function Home() {
   return (
@@ -300,9 +299,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* FAQ SECTION */}
-      <FaqSection />
-
       {/* CALL TO ACTION */}
       <section className="relative overflow-hidden py-14 sm:py-16 lg:py-20">
         <div className="container mx-auto px-4 md:px-6">
@@ -329,72 +325,3 @@ export default function Home() {
   );
 }
 
-function FaqSection() {
-  const faqs = [
-    {
-      q: "How long does it take to engineer a custom software system?",
-      a: "Timelines depend on functional scope. Typical corporate websites require 1–2 weeks. Specialized business platforms, retail POS, or institutional systems generally require 4–12 weeks. We supply a clear milestone schedule before development begins.",
-    },
-    {
-      q: "Do you provide ongoing technical support after deployment?",
-      a: "Yes. Every system includes an initial post-launch warranty period followed by optional long-term maintenance agreements covering security updates, server monitoring, and feature enhancements.",
-    },
-    {
-      q: "Can existing systems be modified or scaled as our organization grows?",
-      a: "Yes. Our software is engineered modularly with modern architectures, allowing future feature expansions, API integrations, and database scaling without rebuilding from scratch.",
-    },
-    {
-      q: "What distinguishes Indelible Technologies from standard web agencies?",
-      a: "We engineer proprietary products (such as MsikaFlo and IndeMarket) in addition to client solutions. This product-driven discipline ensures our client work benefits from real-world software architecture, security, and reliability.",
-    },
-    {
-      q: "Who owns the software and intellectual property upon delivery?",
-      a: "For bespoke, custom-built solutions, you retain full ownership of the deliverables. For licensed proprietary platforms (Teachers Bank, MsikaFlo), transparent licensing and service level terms apply.",
-    },
-  ];
-
-  const [open, setOpen] = useState<number | null>(null);
-
-  return (
-    <section className="py-14 sm:py-16 lg:py-20">
-      <div className="container mx-auto px-4 md:px-6 max-w-3xl">
-        <div className="text-center mb-12">
-          <p className="font-mono text-xs uppercase tracking-wider text-secondary font-semibold mb-2">Clarity &amp; Transparency</p>
-          <h2 className="font-display text-3xl sm:text-4xl font-semibold mb-3 text-foreground">Frequently Asked Questions</h2>
-          <p className="font-sans text-base sm:text-lg text-slate-600 dark:text-slate-300">Clear answers to common questions about our technical services and products.</p>
-        </div>
-        <div className="space-y-3">
-          {faqs.map((faq, i) => (
-            <div
-              key={i}
-              className="border border-border rounded-xl overflow-hidden bg-card transition-colors hover:border-border/80"
-            >
-              <button
-                id={`faq-${i}`}
-                onClick={() => setOpen(open === i ? null : i)}
-                className="w-full flex items-center justify-between p-5 text-left font-display font-semibold text-foreground hover:bg-muted/40 transition-colors"
-                aria-expanded={open === i}
-              >
-                <span className="text-base sm:text-lg">{faq.q}</span>
-                <ChevronDown className={`h-5 w-5 text-muted-foreground shrink-0 transition-transform duration-200 ${open === i ? "rotate-180" : ""}`} />
-              </button>
-              <AnimatePresence>
-                {open === i && (
-                  <m.div
-                    initial={{ height: 0, opacity: 0 }}
-                    animate={{ height: "auto", opacity: 1 }}
-                    exit={{ height: 0, opacity: 0 }}
-                    transition={{ duration: 0.2, ease: "easeInOut" }}
-                    className="overflow-hidden"
-                  >
-                    <p className="px-5 pb-5 font-sans text-sm sm:text-base text-slate-600 dark:text-slate-300 leading-relaxed">{faq.a}</p>
-                  </m.div>
-                )}
-              </AnimatePresence>
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-}

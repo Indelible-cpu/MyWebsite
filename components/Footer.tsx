@@ -86,6 +86,7 @@ export function Footer() {
               <li><Link href="/services" className="hover:text-accent transition-colors">Our Services</Link></li>
               <li><Link href="/portfolio" className="hover:text-accent transition-colors">Portfolio & Case Studies</Link></li>
               <li><Link href="/pricing" className="hover:text-accent transition-colors">Pricing & Quotes</Link></li>
+              <li><Link href="/faq" className="hover:text-accent transition-colors">FAQs</Link></li>
               <li><Link href="/contact" className="hover:text-accent transition-colors">Contact Us</Link></li>
             </ul>
           </div>
@@ -172,7 +173,8 @@ export function Footer() {
 
         <div className="flex flex-col items-center justify-between gap-4 border-t border-white/10 pt-7 text-center text-xs text-primary-foreground/60 md:flex-row md:text-left">
           <p className="font-mono text-xs text-primary-foreground/70">&copy; {currentYear} Indelible Technologies. Powered by JEF Investment.</p>
-          <div className="flex items-center gap-4">
+          <div className="flex flex-wrap items-center justify-center gap-4">
+            <Link href="/faq" className="hover:text-white transition-colors">FAQs</Link>
             <Link href="/privacy" className="hover:text-white transition-colors">Privacy Policy</Link>
             <Link href="/terms" className="hover:text-white transition-colors">Terms of Service</Link>
             <Link href="/sitemap" className="hover:text-white transition-colors">Sitemap</Link>
