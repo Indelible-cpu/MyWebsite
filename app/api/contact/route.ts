@@ -94,7 +94,10 @@ export async function POST(request: Request) {
             const mailOptions = {
         from: `"${cleanName} (via Indelible Tech Website)" <${gmailUser}>`,
         to: gmailUser,
-        replyTo: cleanEmail,
+        replyTo: `"${cleanName}" <${cleanEmail}>`,
+        headers: {
+          'Reply-To': `"${cleanName}" <${cleanEmail}>`,
+        },
         subject: `New Contact Inquiry from ${cleanName}: ${cleanSubject}`,
         text: `Name: ${cleanName}\nEmail: ${cleanEmail}\nSubject: ${cleanSubject}\n\nMessage:\n${cleanMessage}\n\n---\nReply directly by emailing: ${cleanEmail}`,
         html: `
@@ -160,7 +163,7 @@ export async function POST(request: Request) {
         try {
           await transporter.sendMail(autoReplyOptions);
         } catch (autoReplyErr) {
-          console.warn('Customer auto-reply failed (non-critical):', autoReplyErr);
+          console.error('Customer auto-reply failed:', autoReplyErr);
         }
       } catch (emailError) {
         console.error('Admin email delivery failed:', emailError);
