@@ -76,7 +76,6 @@ export default function Home() {
               className="relative mx-auto w-full max-w-xl lg:max-w-none"
             >
               <div className="relative overflow-hidden rounded-2xl border border-border/80 bg-card shadow-2xl">
-                {/* Main Collaborative Team Photography */}
                 <div className="relative aspect-[16/10] w-full overflow-hidden bg-slate-900">
                   <Image
                     src="/images/engineering-team.jpg"
@@ -86,34 +85,6 @@ export default function Home() {
                     sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 600px"
                     className="object-cover transition-transform duration-500 hover:scale-105"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-950/20 to-transparent pointer-events-none" />
-                </div>
-
-                {/* Ground Credibility Overlay Card featuring Founder / Lead Engineer */}
-                <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between gap-3 rounded-xl border border-white/15 bg-slate-950/85 p-3 text-white shadow-xl backdrop-blur-md sm:bottom-5 sm:left-5 sm:right-5 sm:p-3.5">
-                  <div className="flex items-center gap-3">
-                    <div className="relative h-12 w-12 shrink-0 overflow-hidden rounded-lg border border-white/20 bg-slate-800">
-                      <Image
-                        src="/images/founder-desk-crop.jpg"
-                        alt="Indelible Technologies Lead Engineer at workstation"
-                        fill
-                        sizes="48px"
-                        className="object-cover"
-                      />
-                    </div>
-                    <div className="flex flex-col">
-                      <span className="font-display text-sm font-semibold text-white leading-tight">
-                        Indelible Engineering Lab
-                      </span>
-                      <span className="font-mono text-[11px] text-slate-300">
-                        Mangochi &bull; Malawi &bull; Hands-on Production
-                      </span>
-                    </div>
-                  </div>
-                  <div className="hidden sm:flex items-center gap-1.5 rounded-full border border-emerald-500/30 bg-emerald-500/15 px-2.5 py-1 font-mono text-[11px] font-medium text-emerald-400">
-                    <span className="h-1.5 w-1.5 rounded-full bg-emerald-400 animate-pulse" />
-                    In Session
-                  </div>
                 </div>
               </div>
             </m.div>
