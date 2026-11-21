@@ -45,7 +45,7 @@ export function Footer() {
   };
 
   return (
-    <footer className="mt-auto border-t border-border bg-primary pt-14 pb-8 text-primary-foreground sm:pt-16">
+    <footer className="mt-auto border-t border-slate-800 bg-slate-900 dark:bg-slate-950 pt-14 pb-8 text-white sm:pt-16">
       <div className="container mx-auto px-4 md:px-6">
         <div className="mb-12 grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-4 lg:gap-8">
           

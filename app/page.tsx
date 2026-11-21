@@ -218,13 +218,13 @@ export default function Home() {
       </section>
 
       {/* WHY CHOOSE US / SERVICES OVERVIEW */}
-      <section className="relative overflow-hidden bg-primary py-14 text-white sm:py-16 lg:py-20">
+      <section className="relative overflow-hidden bg-slate-900 dark:bg-slate-950 py-14 sm:py-16 lg:py-20 text-white border-y border-slate-800">
         <div className="container mx-auto px-4 md:px-6 relative z-10">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div>
               <p className="font-mono text-xs uppercase tracking-wider text-secondary font-semibold mb-2">Engineering Philosophy</p>
               <h2 className="font-display text-3xl md:text-5xl font-semibold mb-6 text-white">
-                Engineering Excellence &amp; Delivery
+                Why Choose Indelible Technologies?
               </h2>
               <p className="text-base sm:text-lg text-slate-300 mb-8 leading-relaxed font-sans">
                 We combine structured engineering, security, and long-term maintainability to build digital products tailored to your operational environment.
@@ -316,7 +316,7 @@ export default function Home() {
       {/* CALL TO ACTION */}
       <section className="relative overflow-hidden py-14 sm:py-16 lg:py-20">
         <div className="container mx-auto px-4 md:px-6">
-          <div className="rounded-2xl bg-primary text-white p-10 md:p-14 text-center border border-border/40 max-w-4xl mx-auto shadow-xl">
+          <div className="rounded-2xl bg-slate-900 dark:bg-slate-950 text-white p-10 md:p-14 text-center border border-slate-800 max-w-4xl mx-auto shadow-xl">
             <p className="font-mono text-xs uppercase tracking-wider text-secondary font-semibold mb-2">Initiate A Project</p>
             <h2 className="font-display text-3xl md:text-4xl font-semibold mb-4 text-white">
               Ready to Upgrade Your Digital Infrastructure?
