@@ -9,22 +9,12 @@ export default function Home() {
   return (
     <>
       {/* HERO SECTION */}
-      <section className="relative isolate overflow-hidden pt-28 pb-12 sm:pt-32 sm:pb-16 lg:pt-36 lg:pb-20">
+      <section className="relative isolate overflow-hidden pt-20 pb-12 sm:pt-24 sm:pb-14 lg:pt-24 lg:pb-16">
         <div className="absolute inset-0 -z-10 bg-[linear-gradient(to_right,var(--border)_1px,transparent_1px),linear-gradient(to_bottom,var(--border)_1px,transparent_1px)] bg-[size:48px_48px] opacity-[0.12] [mask-image:linear-gradient(to_bottom,black,transparent_90%)]" />
 
         <div className="container mx-auto px-4 md:px-6">
           <div className="grid items-center gap-12 lg:grid-cols-[1.05fr_0.95fr] lg:gap-14">
             <div className="max-w-2xl">
-              {/* Technical Brand Badge */}
-              <m.div
-                initial={{ opacity: 0, y: 14 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.4 }}
-                className="mb-6 inline-flex items-center gap-2 rounded-md border border-secondary/25 bg-secondary/10 px-3 py-1 font-mono text-xs font-medium text-secondary"
-              >
-                <span className="h-1.5 w-1.5 rounded-full bg-secondary" />
-                <span>innovate.build.empower</span>
-              </m.div>
 
               {/* Display Headline */}
               <m.h1

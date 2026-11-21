@@ -50,7 +50,7 @@ export function Navigation() {
     <header
       ref={headerRef}
       className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 border-b border-transparent ${
-        scrolled ? "bg-background/95 backdrop-blur-lg shadow-sm border-border/50 py-3" : "bg-transparent py-5"
+        scrolled ? "bg-background/95 backdrop-blur-lg shadow-sm border-border/50 py-2.5" : "bg-transparent py-3 sm:py-3.5"
       }`}
     >
       <div className="container mx-auto px-4 md:px-6">
