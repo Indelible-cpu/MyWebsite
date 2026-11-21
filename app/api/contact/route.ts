@@ -91,39 +91,64 @@ export async function POST(request: Request) {
         },
       });
 
-      const mailOptions = {
-        from: gmailUser,
+            const mailOptions = {
+        from: `"${cleanName} (via Indelible Tech Website)" <${gmailUser}>`,
         to: gmailUser,
         replyTo: cleanEmail,
-        subject: `New Contact Message: ${cleanSubject}`,
-        text: `Name: ${cleanName}\nEmail: ${cleanEmail}\n\nMessage:\n${cleanMessage}`,
-        html: `<h3>New Contact Message</h3>
-               <p><strong>Name:</strong> ${htmlName}</p>
-               <p><strong>Email:</strong> ${htmlEmail}</p>
-               <p><strong>Subject:</strong> ${htmlSubject}</p>
-               <p><strong>Message:</strong></p>
-               <p>${htmlMessage}</p>`,
+        subject: `New Contact Inquiry from ${cleanName}: ${cleanSubject}`,
+        text: `Name: ${cleanName}\nEmail: ${cleanEmail}\nSubject: ${cleanSubject}\n\nMessage:\n${cleanMessage}\n\n---\nReply directly by emailing: ${cleanEmail}`,
+        html: `
+          <div style="font-family: Arial, sans-serif; max-width: 600px; color: #1e293b; line-height: 1.5;">
+            <h2 style="color: #2563eb; margin-top: 0;">New Contact Inquiry</h2>
+            <table style="width: 100%; border-collapse: collapse; margin-bottom: 20px;">
+              <tr>
+                <td style="padding: 6px 0; font-weight: bold; width: 80px; color: #64748b;">From:</td>
+                <td style="padding: 6px 0;">${htmlName} (&lt;<a href="mailto:${htmlEmail}" style="color: #2563eb;">${htmlEmail}</a>&gt;)</td>
+              </tr>
+              <tr>
+                <td style="padding: 6px 0; font-weight: bold; color: #64748b;">Subject:</td>
+                <td style="padding: 6px 0;">${htmlSubject}</td>
+              </tr>
+            </table>
+
+            <div style="margin-bottom: 24px;">
+              <p style="font-weight: bold; margin-bottom: 8px; color: #64748b;">Message:</p>
+              <blockquote style="background: #f8fafc; border-left: 4px solid #2563eb; margin: 0; padding: 14px 18px; border-radius: 4px; font-size: 15px; color: #0f172a;">
+                ${htmlMessage}
+              </blockquote>
+            </div>
+
+            <div style="margin: 28px 0; padding-top: 16px; border-top: 1px solid #e2e8f0;">
+              <a href="mailto:${htmlEmail}?subject=${encodeURIComponent('Re: ' + cleanSubject)}"
+                 style="background: #2563eb; color: #ffffff; padding: 12px 24px; border-radius: 6px; text-decoration: none; font-weight: bold; display: inline-block;">
+                Reply directly to ${htmlName} (${htmlEmail})
+              </a>
+            </div>
+            <p style="font-size: 12px; color: #94a3b8; margin: 0;">Tip: In Gmail, make sure the "To" address is set to ${htmlEmail} when you reply.</p>
+          </div>
+        `,
       };
 
       const autoReplyOptions = {
         from: `"Indelible Technologies" <${gmailUser}>`,
         to: cleanEmail,
-        subject: 'We received your message!',
+        replyTo: gmailUser,
+        subject: `We received your message: ${cleanSubject}`,
         text: `Hi ${cleanName},\n\nThank you for reaching out to Indelible Technologies! Your message regarding "${cleanSubject}" has been received and our team will get back to you within 24 hours.\n\nFor urgent inquiries, feel free to contact us on WhatsApp at +265993732694.\n\nBest regards,\nThe Indelible Technologies Team`,
         html: `
-          <div style="font-family: sans-serif; max-width: 600px; margin: 0 auto; color: #333;">
-            <h2 style="color: #2563eb;">Thank you for reaching out to Indelible Technologies!</h2>
+          <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; color: #1e293b; line-height: 1.6;">
+            <h2 style="color: #2563eb; margin-top: 0;">Thank you for reaching out to Indelible Technologies!</h2>
             <p>Hi ${htmlName},</p>
             <p>Your message regarding <strong>"${htmlSubject}"</strong> has been received and our team will get back to you within 24 hours.</p>
-            <p>For urgent inquiries, feel free to contact us on WhatsApp.</p>
-            <hr style="border: 0; border-top: 1px solid #eee; margin: 20px 0;" />
-            <p style="font-size: 14px; color: #666;"><strong>A copy of your message:</strong></p>
-            <blockquote style="background: #f9fafb; padding: 15px; border-left: 4px solid #2563eb; margin: 0; font-size: 14px;">
+            <p>For urgent inquiries, feel free to <a href="https://wa.me/265993732694" style="color: #2563eb; font-weight: bold;">contact us on WhatsApp</a>.</p>
+            <hr style="border: 0; border-top: 1px solid #e2e8f0; margin: 20px 0;" />
+            <p style="font-size: 13px; color: #64748b; font-weight: bold;">A copy of your message:</p>
+            <blockquote style="background: #f8fafc; padding: 14px 18px; border-left: 4px solid #2563eb; margin: 0; font-size: 14px; border-radius: 4px; color: #334155;">
               ${htmlMessage}
             </blockquote>
-            <hr style="border: 0; border-top: 1px solid #eee; margin: 20px 0;" />
-            <p>If your inquiry is urgent, please feel free to <a href="https://wa.me/265993732694" style="color: #2563eb;">contact us on WhatsApp</a>.</p>
-            <p>Best regards,<br /><strong>The Indelible Technologies Team</strong></p>
+            <hr style="border: 0; border-top: 1px solid #e2e8f0; margin: 20px 0;" />
+            <p style="margin-bottom: 4px;">Best regards,</p>
+            <p style="margin-top: 0;"><strong>The Indelible Technologies Team</strong><br/><a href="https://indelibletech.vercel.app" style="color: #2563eb; font-size: 13px;">indelibletech.vercel.app</a></p>
           </div>
         `,
       };
