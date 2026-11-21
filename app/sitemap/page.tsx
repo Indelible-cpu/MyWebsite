@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { m } from "framer-motion";
-import { Map, LayoutGrid, Cpu, Scale, FileText, ArrowRight } from "lucide-react";
+import { LayoutGrid, Cpu, Scale, ArrowRight } from "lucide-react";
 
 export default function Sitemap() {
   const sections = [
@@ -27,6 +27,8 @@ export default function Sitemap() {
       links: [
         { label: "Teachers Bank (Education & Finance)", href: "/solutions#teachersbank" },
         { label: "MsikaFlo (Retail & Inventory)", href: "/solutions#msikaflo" },
+        { label: "SecSchoolHub (Secondary School Management)", href: "/solutions#secschoolhub" },
+        { label: "IndeMarket (Digital Marketplace)", href: "/solutions#indemarket" },
       ],
     },
     {
@@ -43,7 +45,7 @@ export default function Sitemap() {
   return (
     <>
       {/* HEADER SECTION */}
-      <section className="pt-32 pb-16 bg-muted/30">
+      <section className="bg-muted/30 pt-32 pb-14 sm:pt-36 sm:pb-16">
         <div className="container mx-auto px-4 text-center">
           <m.h1 
             initial={{ opacity: 0, y: 20 }}

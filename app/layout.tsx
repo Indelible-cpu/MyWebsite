@@ -19,7 +19,7 @@ export const metadata: Metadata = {
     template: "%s | Indelible Technologies",
   },
   description:
-    "Indelible Technologies builds practical websites, business software and digital products in Malawi, including MsikaFlo retail management. Explore our solutions, services and project portfolio.",
+    "Indelible Technologies builds practical websites, business software and digital products in Malawi, including MsikaFlo, Teachers Bank, SecSchoolHub, and IndeMarket. Explore our solutions, services and project portfolio.",
   keywords: [
     "software development Malawi",
     "web development Malawi",
@@ -28,6 +28,10 @@ export const metadata: Metadata = {
     "retail management system",
     "MsikaFlo",
     "Teachers Bank",
+    "SecSchoolHub",
+    "IndeMarket",
+    "school management system Malawi",
+    "digital marketplace Malawi",
     "Indelible Technologies",
   ],
   authors: [{ name: "Indelible Technologies" }],
@@ -83,7 +87,7 @@ const jsonLd = {
       "url": "https://indelibletech.vercel.app",
       "logo": "https://indelibletech.vercel.app/logo.png",
       "description":
-        "Youth-led technology company developing affordable, secure, and practical digital solutions for modern institutions — from retail management systems (MsikaFlo) to cooperative finance platforms (Teachers Bank).",
+        "Youth-led technology company developing affordable, secure, and practical digital solutions for modern institutions — from retail management systems (MsikaFlo) and cooperative finance platforms (Teachers Bank) to education hubs (SecSchoolHub) and marketplaces (IndeMarket).",
       "email": "indelibletechnologiesmw@gmail.com",
       "telephone": "+265885892269",
       "address": {
@@ -108,6 +112,105 @@ const jsonLd = {
       "description":
         "Practical websites, business software and digital products in Malawi.",
       "publisher": {
+        "@id": "https://indelibletech.vercel.app/#organization",
+      },
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://indelibletech.vercel.app/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How long does it take to build a custom system?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text":
+              "It depends on the complexity of the project. Simple websites typically take 1–2 weeks. Custom software systems like POS or management platforms typically take 4–12 weeks. We always provide a detailed timeline before we begin.",
+          },
+        },
+        {
+          "@type": "Question",
+          "name": "Do you offer ongoing support after delivery?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text":
+              "Yes. All our systems come with an initial support period. We also offer ongoing maintenance plans to ensure your system stays updated, secure, and running smoothly.",
+          },
+        },
+        {
+          "@type": "Question",
+          "name": "Can I request modifications after the project is done?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text":
+              "Absolutely. We understand that business needs evolve. We offer post-delivery change requests and version upgrades at reasonable rates.",
+          },
+        },
+        {
+          "@type": "Question",
+          "name": "What makes Indelible Technologies different from other developers?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text":
+              "We are a youth-led team that builds practical, real-world solutions — not generic templates. We focus on affordability, long-term support, and truly understanding your unique needs before writing a single line of code.",
+          },
+        },
+        {
+          "@type": "Question",
+          "name": "Do I own the software after it is built?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text":
+              "For custom-built solutions, yes — you own the final product. For our flagship products (Teachers Bank, MsikaFlo, SecSchoolHub, IndeMarket), we operate on a licensing model. Full details are outlined in our Terms of Service.",
+          },
+        },
+      ],
+    },
+    {
+      "@type": "SoftwareApplication",
+      "@id": "https://indelibletech.vercel.app/#msikaflo",
+      "name": "MsikaFlo",
+      "operatingSystem": "Web, Cloud, Offline-First",
+      "applicationCategory": "BusinessApplication",
+      "description":
+        "Retail management system with inventory tracking, sales recording, AI-assisted product locating, and online storefront integration.",
+      "creator": {
+        "@id": "https://indelibletech.vercel.app/#organization",
+      },
+    },
+    {
+      "@type": "SoftwareApplication",
+      "@id": "https://indelibletech.vercel.app/#teachersbank",
+      "name": "Teachers Bank",
+      "operatingSystem": "Web, Cloud",
+      "applicationCategory": "FinanceApplication",
+      "description":
+        "Cooperative financial management platform for member contributions, loan workflows, savings, and audit reporting.",
+      "creator": {
+        "@id": "https://indelibletech.vercel.app/#organization",
+      },
+    },
+    {
+      "@type": "SoftwareApplication",
+      "@id": "https://indelibletech.vercel.app/#secschoolhub",
+      "name": "SecSchoolHub",
+      "operatingSystem": "Web, Cloud",
+      "applicationCategory": "EducationalApplication",
+      "description":
+        "Comprehensive secondary school management hub for student records, academic performance tracking, fee management, and institutional administration.",
+      "creator": {
+        "@id": "https://indelibletech.vercel.app/#organization",
+      },
+    },
+    {
+      "@type": "SoftwareApplication",
+      "@id": "https://indelibletech.vercel.app/#indemarket",
+      "name": "IndeMarket",
+      "operatingSystem": "Web, Mobile",
+      "applicationCategory": "ShoppingApplication",
+      "description":
+        "Modern digital marketplace platform connecting local vendors, consumers, and institutions with seamless cataloging and order management.",
+      "creator": {
         "@id": "https://indelibletech.vercel.app/#organization",
       },
     },

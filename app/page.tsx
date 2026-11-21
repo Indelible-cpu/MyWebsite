@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { ArrowRight, CheckCircle2, MonitorSmartphone, Code2, Database, Zap, Layers, Activity, ChevronDown } from "lucide-react";
+import { ArrowRight, CheckCircle2, MonitorSmartphone, Code2, Database, Zap, Layers, Activity, ChevronDown, GraduationCap, ShoppingBag } from "lucide-react";
 import { m, AnimatePresence } from "framer-motion";
 import { useState } from "react";
 
@@ -50,10 +50,12 @@ export default function Home() {
             <p className="text-lg text-muted-foreground">Discover our flagship products designed to streamline operations, enhance financial management, and drive digital transformation.</p>
           </div>
 
-          <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-3 xl:gap-6">
+          <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-4 xl:gap-6">
             {[
               { title: "Teachers Bank", desc: "A financial management solution concept for organisations and member-based groups.", icon: Activity, color: "from-blue-500 to-cyan-500", href: "/solutions#teachersbank", external: false },
               { title: "MsikaFlo", desc: "Retail management tools for sales, inventory and everyday shop workflows.", icon: MonitorSmartphone, color: "from-emerald-500 to-teal-500", href: "/solutions#msikaflo", external: false },
+              { title: "SecSchoolHub", desc: "Secondary school management hub for student records, academic grading, and fee administration.", icon: GraduationCap, color: "from-indigo-500 to-purple-500", href: "/solutions#secschoolhub", external: false },
+              { title: "IndeMarket", desc: "Digital multi-vendor marketplace connecting local merchants, institutions, and customers.", icon: ShoppingBag, color: "from-amber-500 to-orange-500", href: "/solutions#indemarket", external: false },
             ].map((product, i) => (
               <m.div 
                 key={i}

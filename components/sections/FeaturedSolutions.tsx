@@ -14,6 +14,7 @@ const solutions = [
     details: 'Streamline member contributions, loan management, and financial reporting. Designed for organizations and member-based groups to manage finances efficiently.',
     features: ['Member contributions & savings', 'Loan application & approval', 'Financial reports & analytics', 'Comprehensive audit trails'],
     icon: '🏦',
+    href: '/solutions#teachersbank',
   },
   {
     title: 'MsikaFlo',
@@ -21,6 +22,23 @@ const solutions = [
     details: 'Practical shop management with inventory and sales records, reporting, offline-first operation, AI-assisted product locating, and a connected online storefront.',
     features: ['Inventory and sales records', 'Sales and profit reports', 'AI-assisted product locating', 'Online storefront'],
     icon: '🛒',
+    href: '/solutions#msikaflo',
+  },
+  {
+    title: 'SecSchoolHub',
+    description: 'Secondary school management hub',
+    details: 'Centralized school administration software for student enrollment, examination grading, term fee accounting, and institutional records.',
+    features: ['Student biodata & enrollment', 'Grading & report cards', 'Fee collection & tracking', 'Staff & class administration'],
+    icon: '🎓',
+    href: '/solutions#secschoolhub',
+  },
+  {
+    title: 'IndeMarket',
+    description: 'Digital multi-vendor marketplace',
+    details: 'Connecting merchants, service providers, and local communities with digital storefronts, product discovery, and order management.',
+    features: ['Multi-vendor storefronts', 'Product search & discovery', 'WhatsApp order notifications', 'Mobile-first user experience'],
+    icon: '🛍️',
+    href: '/solutions#indemarket',
   },
 ];
 
@@ -36,7 +54,7 @@ export const FeaturedSolutions: React.FC = () => {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-6">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
           {solutions.map((solution, index) => (
             <Card key={index} className="flex flex-col h-full hover:shadow-xl transition-shadow">
               <div className="text-5xl mb-4">{solution.icon}</div>

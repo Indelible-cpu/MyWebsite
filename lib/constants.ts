@@ -58,7 +58,40 @@ export const PRODUCTS = [
     pricing: 'Custom',
     category: 'Retail',
   },
-
+  {
+    id: 'secschoolhub',
+    name: 'SecSchoolHub',
+    shortName: 'SecSchoolHub',
+    description: 'Comprehensive secondary school management system',
+    fullDescription: 'All-in-one institutional hub for secondary schools to manage student registration, grading, fee collection, and administrative reports.',
+    features: [
+      'Student information & enrollment management',
+      'Academic grading & report card generation',
+      'Term fee tracking & receipting',
+      'Teacher & class allocation workflows',
+      'Parent communication portal',
+      'Secure administrative analytics',
+    ],
+    pricing: 'Custom',
+    category: 'Education',
+  },
+  {
+    id: 'indemarket',
+    name: 'IndeMarket',
+    shortName: 'IndeMarket',
+    description: 'Digital marketplace and multi-vendor platform',
+    fullDescription: 'A dynamic online marketplace connecting local businesses, service providers, and customers with seamless product browsing and orders.',
+    features: [
+      'Multi-vendor digital storefronts',
+      'Product cataloging & search discovery',
+      'Order tracking & WhatsApp notifications',
+      'Localized payment and settlement flows',
+      'Mobile-optimized buyer experience',
+      'Vendor sales analytics',
+    ],
+    pricing: 'Custom',
+    category: 'E-Commerce',
+  },
 ];
 
 export const SERVICES = [
