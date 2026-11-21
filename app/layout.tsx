@@ -1,5 +1,12 @@
 import type { Metadata, Viewport } from "next";
 import { Space_Grotesk, Inter, JetBrains_Mono } from "next/font/google";
+import "./globals.css";
+import { Navigation } from "@/components/Navigation";
+import { Footer } from "@/components/Footer";
+import { ThemeProvider } from "@/components/theme-provider";
+import { FramerProvider } from "@/components/framer-provider";
+import { WhatsAppButton } from "@/components/WhatsAppButton";
+import { ProductAdToast } from "@/components/ProductAdToast";
 
 const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],
