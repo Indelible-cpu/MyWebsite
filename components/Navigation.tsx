@@ -56,15 +56,23 @@ export function Navigation() {
       <div className="container mx-auto px-4 md:px-6">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <Link href="/" aria-label="Indelible Technologies home" className="flex shrink-0 items-center">
+          <Link href="/" aria-label="Indelible Technologies home" className="flex shrink-0 items-center gap-3 group">
             <Image
               src="/logo.png"
               alt="Indelible Technologies Logo"
-              width={56}
-              height={56}
+              width={46}
+              height={46}
               priority
-              className="rounded-full object-cover"
+              className="rounded-full object-cover transition-transform duration-200 group-hover:scale-105"
             />
+            <div className="flex flex-col">
+              <span className="font-display text-base sm:text-lg font-bold tracking-tight text-foreground leading-none">
+                Indelible Technologies
+              </span>
+              <span className="font-mono text-[10px] sm:text-[11px] font-medium text-secondary tracking-wider mt-1">
+                innovate.build.empower
+              </span>
+            </div>
           </Link>
 
           {/* Desktop Nav */}

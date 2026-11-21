@@ -51,14 +51,22 @@ export function Footer() {
           
           {/* Company Info */}
           <div className="flex flex-col gap-4">
-            <Link href="/" className="flex items-center">
+            <Link href="/" className="flex items-center gap-3 group">
               <Image
                 src="/logo.png"
                 alt="Indelible Technologies Logo"
-                width={72}
-                height={72}
-                className="rounded-full object-cover"
+                width={52}
+                height={52}
+                className="rounded-full object-cover transition-transform group-hover:scale-105"
               />
+              <div className="flex flex-col">
+                <span className="font-display text-lg font-bold text-white tracking-tight leading-none">
+                  Indelible Technologies
+                </span>
+                <span className="font-mono text-[11px] font-medium text-secondary tracking-wider mt-1">
+                  innovate.build.empower
+                </span>
+              </div>
             </Link>
             <p className="text-primary-foreground/80 text-sm mt-2 leading-relaxed">
               Digital Transformation & Innovation Partner. Developing affordable, secure, innovative and practical digital solutions for businesses and communities.
