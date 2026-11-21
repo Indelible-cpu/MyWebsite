@@ -208,6 +208,7 @@ const jsonLd = {
       "name": "IndeMarket",
       "operatingSystem": "Web, Mobile",
       "applicationCategory": "ShoppingApplication",
+      "url": "https://indemarket.vercel.app/",
       "description":
         "Modern digital marketplace platform connecting local vendors, consumers, and institutions with seamless cataloging and order management.",
       "creator": {

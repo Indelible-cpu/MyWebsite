@@ -66,6 +66,7 @@ export function Footer() {
             <div className="mt-3 flex flex-wrap gap-3 text-sm">
               <Link href="/portfolio" className="inline-flex items-center gap-1.5 rounded-full border border-primary-foreground/20 px-3 py-2 font-medium transition-colors hover:border-accent hover:text-accent">Explore our work <ArrowUpRight className="h-3.5 w-3.5" /></Link>
               <a href="https://jefinvestment-e1fc1.web.app/store" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 rounded-full border border-primary-foreground/20 px-3 py-2 font-medium transition-colors hover:border-accent hover:text-accent">Visit MsikaFlo Storefront <ArrowUpRight className="h-3.5 w-3.5" /></a>
+              <a href="https://indemarket.vercel.app/" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 rounded-full border border-primary-foreground/20 px-3 py-2 font-medium transition-colors hover:border-accent hover:text-accent">Visit IndeMarket <ArrowUpRight className="h-3.5 w-3.5" /></a>
             </div>
           </div>
 

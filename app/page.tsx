@@ -55,7 +55,7 @@ export default function Home() {
               { title: "Teachers Bank", desc: "A financial management solution concept for organisations and member-based groups.", icon: Activity, color: "from-blue-500 to-cyan-500", href: "/solutions#teachersbank", external: false },
               { title: "MsikaFlo", desc: "Retail management tools for sales, inventory and everyday shop workflows.", icon: MonitorSmartphone, color: "from-emerald-500 to-teal-500", href: "/solutions#msikaflo", external: false },
               { title: "SecSchoolHub", desc: "Secondary school management hub for student records, academic grading, and fee administration.", icon: GraduationCap, color: "from-indigo-500 to-purple-500", href: "/solutions#secschoolhub", external: false },
-              { title: "IndeMarket", desc: "Digital multi-vendor marketplace connecting local merchants, institutions, and customers.", icon: ShoppingBag, color: "from-amber-500 to-orange-500", href: "/solutions#indemarket", external: false },
+              { title: "IndeMarket", desc: "Digital multi-vendor marketplace connecting local merchants, institutions, and customers.", icon: ShoppingBag, color: "from-amber-500 to-orange-500", href: "https://indemarket.vercel.app/", external: true },
             ].map((product, i) => (
               <m.div 
                 key={i}
@@ -73,7 +73,7 @@ export default function Home() {
                 <h3 className="text-2xl font-bold mb-3">{product.title}</h3>
                 <p className="text-muted-foreground mb-6">{product.desc}</p>
                 <Link href={product.href ?? `/solutions#${product.title.toLowerCase().replace(" ", "")}`} target={product.external ? "_blank" : undefined} rel={product.external ? "noopener noreferrer" : undefined} className="text-secondary font-medium flex items-center gap-1 group-hover:gap-2 transition-all">
-                  {product.external ? "Visit MsikaFlo Storefront" : "Learn more"} <ArrowRight className="h-4 w-4" />
+                  {product.external ? (product.title === "IndeMarket" ? "Visit IndeMarket" : "Visit MsikaFlo Storefront") : "Learn more"} <ArrowRight className="h-4 w-4" />
                 </Link>
               </m.div>
             ))}

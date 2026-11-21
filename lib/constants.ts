@@ -91,6 +91,7 @@ export const PRODUCTS = [
     ],
     pricing: 'Custom',
     category: 'E-Commerce',
+    url: 'https://indemarket.vercel.app/',
   },
 ];
 

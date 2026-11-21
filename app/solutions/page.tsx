@@ -276,9 +276,14 @@ export default function Solutions() {
                   </li>
                 ))}
               </ul>
-              <Link href="/contact?subject=IndeMarket" className="bg-amber-600 hover:bg-amber-700 text-white px-6 py-3 rounded-lg font-semibold transition-all inline-flex items-center gap-2">
-                Explore Marketplace <ArrowRight className="h-4 w-4" />
-              </Link>
+              <div className="flex flex-wrap gap-4">
+                <a href="https://indemarket.vercel.app/" target="_blank" rel="noopener noreferrer" className="bg-amber-600 hover:bg-amber-700 text-white px-6 py-3 rounded-lg font-semibold transition-all inline-flex items-center gap-2">
+                  Visit Live Marketplace <ArrowRight className="h-4 w-4" />
+                </a>
+                <Link href="/contact?subject=IndeMarket" className="border border-border hover:bg-muted text-foreground px-6 py-3 rounded-lg font-semibold transition-all inline-flex items-center gap-2">
+                  Explore Partnership
+                </Link>
+              </div>
             </m.div>
           </div>
         </div>
