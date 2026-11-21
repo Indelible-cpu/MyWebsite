@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowRight, CheckCircle2, MonitorSmartphone, Code2, Database, Zap, Layers, Activity, GraduationCap, ShoppingBag } from "lucide-react";
 import { m } from "framer-motion";
 
@@ -67,60 +68,52 @@ export default function Home() {
               </div>
             </div>
 
-            {/* Architectural System Overview Matrix */}
+            {/* Engineering Team Visual */}
             <m.div
-              initial={{ opacity: 0, y: 14 }}
-              animate={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0, scale: 0.98, y: 14 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
               transition={{ duration: 0.55, delay: 0.1 }}
               className="relative mx-auto w-full max-w-xl lg:max-w-none"
             >
-              <div className="rounded-2xl border border-border/90 bg-card p-6 shadow-sm">
-                <div className="pb-3">
-                  <p className="font-mono text-[11px] uppercase tracking-wider text-secondary font-semibold">Proprietary Software</p>
-                  <h2 className="font-display text-xl sm:text-2xl font-semibold mt-1 text-foreground">Built for operational clarity.</h2>
+              <div className="relative overflow-hidden rounded-2xl border border-border/80 bg-card shadow-2xl">
+                {/* Main Collaborative Team Photography */}
+                <div className="relative aspect-[16/10] w-full overflow-hidden bg-slate-900">
+                  <Image
+                    src="/images/engineering-team.jpg"
+                    alt="Indelible Technologies software engineering team designing and building systems in Malawi"
+                    fill
+                    priority
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 600px"
+                    className="object-cover transition-transform duration-500 hover:scale-105"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-950/20 to-transparent pointer-events-none" />
                 </div>
 
-                <div className="grid gap-3 sm:grid-cols-2 mt-2">
-                  <Link href="/solutions#msikaflo" className="group rounded-xl border border-border bg-muted/40 p-4 transition-colors hover:border-blue-500/50 hover:bg-background">
-                    <div className="flex items-center justify-between mb-2">
-                      <span className="font-mono text-[10px] uppercase font-semibold text-blue-600 dark:text-blue-400">POS &amp; Retail</span>
-                      <span className="font-mono text-[10px] text-muted-foreground">v2.4</span>
+                {/* Ground Credibility Overlay Card featuring Founder / Lead Engineer */}
+                <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between gap-3 rounded-xl border border-white/15 bg-slate-950/85 p-3 text-white shadow-xl backdrop-blur-md sm:bottom-5 sm:left-5 sm:right-5 sm:p-3.5">
+                  <div className="flex items-center gap-3">
+                    <div className="relative h-12 w-12 shrink-0 overflow-hidden rounded-lg border border-white/20 bg-slate-800">
+                      <Image
+                        src="/images/founder-desk-crop.jpg"
+                        alt="Indelible Technologies Lead Engineer at workstation"
+                        fill
+                        sizes="48px"
+                        className="object-cover"
+                      />
                     </div>
-                    <p className="font-display font-semibold text-foreground group-hover:text-secondary transition-colors">MsikaFlo</p>
-                    <p className="text-xs text-slate-600 dark:text-slate-300 mt-1 leading-relaxed">Inventory tracking, sales, and retail storefront workflows.</p>
-                  </Link>
-
-                  <a href="https://indemarket.vercel.app/" target="_blank" rel="noopener noreferrer" className="group rounded-xl border border-border bg-muted/40 p-4 transition-colors hover:border-emerald-500/50 hover:bg-background">
-                    <div className="flex items-center justify-between mb-2">
-                      <span className="font-mono text-[10px] uppercase font-semibold text-emerald-600 dark:text-emerald-400">Marketplace</span>
-                      <span className="font-mono text-[10px] text-emerald-600 dark:text-emerald-400 font-semibold">Live ↗</span>
+                    <div className="flex flex-col">
+                      <span className="font-display text-sm font-semibold text-white leading-tight">
+                        Indelible Engineering Lab
+                      </span>
+                      <span className="font-mono text-[11px] text-slate-300">
+                        Mangochi &bull; Malawi &bull; Hands-on Production
+                      </span>
                     </div>
-                    <p className="font-display font-semibold text-foreground group-hover:text-emerald-600 transition-colors">IndeMarket</p>
-                    <p className="text-xs text-slate-600 dark:text-slate-300 mt-1 leading-relaxed">Digital multi-vendor marketplace connecting shops &amp; shoppers.</p>
-                  </a>
-
-                  <Link href="/solutions#teachersbank" className="group rounded-xl border border-border bg-muted/40 p-4 transition-colors hover:border-purple-500/50 hover:bg-background">
-                    <div className="flex items-center justify-between mb-2">
-                      <span className="font-mono text-[10px] uppercase font-semibold text-purple-600 dark:text-purple-400">Education Finance</span>
-                    </div>
-                    <p className="font-display font-semibold text-foreground group-hover:text-purple-600 transition-colors">Teachers Bank</p>
-                    <p className="text-xs text-slate-600 dark:text-slate-300 mt-1 leading-relaxed">School fee collection, payment tracking &amp; financial reports.</p>
-                  </Link>
-
-                  <Link href="/solutions#secschoolhub" className="group rounded-xl border border-border bg-muted/40 p-4 transition-colors hover:border-amber-500/50 hover:bg-background">
-                    <div className="flex items-center justify-between mb-2">
-                      <span className="font-mono text-[10px] uppercase font-semibold text-amber-600 dark:text-amber-400">School Admin</span>
-                    </div>
-                    <p className="font-display font-semibold text-foreground group-hover:text-amber-600 transition-colors">SecSchoolHub</p>
-                    <p className="text-xs text-slate-600 dark:text-slate-300 mt-1 leading-relaxed">Secondary school management, student records &amp; grading.</p>
-                  </Link>
-                </div>
-
-                <div className="mt-4 pt-3 border-t border-border flex items-center justify-between text-xs">
-                  <span className="text-muted-foreground font-sans">Proprietary products built in Malawi</span>
-                  <Link href="/solutions" className="font-medium text-secondary hover:underline inline-flex items-center gap-1">
-                    Explore all solutions &rarr;
-                  </Link>
+                  </div>
+                  <div className="hidden sm:flex items-center gap-1.5 rounded-full border border-emerald-500/30 bg-emerald-500/15 px-2.5 py-1 font-mono text-[11px] font-medium text-emerald-400">
+                    <span className="h-1.5 w-1.5 rounded-full bg-emerald-400 animate-pulse" />
+                    In Session
+                  </div>
                 </div>
               </div>
             </m.div>
