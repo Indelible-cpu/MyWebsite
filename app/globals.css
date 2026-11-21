@@ -52,7 +52,10 @@
 }
 
 @theme {
-  --font-sans: var(--font-sans), "Plus Jakarta Sans", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-display: var(--font-display), "Space Grotesk", system-ui, -apple-system, sans-serif;
+  --font-sans: var(--font-sans), "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-mono: var(--font-mono), "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-body: var(--body);
@@ -85,20 +88,27 @@
     border-color: var(--border);
   }
   html {
-    font-family: var(--font-sans), "Plus Jakarta Sans", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    font-family: var(--font-sans), "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   }
   body {
     background-color: var(--background);
     color: var(--foreground);
-    font-family: var(--font-sans), "Plus Jakarta Sans", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    font-family: var(--font-sans), "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    letter-spacing: -0.011em;
+    line-height: 1.6;
+    letter-spacing: 0;
   }
+  
+  /* Space Grotesk for headings: deliberate, unforced hierarchy */
   h1, h2, h3, h4, h5, h6 {
-    color: var(--foreground);
-    letter-spacing: -0.025em;
-    font-weight: 700;
+    font-family: var(--font-display), "Space Grotesk", system-ui, sans-serif;
+    letter-spacing: -0.015em;
+    font-weight: 600;
+  }
+  
+  code, kbd, samp, pre {
+    font-family: var(--font-mono), "JetBrains Mono", monospace;
   }
 }
 

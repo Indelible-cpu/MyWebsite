@@ -72,7 +72,7 @@ export function Footer() {
 
           {/* Quick Links */}
           <div className="flex flex-col gap-4">
-            <h4 className="font-semibold text-lg">Quick Links</h4>
+            <h4 className="font-display font-semibold text-base text-white">Quick Links</h4>
             <ul className="flex flex-col gap-2 text-primary-foreground/80 text-sm">
               <li><Link href="/about" className="hover:text-accent transition-colors">About Us</Link></li>
               <li><Link href="/services" className="hover:text-accent transition-colors">Our Services</Link></li>
@@ -84,7 +84,7 @@ export function Footer() {
 
           {/* Solutions */}
           <div className="flex flex-col gap-4">
-            <h4 className="font-semibold text-lg">Our Ecosystem</h4>
+            <h4 className="font-display font-semibold text-base text-white">Our Ecosystem</h4>
             <ul className="flex flex-col gap-2 text-primary-foreground/80 text-sm">
               <li><Link href="/solutions#teachersbank" className="hover:text-accent transition-colors">Teachers Bank</Link></li>
               <li><Link href="/solutions#msikaflo" className="hover:text-accent transition-colors">MsikaFlo</Link></li>
@@ -96,7 +96,7 @@ export function Footer() {
 
           {/* Contact & Newsletter */}
           <div className="flex flex-col gap-4">
-            <h4 className="font-semibold text-lg">Get In Touch</h4>
+            <h4 className="font-display font-semibold text-base text-white">Get In Touch</h4>
             <ul className="flex flex-col gap-3 text-primary-foreground/80 text-sm">
               <li className="flex items-start gap-3">
                 <MapPin className="w-4 h-4 mt-0.5 text-accent shrink-0" />
@@ -163,7 +163,7 @@ export function Footer() {
         </div>
 
         <div className="flex flex-col items-center justify-between gap-4 border-t border-white/10 pt-7 text-center text-xs text-primary-foreground/60 md:flex-row md:text-left">
-          <p>&copy; {currentYear} Indelible Technologies. Powered by JEF Investment.</p>
+          <p className="font-mono text-xs text-primary-foreground/70">&copy; {currentYear} Indelible Technologies. Powered by JEF Investment.</p>
           <div className="flex items-center gap-4">
             <Link href="/privacy" className="hover:text-white transition-colors">Privacy Policy</Link>
             <Link href="/terms" className="hover:text-white transition-colors">Terms of Service</Link>

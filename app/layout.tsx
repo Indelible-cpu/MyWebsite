@@ -1,18 +1,25 @@
 import type { Metadata, Viewport } from "next";
-import { Plus_Jakarta_Sans } from "next/font/google";
-import "./globals.css";
-import { Navigation } from "@/components/Navigation";
-import { Footer } from "@/components/Footer";
-import { ThemeProvider } from "@/components/theme-provider";
-import { FramerProvider } from "@/components/framer-provider";
-import { WhatsAppButton } from "@/components/WhatsAppButton";
-import { ProductAdToast } from "@/components/ProductAdToast";
+import { Space_Grotesk, Inter, JetBrains_Mono } from "next/font/google";
 
-const plusJakarta = Plus_Jakarta_Sans({
+const spaceGrotesk = Space_Grotesk({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-display",
+  weight: ["500", "600", "700"],
+});
+
+const inter = Inter({
   subsets: ["latin"],
   display: "swap",
   variable: "--font-sans",
-  weight: ["400", "500", "600", "700", "800"],
+  weight: ["400", "500", "600"],
+});
+
+const jetbrainsMono = JetBrains_Mono({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-mono",
+  weight: ["400", "500", "600"],
 });
 
 export const viewport: Viewport = {
@@ -233,7 +240,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning className={`${plusJakarta.variable} antialiased`}>
+    <html lang="en" suppressHydrationWarning className={`${spaceGrotesk.variable} ${inter.variable} ${jetbrainsMono.variable} antialiased`}>
       <head>
         <script
           type="application/ld+json"

@@ -175,14 +175,12 @@ export function ProductAdToast() {
               </div>
 
               <div className="flex items-center gap-2 min-w-0 flex-wrap sm:flex-nowrap">
-                <span
-                  className={`inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-xs font-semibold shrink-0 border ${product.badgeBg}`}
-                >
+                <span className={`font-mono inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[11px] font-semibold uppercase tracking-wider shrink-0 border ${product.badgeBg}`}>
                   <Sparkles className="h-3 w-3" />
-                  {product.name}
+                  <span className="font-display normal-case font-semibold text-xs tracking-normal">{product.name}</span>
                 </span>
 
-                <p className="text-xs sm:text-sm text-white/95 truncate leading-snug">
+                <p className="font-sans text-xs sm:text-sm text-white/95 truncate leading-snug">
                   {product.description}
                 </p>
               </div>
