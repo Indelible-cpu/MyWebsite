@@ -75,22 +75,7 @@ export default function Home() {
               className="relative mx-auto w-full max-w-xl lg:max-w-none"
             >
               <div className="rounded-2xl border border-border/90 bg-card p-6 shadow-sm">
-                <div className="flex items-center justify-between border-b border-border pb-4">
-                  <div className="flex items-center gap-3">
-                    <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-secondary text-white font-mono text-xs font-bold">
-                      IT
-                    </div>
-                    <div>
-                      <p className="font-display text-sm font-semibold text-foreground">Indelible Technologies</p>
-                      <p className="font-mono text-[11px] text-muted-foreground">Core Product Matrix</p>
-                    </div>
-                  </div>
-                  <span className="font-mono text-[11px] font-medium px-2 py-0.5 rounded border border-emerald-500/30 bg-emerald-500/10 text-emerald-600 dark:text-emerald-400">
-                    ● Production Active
-                  </span>
-                </div>
-
-                <div className="pt-5 pb-3">
+                <div className="pb-3">
                   <p className="font-mono text-[11px] uppercase tracking-wider text-secondary font-semibold">Proprietary Software</p>
                   <h2 className="font-display text-xl sm:text-2xl font-semibold mt-1 text-foreground">Built for operational clarity.</h2>
                 </div>
@@ -131,9 +116,11 @@ export default function Home() {
                   </Link>
                 </div>
 
-                <div className="mt-4 flex items-center justify-between rounded-lg bg-muted px-4 py-2.5 font-mono text-xs text-muted-foreground border border-border">
-                  <span>Engineering Standard: Secure • Scalable</span>
-                  <span className="text-foreground font-semibold">Malawi</span>
+                <div className="mt-4 pt-3 border-t border-border flex items-center justify-between text-xs">
+                  <span className="text-muted-foreground font-sans">Proprietary products built in Malawi</span>
+                  <Link href="/solutions" className="font-medium text-secondary hover:underline inline-flex items-center gap-1">
+                    Explore all solutions &rarr;
+                  </Link>
                 </div>
               </div>
             </m.div>
