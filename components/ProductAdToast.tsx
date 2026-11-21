@@ -22,9 +22,10 @@ interface ProductAd {
   ctaText: string;
   href: string;
   isExternal: boolean;
-  accentBg: string;
+  bannerBg: string;
   badgeBg: string;
-  badgeText: string;
+  btnClass: string;
+  iconBg: string;
   icon: typeof ShoppingBag;
 }
 
@@ -37,9 +38,10 @@ const PRODUCT_ADS: ProductAd[] = [
     ctaText: "Visit Store",
     href: "https://indemarket.vercel.app/",
     isExternal: true,
-    accentBg: "bg-emerald-500/10 text-emerald-600 dark:text-emerald-400",
-    badgeBg: "bg-emerald-500/15 border-emerald-500/30",
-    badgeText: "text-emerald-700 dark:text-emerald-300",
+    bannerBg: "bg-gradient-to-r from-emerald-700 via-teal-700 to-emerald-800 border-emerald-400/40 shadow-emerald-950/30",
+    badgeBg: "bg-white/20 border-white/30 text-white",
+    btnClass: "bg-white text-emerald-900 hover:bg-emerald-50",
+    iconBg: "bg-white/20 text-white",
     icon: ShoppingBag,
   },
   {
@@ -50,9 +52,10 @@ const PRODUCT_ADS: ProductAd[] = [
     ctaText: "Learn More",
     href: "/solutions#msikaflo",
     isExternal: false,
-    accentBg: "bg-blue-500/10 text-blue-600 dark:text-blue-400",
-    badgeBg: "bg-blue-500/15 border-blue-500/30",
-    badgeText: "text-blue-700 dark:text-blue-300",
+    bannerBg: "bg-gradient-to-r from-blue-700 via-indigo-700 to-blue-800 border-blue-400/40 shadow-blue-950/30",
+    badgeBg: "bg-white/20 border-white/30 text-white",
+    btnClass: "bg-white text-blue-900 hover:bg-blue-50",
+    iconBg: "bg-white/20 text-white",
     icon: Store,
   },
   {
@@ -63,9 +66,10 @@ const PRODUCT_ADS: ProductAd[] = [
     ctaText: "Explore",
     href: "/solutions#teachers-bank",
     isExternal: false,
-    accentBg: "bg-purple-500/10 text-purple-600 dark:text-purple-400",
-    badgeBg: "bg-purple-500/15 border-purple-500/30",
-    badgeText: "text-purple-700 dark:text-purple-300",
+    bannerBg: "bg-gradient-to-r from-purple-800 via-violet-800 to-purple-900 border-purple-400/40 shadow-purple-950/30",
+    badgeBg: "bg-white/20 border-white/30 text-white",
+    btnClass: "bg-white text-purple-950 hover:bg-purple-50",
+    iconBg: "bg-white/20 text-white",
     icon: GraduationCap,
   },
   {
@@ -76,9 +80,10 @@ const PRODUCT_ADS: ProductAd[] = [
     ctaText: "Explore",
     href: "/solutions#secschoolhub",
     isExternal: false,
-    accentBg: "bg-amber-500/10 text-amber-600 dark:text-amber-400",
-    badgeBg: "bg-amber-500/15 border-amber-500/30",
-    badgeText: "text-amber-700 dark:text-amber-300",
+    bannerBg: "bg-gradient-to-r from-amber-600 via-orange-600 to-amber-700 border-amber-300/40 shadow-orange-950/30",
+    badgeBg: "bg-white/20 border-white/30 text-white",
+    btnClass: "bg-white text-amber-950 hover:bg-amber-50",
+    iconBg: "bg-white/20 text-white",
     icon: School,
   },
 ];
@@ -160,37 +165,37 @@ export function ProductAdToast() {
           transition={{ type: "spring", stiffness: 320, damping: 28 }}
           onMouseEnter={() => setIsHovered(true)}
           onMouseLeave={() => setIsHovered(false)}
-          className="fixed top-20 sm:top-22 left-1/2 z-40 w-[calc(100vw-1.5rem)] sm:w-auto sm:max-w-2xl rounded-2xl sm:rounded-full bg-card/95 backdrop-blur-md border border-border/80 shadow-2xl p-3 sm:px-5 sm:py-2.5 text-card-foreground select-none"
+          className={`fixed top-20 sm:top-22 left-1/2 z-40 w-[calc(100vw-1.5rem)] sm:w-auto sm:max-w-2xl rounded-2xl sm:rounded-full ${product.bannerBg} border shadow-2xl p-3 sm:px-5 sm:py-2.5 text-white select-none`}
         >
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2.5 sm:gap-4">
             {/* Left: Icon, Badge & 1-line description */}
             <div className="flex items-center gap-2.5 min-w-0">
-              <div className={`p-1.5 rounded-lg shrink-0 ${product.accentBg}`}>
+              <div className={`p-1.5 rounded-lg shrink-0 ${product.iconBg}`}>
                 <IconComponent className="h-4 w-4" />
               </div>
 
               <div className="flex items-center gap-2 min-w-0 flex-wrap sm:flex-nowrap">
                 <span
-                  className={`inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-xs font-semibold shrink-0 border ${product.badgeBg} ${product.badgeText}`}
+                  className={`inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-xs font-semibold shrink-0 border ${product.badgeBg}`}
                 >
                   <Sparkles className="h-3 w-3" />
                   {product.name}
                 </span>
 
-                <p className="text-xs sm:text-sm text-muted-foreground truncate leading-snug">
+                <p className="text-xs sm:text-sm text-white/95 truncate leading-snug">
                   {product.description}
                 </p>
               </div>
             </div>
 
-            {/* Right: CTA & Dismiss */}
-            <div className="flex items-center justify-between sm:justify-end gap-2 shrink-0 pt-1.5 sm:pt-0 border-t sm:border-t-0 border-border/50">
+            {/* Right: High-Contrast CTA & Dismiss */}
+            <div className="flex items-center justify-between sm:justify-end gap-2 shrink-0 pt-1.5 sm:pt-0 border-t sm:border-t-0 border-white/20">
               {product.isExternal ? (
                 <a
                   href={product.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-primary text-primary-foreground hover:opacity-90 transition-opacity shadow-sm"
+                  className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold ${product.btnClass} transition-all shadow-md active:scale-95`}
                 >
                   <span>{product.ctaText}</span>
                   <ExternalLink className="h-3 w-3" />
@@ -198,7 +203,7 @@ export function ProductAdToast() {
               ) : (
                 <Link
                   href={product.href}
-                  className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-primary text-primary-foreground hover:opacity-90 transition-opacity shadow-sm"
+                  className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold ${product.btnClass} transition-all shadow-md active:scale-95`}
                 >
                   <span>{product.ctaText}</span>
                   <ArrowRight className="h-3 w-3" />
@@ -209,7 +214,7 @@ export function ProductAdToast() {
                 type="button"
                 onClick={handleDismiss}
                 aria-label="Close notification"
-                className="h-6 w-6 rounded-full hover:bg-muted/80 flex items-center justify-center text-muted-foreground transition-colors ml-1"
+                className="h-6 w-6 rounded-full hover:bg-white/20 flex items-center justify-center text-white/80 hover:text-white transition-colors ml-1"
               >
                 <X className="h-3.5 w-3.5" />
               </button>
