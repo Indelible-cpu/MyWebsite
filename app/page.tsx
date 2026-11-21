@@ -9,7 +9,7 @@ export default function Home() {
   return (
     <>
       {/* HERO SECTION */}
-      <section className="relative isolate overflow-hidden pt-28 pb-16 sm:pt-32 sm:pb-20 lg:pt-36 lg:pb-28">
+      <section className="relative isolate overflow-hidden pt-28 pb-12 sm:pt-32 sm:pb-14 lg:pt-36 lg:pb-16">
         <div className="absolute inset-0 -z-10 overflow-hidden"><div className="absolute -left-40 -top-32 h-96 w-96 rounded-full bg-secondary/15 blur-3xl" /><div className="absolute -right-24 top-24 h-80 w-80 rounded-full bg-accent/15 blur-3xl" /><div className="absolute inset-0 bg-[linear-gradient(to_right,var(--border)_1px,transparent_1px),linear-gradient(to_bottom,var(--border)_1px,transparent_1px)] bg-[size:56px_56px] opacity-[0.18] [mask-image:linear-gradient(to_bottom,black,transparent_82%)]" /></div>
         <div className="container mx-auto px-4 md:px-6"><div className="grid items-center gap-12 lg:grid-cols-[1.02fr_0.98fr] lg:gap-14">
           <div className="max-w-2xl">
@@ -43,7 +43,7 @@ export default function Home() {
       <section className="border-y border-border/70 bg-muted/35 py-6 sm:py-7"><div className="container mx-auto flex flex-col items-center justify-between gap-4 px-4 text-center sm:flex-row sm:px-6 sm:text-left"><p className="text-xs font-bold uppercase tracking-[0.16em] text-muted-foreground">Technology for everyday progress</p><div className="flex flex-wrap justify-center gap-x-6 gap-y-3 text-sm font-medium text-foreground/80 sm:justify-end"><span className="inline-flex items-center gap-2"><Code2 className="h-4 w-4 text-secondary" /> Web & software</span><span className="inline-flex items-center gap-2"><Database className="h-4 w-4 text-secondary" /> Data systems</span><span className="inline-flex items-center gap-2"><MonitorSmartphone className="h-4 w-4 text-secondary" /> Digital products</span></div></div></section>
 
       {/* INNOVATION ECOSYSTEM */}
-      <section className="relative py-20 sm:py-24 lg:py-28">
+      <section className="relative py-14 sm:py-16 lg:py-20">
         <div className="container mx-auto px-4 md:px-6">
           <div className="mx-auto mb-12 max-w-3xl text-center sm:mb-16">
             <h2 className="text-3xl md:text-5xl font-bold mb-4">Our Innovation Ecosystem</h2>
@@ -82,7 +82,7 @@ export default function Home() {
       </section>
 
       {/* WHY CHOOSE US / SERVICES OVERVIEW */}
-      <section className="relative overflow-hidden bg-primary py-20 text-primary-foreground sm:py-24 lg:py-28">
+      <section className="relative overflow-hidden bg-primary py-14 text-primary-foreground sm:py-16 lg:py-20">
         <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10 mix-blend-overlay"></div>
         <div className="container mx-auto px-4 md:px-6 relative z-10">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
@@ -133,7 +133,7 @@ export default function Home() {
       </section>
 
       {/* HOW WE WORK */}
-      <section className="border-y border-border/50 bg-muted/30 py-20 sm:py-24 lg:py-28">
+      <section className="border-y border-border/50 bg-muted/30 py-14 sm:py-16 lg:py-20">
         <div className="container mx-auto px-4 md:px-6">
           <div className="text-center mb-16 max-w-3xl mx-auto">
             <h2 className="text-3xl md:text-5xl font-bold mb-4">How We Work</h2>
@@ -174,7 +174,7 @@ export default function Home() {
       <FaqSection />
 
       {/* CALL TO ACTION */}
-      <section className="relative overflow-hidden py-20 sm:py-24 lg:py-28">
+      <section className="relative overflow-hidden py-14 sm:py-16 lg:py-20">
         <div className="absolute inset-0 bg-gradient-to-b from-transparent to-secondary/5 -z-10"></div>
         <div className="container mx-auto px-4 md:px-6">
           <div className="glass rounded-3xl p-10 md:p-16 text-center border border-border/50 max-w-5xl mx-auto shadow-2xl relative overflow-hidden">
@@ -227,7 +227,7 @@ function FaqSection() {
   const [open, setOpen] = useState<number | null>(null);
 
   return (
-    <section className="py-20 sm:py-24 lg:py-28">
+    <section className="py-14 sm:py-16 lg:py-20">
       <div className="container mx-auto px-4 md:px-6 max-w-3xl">
         <div className="text-center mb-14">
           <h2 className="text-3xl md:text-5xl font-bold mb-4">Frequently Asked Questions</h2>

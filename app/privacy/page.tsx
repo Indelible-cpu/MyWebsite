@@ -6,7 +6,7 @@ export default function PrivacyPolicy() {
   return (
     <>
       {/* HEADER SECTION */}
-      <section className="pt-32 pb-16 bg-muted/30">
+      <section className="bg-muted/30 pt-28 pb-10 sm:pt-32 sm:pb-12">
         <div className="container mx-auto px-4 text-center">
           <m.h1 
             initial={{ opacity: 0, y: 20 }}
@@ -28,7 +28,7 @@ export default function PrivacyPolicy() {
       </section>
 
       {/* CONTENT SECTION */}
-      <section className="py-20">
+      <section className="py-12 sm:py-14 lg:py-16">
         <div className="container mx-auto px-4 md:px-6 max-w-4xl">
           <m.div
             initial={{ opacity: 0, y: 20 }}

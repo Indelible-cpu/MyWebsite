@@ -54,7 +54,7 @@ export default function Pricing() {
 
   return (
     <>
-      <section className="bg-muted/30 pt-32 pb-14 sm:pt-36 sm:pb-16">
+      <section className="bg-muted/30 pt-28 pb-10 sm:pt-32 sm:pb-12">
         <div className="container mx-auto px-4 text-center">
           <m.h1
             initial={{ opacity: 0, y: 20 }}
@@ -75,7 +75,7 @@ export default function Pricing() {
         </div>
       </section>
 
-      <section className="py-16 sm:py-20 lg:py-24">
+      <section className="py-12 sm:py-14 lg:py-16">
         <div className="container mx-auto px-4 md:px-6">
           <div className="mx-auto grid max-w-6xl gap-5 md:grid-cols-2 xl:grid-cols-3 xl:gap-6">
             {plans.map((plan, i) => (

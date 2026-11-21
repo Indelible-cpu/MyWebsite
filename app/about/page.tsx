@@ -8,7 +8,7 @@ export default function About() {
   return (
     <>
       {/* HEADER SECTION */}
-      <section className="bg-muted/30 pt-32 pb-14 sm:pt-36 sm:pb-16">
+      <section className="bg-muted/30 pt-28 pb-10 sm:pt-32 sm:pb-12">
         <div className="container mx-auto px-4 text-center">
           <m.h1 
             initial={{ opacity: 0, y: 20 }}
@@ -30,7 +30,7 @@ export default function About() {
       </section>
 
       {/* OUR STORY */}
-      <section className="py-16 sm:py-20 lg:py-24">
+      <section className="py-12 sm:py-14 lg:py-16">
         <div className="container mx-auto px-4 md:px-6">
           <div className="grid items-center gap-8 md:grid-cols-2 lg:gap-12">
             <m.div 
@@ -74,7 +74,7 @@ export default function About() {
       </section>
 
       {/* CORE VALUES */}
-      <section className="border-y border-border/50 bg-muted/30 py-16 sm:py-20 lg:py-24">
+      <section className="border-y border-border/50 bg-muted/30 py-12 sm:py-14 lg:py-16">
         <div className="container mx-auto px-4 md:px-6">
           <div className="text-center mb-16 max-w-3xl mx-auto">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">Our Core Values</h2>
@@ -110,7 +110,7 @@ export default function About() {
       </section>
 
       {/* FOUNDER & COMMUNITY IMPACT */}
-      <section className="py-20">
+      <section className="py-12 sm:py-14 lg:py-16">
         <div className="container mx-auto px-4 md:px-6 text-center max-w-4xl">
           <h2 className="text-3xl md:text-4xl font-bold mb-6">Community Impact</h2>
           <p className="text-lg text-muted-foreground mb-8">

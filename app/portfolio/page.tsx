@@ -140,7 +140,7 @@ function ScreenshotCarousel({ images, title }: { images: Screenshot[]; title: st
 export default function Portfolio() {
   return (
     <>
-      <section className="bg-muted/30 pt-32 pb-14 sm:pt-36 sm:pb-16">
+      <section className="bg-muted/30 pt-28 pb-10 sm:pt-32 sm:pb-12">
         <div className="container mx-auto max-w-5xl px-4 text-center md:px-6">
           <m.h1
             initial={{ opacity: 0, y: 20 }}
@@ -161,7 +161,7 @@ export default function Portfolio() {
         </div>
       </section>
 
-      <section className="py-16 sm:py-20 lg:py-24">
+      <section className="py-12 sm:py-14 lg:py-16">
         <div className="container mx-auto px-4 md:px-6">
           <div className="mx-auto grid max-w-5xl gap-5 md:grid-cols-2 lg:gap-6">
             {projects.map((project, i) => (
@@ -219,7 +219,7 @@ export default function Portfolio() {
         </div>
       </section>
 
-      <section className="bg-primary py-16 text-primary-foreground sm:py-20 lg:py-24">
+      <section className="bg-primary py-14 text-primary-foreground sm:py-16 lg:py-20">
         <div className="mx-auto max-w-4xl px-4 text-center md:px-6">
           <MessageCircle className="mx-auto mb-5 h-10 w-10 text-accent" aria-hidden="true" />
           <h2 className="mb-4 text-3xl font-bold md:text-4xl">

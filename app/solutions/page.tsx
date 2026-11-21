@@ -27,7 +27,7 @@ export default function Solutions() {
   return (
     <>
       {/* HEADER SECTION */}
-      <section className="bg-muted/30 pt-32 pb-14 sm:pt-36 sm:pb-16">
+      <section className="bg-muted/30 pt-28 pb-10 sm:pt-32 sm:pb-12">
         <div className="container mx-auto px-4 text-center">
           <m.h1
             initial={{ opacity: 0, y: 20 }}
@@ -49,7 +49,7 @@ export default function Solutions() {
       </section>
 
       {/* TEACHERS BANK */}
-      <section id="teachersbank" className="py-16 sm:py-20 lg:py-24">
+      <section id="teachersbank" className="py-12 sm:py-14 lg:py-16">
         <div className="container mx-auto px-4 md:px-6">
           <div className="grid items-center gap-8 md:grid-cols-2 lg:gap-12">
             <m.div
@@ -91,7 +91,7 @@ export default function Solutions() {
       </section>
 
       {/* MSIKAFLO */}
-      <section id="msikaflo" className="border-y border-border/50 bg-muted/30 py-16 sm:py-20 lg:py-24">
+      <section id="msikaflo" className="border-y border-border/50 bg-muted/30 py-12 sm:py-14 lg:py-16">
         <div className="container mx-auto px-4 md:px-6">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <m.div
@@ -134,7 +134,7 @@ export default function Solutions() {
       </section>
 
       {/* SECSCHOOLHUB */}
-      <section id="secschoolhub" className="py-16 sm:py-20 lg:py-24">
+      <section id="secschoolhub" className="py-12 sm:py-14 lg:py-16">
         <div className="container mx-auto px-4 md:px-6">
           <div className="grid items-center gap-8 md:grid-cols-2 lg:gap-12">
             <m.div
@@ -209,7 +209,7 @@ export default function Solutions() {
       </section>
 
       {/* INDEMARKET */}
-      <section id="indemarket" className="border-t border-border/50 bg-muted/30 py-16 sm:py-20 lg:py-24">
+      <section id="indemarket" className="border-t border-border/50 bg-muted/30 py-12 sm:py-14 lg:py-16">
         <div className="container mx-auto px-4 md:px-6">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <m.div
@@ -290,7 +290,7 @@ export default function Solutions() {
       </section>
 
       {/* CTA */}
-      <section className="bg-secondary py-16 text-center text-secondary-foreground sm:py-20 lg:py-24">
+      <section className="bg-secondary py-14 text-center text-secondary-foreground sm:py-16 lg:py-20">
         <div className="container mx-auto px-4">
           <h2 className="text-3xl font-bold mb-6">Need a Custom Solution?</h2>
           <p className="text-lg text-secondary-foreground/80 mb-8 max-w-2xl mx-auto">

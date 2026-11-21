@@ -57,7 +57,7 @@ export default function Contact() {
   return (
     <>
       {/* HEADER */}
-      <section className="bg-muted/30 pt-32 pb-14 sm:pt-36 sm:pb-16">
+      <section className="bg-muted/30 pt-28 pb-10 sm:pt-32 sm:pb-12">
         <div className="container mx-auto px-4 text-center">
           <m.h1 
             initial={{ opacity: 0, y: 20 }}
@@ -79,7 +79,7 @@ export default function Contact() {
       </section>
 
       {/* CONTACT CONTENT */}
-      <section className="py-16 sm:py-20 lg:py-24">
+      <section className="py-12 sm:py-14 lg:py-16">
         <div className="container mx-auto px-4 md:px-6">
           <div className="grid gap-10 lg:grid-cols-2 lg:gap-16">
             
