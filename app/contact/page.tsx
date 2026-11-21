@@ -204,12 +204,14 @@ export default function Contact() {
                     <div className="space-y-2">
                       <label htmlFor="inquiryType" className="text-sm font-medium">Inquiry Type</label>
                       <select name="inquiryType" id="inquiryType" value={inquiryType} onChange={(e) => setInquiryType(e.target.value)} className="w-full px-4 py-3 rounded-lg border border-border bg-background focus:outline-none focus:ring-2 focus:ring-secondary transition-all">
-                        {!["General Inquiry", "Website Development Quote", "Software System Demo", "Teachers Bank Implementation", "MsikaFlo Setup"].includes(inquiryType) && <option value={inquiryType}>{inquiryType}</option>}
+                        {!["General Inquiry", "Website Development Quote", "Software System Demo", "Teachers Bank Implementation", "MsikaFlo Setup", "SecSchoolHub Implementation", "IndeMarket Setup / Partnership"].includes(inquiryType) && <option value={inquiryType}>{inquiryType}</option>}
                         <option>General Inquiry</option>
                         <option>Website Development Quote</option>
                         <option>Software System Demo</option>
                         <option>Teachers Bank Implementation</option>
                         <option>MsikaFlo Setup</option>
+                        <option>SecSchoolHub Implementation</option>
+                        <option>IndeMarket Setup / Partnership</option>
                       </select>
                     </div>
 
