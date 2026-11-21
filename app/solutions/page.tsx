@@ -12,18 +12,22 @@ const tbImages = [
   { src: "/images/tb-report-full.jpg", alt: "Financial Report" },
 ];
 
-// MsikaPos placeholders — swap with real screenshots when ready
+// MsikaFlo management screenshots; identifying details have been removed from the portfolio assets.
 const msikaImages = [
-  { src: "/images/msikapos-dashboard.jpg", alt: "Dashboard Overview" },
-  { src: "/images/msikapos-sales.jpg", alt: "Sales Screen" },
-  { src: "/images/msikapos-inventory.jpg", alt: "Inventory Management" },
+  { src: "/images/Login.jpg", alt: "MsikaFlo secure sign-in screen" },
+  { src: "/images/Dashboard.jpg", alt: "MsikaFlo management dashboard" },
+  { src: "/images/Sidebar.jpg", alt: "MsikaFlo navigation and management modules" },
+  { src: "/images/Pos.jpg", alt: "MsikaFlo point-of-sale screen" },
+  { src: "/images/Product%20finder.jpg", alt: "MsikaFlo AI-assisted product finder" },
+  { src: "/images/Reports.jpg", alt: "MsikaFlo business reports" },
+  { src: "/images/Storefront.jpg", alt: "MsikaFlo public storefront" },
 ];
 
 export default function Solutions() {
   return (
     <>
       {/* HEADER SECTION */}
-      <section className="pt-32 pb-16 bg-muted/30">
+      <section className="bg-muted/30 pt-32 pb-14 sm:pt-36 sm:pb-16">
         <div className="container mx-auto px-4 text-center">
           <m.h1
             initial={{ opacity: 0, y: 20 }}
@@ -45,9 +49,9 @@ export default function Solutions() {
       </section>
 
       {/* TEACHERS BANK */}
-      <section id="teachersbank" className="py-24">
+      <section id="teachersbank" className="py-16 sm:py-20 lg:py-24">
         <div className="container mx-auto px-4 md:px-6">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
+          <div className="grid items-center gap-8 md:grid-cols-2 lg:gap-12">
             <m.div
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -59,7 +63,7 @@ export default function Solutions() {
               </div>
               <h2 className="text-3xl md:text-4xl font-bold mb-6">Teachers Bank</h2>
               <p className="text-lg text-muted-foreground mb-6">
-                A robust cooperative financial management system designed for organizations and member-based groups. It simplifies member contributions, loan management, and financial reporting with enterprise-grade security.
+                A cooperative financial management system for organisations and member-based groups, designed to organise member contributions, loan workflows and financial reporting.
               </p>
               <ul className="space-y-3 mb-8">
                 {["Member contributions and savings management", "Integrated loan application and approval workflows", "Real-time financial reporting and analytics", "Comprehensive audit trails and secure access"].map((feature, i) => (
@@ -86,8 +90,8 @@ export default function Solutions() {
         </div>
       </section>
 
-      {/* MSIKAPOS */}
-      <section id="msikapos" className="py-24 bg-muted/30 border-y border-border/50">
+      {/* MSIKAFLO */}
+      <section id="msikaflo" className="border-y border-border/50 bg-muted/30 py-16 sm:py-20 lg:py-24">
         <div className="container mx-auto px-4 md:px-6">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <m.div
@@ -109,28 +113,28 @@ export default function Solutions() {
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 text-emerald-500 font-semibold mb-6">
                 <MonitorSmartphone className="h-4 w-4" /> Retail & Inventory
               </div>
-              <h2 className="text-3xl md:text-4xl font-bold mb-6">MsikaPos</h2>
+              <h2 className="text-3xl md:text-4xl font-bold mb-6">MsikaFlo</h2>
               <p className="text-lg text-muted-foreground mb-6">
-                The ultimate Point of Sale and Inventory Management System. MsikaPos empowers businesses of all sizes to manage sales, track stock in real-time, and analyze business performance from any device.
+                MsikaFlo brings sales and inventory workflows together in a practical retail management system, helping shop teams record transactions, keep track of stock and review business activity.
               </p>
               <ul className="space-y-3 mb-8">
-                {["Multi-store inventory management", "Offline capability with automatic cloud sync", "Detailed sales analytics and profit tracking", "Barcode scanning and receipt printing"].map((feature, i) => (
+                {["Inventory and sales record management", "Offline-first operation with later online synchronisation", "Sales and profit reporting", "AI-assisted product locating within the shop", "Store visit tracking and a WhatsApp storefront link"].map((feature, i) => (
                   <li key={i} className="flex items-start gap-3">
                     <CheckCircle2 className="h-5 w-5 text-emerald-500 shrink-0 mt-0.5" />
                     <span className="text-foreground">{feature}</span>
                   </li>
                 ))}
               </ul>
-              <Link href="/contact?subject=MsikaPos" className="bg-emerald-600 hover:bg-emerald-700 text-white px-6 py-3 rounded-lg font-semibold transition-all inline-flex items-center gap-2">
-                Request Demo <ArrowRight className="h-4 w-4" />
-              </Link>
+              <a href="https://jefinvestment-e1fc1.web.app/store" target="_blank" rel="noopener noreferrer" className="bg-emerald-600 hover:bg-emerald-700 text-white px-6 py-3 rounded-lg font-semibold transition-all inline-flex items-center gap-2">
+                Open Live Storefront <ArrowRight className="h-4 w-4" />
+              </a>
             </m.div>
           </div>
         </div>
       </section>
 
       {/* CTA */}
-      <section className="py-20 bg-secondary text-secondary-foreground text-center">
+      <section className="bg-secondary py-16 text-center text-secondary-foreground sm:py-20 lg:py-24">
         <div className="container mx-auto px-4">
           <h2 className="text-3xl font-bold mb-6">Need a Custom Solution?</h2>
           <p className="text-lg text-secondary-foreground/80 mb-8 max-w-2xl mx-auto">

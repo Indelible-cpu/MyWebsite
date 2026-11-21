@@ -1,33 +1,28 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Flagship Software Products & Solutions",
+  title: "Digital Products & Business Solutions",
   description:
-    "Discover Indelible Technologies' flagship software solutions: Teachers Bank (financial and SACCO management) and MsikaPos (modern cloud-based POS and retail inventory platform).",
+    "Discover digital products from Indelible Technologies, including MsikaFlo retail management and the Teachers Bank cooperative finance platform.",
   keywords: [
+    "MsikaFlo",
     "Teachers Bank",
-    "MsikaPos",
+    "retail management software",
     "POS system Malawi",
-    "inventory management software",
+    "inventory management",
     "SACCO financial software",
-    "school financial management",
-    "cloud point of sale",
   ],
-  alternates: {
-    canonical: "https://indelibletechnologies.com/solutions",
-  },
+  alternates: { canonical: "/solutions" },
   openGraph: {
-    title: "Flagship Software Products & Solutions | Indelible Technologies",
+    title: "Digital Solutions | Indelible Technologies",
     description:
-      "Explore Teachers Bank for institutional finance & SACCOs and MsikaPos for retail, billing, and inventory.",
-    url: "https://indelibletechnologies.com/solutions",
+      "Explore practical retail and cooperative finance software built around real operational workflows.",
+    url: "/solutions",
   },
 };
 
 export default function SolutionsLayout({
   children,
-}: {
-  children: React.ReactNode;
-}) {
+}: Readonly<{ children: React.ReactNode }>) {
   return <>{children}</>;
 }

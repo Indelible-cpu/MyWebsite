@@ -99,3 +99,17 @@
   background: rgba(15, 23, 42, 0.4);
   border: 1px solid rgba(255, 255, 255, 0.05);
 }
+
+@layer base {
+  html { scroll-behavior: smooth; scroll-padding-top: 6rem; }
+  body { min-width: 320px; line-height: 1.65; }
+  h1, h2, h3, h4 { text-wrap: balance; }
+  p { text-wrap: pretty; }
+  a, button, input, select, textarea { -webkit-tap-highlight-color: transparent; }
+  :focus-visible { outline: 3px solid var(--secondary); outline-offset: 3px; }
+  ::selection { background: color-mix(in srgb, var(--secondary) 22%, transparent); color: var(--foreground); }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important; }
+}

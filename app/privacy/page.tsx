@@ -22,7 +22,7 @@ export default function PrivacyPolicy() {
             transition={{ duration: 0.5, delay: 0.1 }}
             className="text-lg text-muted-foreground max-w-2xl mx-auto"
           >
-            Last Updated: June 30, 2026. Your privacy and security are our highest priorities.
+            Last Updated: October 28, 2026. This policy explains how information submitted through this website is handled.
           </m.p>
         </div>
       </section>
@@ -59,21 +59,21 @@ export default function PrivacyPolicy() {
             <div className="space-y-4">
               <h2 className="text-2xl font-bold text-foreground">3. Information Security</h2>
               <p className="text-muted-foreground leading-relaxed">
-                We implement robust physical, technical, and administrative security measures designed to protect your personal data from unauthorized access, loss, misuse, or alteration. All database connections and data transmission paths are fully encrypted using industry-standard protocols.
+                We use reasonable technical and organisational measures intended to protect information. Website hosting, database, email and other service providers may process information as needed to operate the site and respond to requests. No online service can guarantee absolute security, and we do not claim that every system or data path is risk-free.
               </p>
             </div>
 
             <div className="space-y-4">
               <h2 className="text-2xl font-bold text-foreground">4. Sharing Your Information</h2>
               <p className="text-muted-foreground leading-relaxed">
-                Indelible Technologies does not sell, trade, rent, or otherwise disclose your personal identification information to third parties. We may only share anonymized analytical data or share information when legally required by Malawian law enforcement or governing regulations.
+                We do not sell your personal information. We may share the information needed with service providers that support website hosting, database storage, email delivery or site operations, and when disclosure is required by law. Those providers may process information under their own terms and privacy practices.
               </p>
             </div>
 
             <div className="space-y-4">
               <h2 className="text-2xl font-bold text-foreground">5. Your Privacy Rights</h2>
               <p className="text-muted-foreground leading-relaxed">
-                You have the right to request access to the personal data we hold about you, request corrections to any inaccuracies, or request the complete deletion of your data from our active marketing lists (such as unsubscribing from our newsletter). To exercise these rights, please contact us directly at <a href="mailto:indelibletechnologiesmw@gmail.com" className="text-secondary hover:underline">indelibletechnologiesmw@gmail.com</a>.
+                You may request access to personal information you have submitted, ask us to correct inaccurate details, or ask to be removed from our newsletter. Newsletter removal is currently handled by request rather than an automated unsubscribe link. To exercise these rights, please contact us at <a href="mailto:indelibletechnologiesmw@gmail.com" className="text-secondary hover:underline">indelibletechnologiesmw@gmail.com</a>.
               </p>
             </div>
 

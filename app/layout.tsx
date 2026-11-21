@@ -13,26 +13,24 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://indelibletechnologies.com"),
+  metadataBase: new URL("https://indelibletech.vercel.app"),
   title: {
-    default: "Indelible Technologies | Innovate. Build. Empower.",
+    default: "Indelible Technologies | Software & Web Development in Malawi",
     template: "%s | Indelible Technologies",
   },
   description:
-    "Youth-led technology company developing affordable, secure, and practical digital solutions for modern institutions — from POS systems (MsikaPos) to financial management platforms (Teachers Bank) and custom web development.",
+    "Indelible Technologies builds practical websites, business software and digital products in Malawi, including MsikaFlo retail management. Explore our solutions, services and project portfolio.",
   keywords: [
-    "software development",
-    "digital transformation",
-    "POS system",
-    "financial management",
-    "web development",
-    "Indelible Technologies",
-    "MsikaPos",
+    "software development Malawi",
+    "web development Malawi",
+    "custom software",
+    "business management systems",
+    "retail management system",
+    "MsikaFlo",
     "Teachers Bank",
-    "Malawi tech company",
-    "custom software solutions",
+    "Indelible Technologies",
   ],
-  authors: [{ name: "Indelible Technologies", url: "https://indelibletechnologies.com" }],
+  authors: [{ name: "Indelible Technologies" }],
   creator: "Indelible Technologies",
   publisher: "Indelible Technologies",
   robots: {
@@ -47,15 +45,15 @@ export const metadata: Metadata = {
     },
   },
   alternates: {
-    canonical: "https://indelibletechnologies.com",
+    canonical: "/",
   },
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://indelibletechnologies.com",
-    title: "Indelible Technologies | Innovate. Build. Empower.",
+    url: "https://indelibletech.vercel.app",
+    title: "Indelible Technologies | Software & Web Development in Malawi",
     description:
-      "Youth-led technology company developing affordable, secure, and practical digital solutions — POS, financial management, and custom software.",
+      "Web development, business software and practical digital products for businesses, schools and organisations in Malawi.",
     siteName: "Indelible Technologies",
     images: [
       {
@@ -68,9 +66,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Indelible Technologies | Innovate. Build. Empower.",
+    title: "Indelible Technologies | Software & Web Development in Malawi",
     description:
-      "Youth-led technology company developing affordable, secure, and practical digital solutions.",
+      "Web development, business software and practical digital products from Indelible Technologies in Malawi.",
     images: ["/logo.png"],
   },
 };
@@ -80,40 +78,40 @@ const jsonLd = {
   "@graph": [
     {
       "@type": "Organization",
-      "@id": "https://indelibletechnologies.com/#organization",
+      "@id": "https://indelibletech.vercel.app/#organization",
       "name": "Indelible Technologies",
-      "url": "https://indelibletechnologies.com",
-      "logo": "https://indelibletechnologies.com/logo.png",
+      "url": "https://indelibletech.vercel.app",
+      "logo": "https://indelibletech.vercel.app/logo.png",
       "description":
-        "Youth-led technology company developing affordable, secure, and practical digital solutions for modern institutions — from POS systems to financial management platforms.",
+        "Youth-led technology company developing affordable, secure, and practical digital solutions for modern institutions — from retail management systems (MsikaFlo) to cooperative finance platforms (Teachers Bank).",
       "email": "indelibletechnologiesmw@gmail.com",
       "telephone": "+265885892269",
       "address": {
         "@type": "PostalAddress",
         "addressLocality": "Mangochi",
-        "addressCountry": "MW"
+        "addressCountry": "MW",
       },
       "contactPoint": [
         {
           "@type": "ContactPoint",
           "telephone": "+265885892269",
           "contactType": "customer service",
-          "availableLanguage": ["English", "Chichewa"]
-        }
-      ]
+          "availableLanguage": ["English", "Chichewa"],
+        },
+      ],
     },
     {
       "@type": "WebSite",
-      "@id": "https://indelibletechnologies.com/#website",
-      "url": "https://indelibletechnologies.com",
+      "@id": "https://indelibletech.vercel.app/#website",
+      "url": "https://indelibletech.vercel.app",
       "name": "Indelible Technologies",
       "description":
-        "Youth-led technology company developing affordable, secure, and practical digital solutions.",
+        "Practical websites, business software and digital products in Malawi.",
       "publisher": {
-        "@id": "https://indelibletechnologies.com/#organization"
-      }
-    }
-  ]
+        "@id": "https://indelibletech.vercel.app/#organization",
+      },
+    },
+  ],
 };
 
 export default function RootLayout({

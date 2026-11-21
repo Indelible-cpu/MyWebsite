@@ -1,31 +1,27 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "About Us | Our Story, Mission & Values",
+  title: "About Our Technology Studio",
   description:
-    "Learn about Indelible Technologies, a youth-led technology innovation company based in Malawi dedicated to digital transformation, software engineering, and institutional empowerment.",
+    "Learn about Indelible Technologies, a youth-led Malawi-based team developing practical digital products, websites, and custom software for modern institutions.",
   keywords: [
     "About Indelible Technologies",
+    "software development Malawi",
     "youth tech company Malawi",
     "technology innovation Africa",
-    "software company Mangochi",
-    "digital transformation team",
+    "Mangochi tech",
   ],
-  alternates: {
-    canonical: "https://indelibletechnologies.com/about",
-  },
+  alternates: { canonical: "/about" },
   openGraph: {
-    title: "About Us | Our Story, Mission & Values | Indelible Technologies",
+    title: "About Indelible Technologies",
     description:
-      "A youth-led technology innovation company dedicated to driving digital transformation and affordable, practical digital tools.",
-    url: "https://indelibletechnologies.com/about",
+      "Our mission is to make practical, sustainable digital solutions accessible to businesses and organisations.",
+    url: "/about",
   },
 };
 
 export default function AboutLayout({
   children,
-}: {
-  children: React.ReactNode;
-}) {
+}: Readonly<{ children: React.ReactNode }>) {
   return <>{children}</>;
 }

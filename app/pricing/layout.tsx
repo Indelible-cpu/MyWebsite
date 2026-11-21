@@ -1,31 +1,26 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Pricing & Transparent Custom Quotes",
+  title: "Project Pricing & Custom Quotes",
   description:
-    "Get clear, affordable pricing and customized quotes for website development, custom web applications, and enterprise ERP solutions from Indelible Technologies.",
+    "Learn how Indelible Technologies scopes website and software projects, with transparent quotes tailored to your requirements, timeline, and functionality.",
   keywords: [
     "website development cost Malawi",
     "software pricing",
     "custom software quote",
-    "ERP software cost",
-    "affordable web development",
+    "business management systems cost",
   ],
-  alternates: {
-    canonical: "https://indelibletechnologies.com/pricing",
-  },
+  alternates: { canonical: "/pricing" },
   openGraph: {
-    title: "Pricing & Transparent Custom Quotes | Indelible Technologies",
+    title: "Project Pricing | Indelible Technologies",
     description:
-      "Explore transparent plans and request a customized quote for your next digital project.",
-    url: "https://indelibletechnologies.com/pricing",
+      "Request a tailored quote for a website, business management system, or custom software project.",
+    url: "/pricing",
   },
 };
 
 export default function PricingLayout({
   children,
-}: {
-  children: React.ReactNode;
-}) {
+}: Readonly<{ children: React.ReactNode }>) {
   return <>{children}</>;
 }
