@@ -109,13 +109,13 @@ export async function POST(request: Request) {
         from: `"Indelible Technologies" <${gmailUser}>`,
         to: cleanEmail,
         subject: 'We received your message!',
-        text: `Hi ${cleanName},\n\nThank you for reaching out to Indelible Technologies! We have received your message regarding "${cleanSubject}" and will get back to you as soon as we can.\n\nFor urgent matters, please contact us on WhatsApp at +265993732694.\n\nBest regards,\nThe Indelible Technologies Team`,
+        text: `Hi ${cleanName},\n\nThank you for reaching out to Indelible Technologies! Your message regarding "${cleanSubject}" has been received and our team will get back to you within 24 hours.\n\nFor urgent inquiries, feel free to contact us on WhatsApp at +265993732694.\n\nBest regards,\nThe Indelible Technologies Team`,
         html: `
           <div style="font-family: sans-serif; max-width: 600px; margin: 0 auto; color: #333;">
-            <h2 style="color: #2563eb;">Thank you for reaching out!</h2>
+            <h2 style="color: #2563eb;">Thank you for reaching out to Indelible Technologies!</h2>
             <p>Hi ${htmlName},</p>
-            <p>We have received your message regarding <strong>"${htmlSubject}"</strong>.</p>
-            <p>Our team will review your request and get back to you as soon as we can.</p>
+            <p>Your message regarding <strong>"${htmlSubject}"</strong> has been received and our team will get back to you within 24 hours.</p>
+            <p>For urgent inquiries, feel free to contact us on WhatsApp.</p>
             <hr style="border: 0; border-top: 1px solid #eee; margin: 20px 0;" />
             <p style="font-size: 14px; color: #666;"><strong>A copy of your message:</strong></p>
             <blockquote style="background: #f9fafb; padding: 15px; border-left: 4px solid #2563eb; margin: 0; font-size: 14px;">
@@ -147,7 +147,7 @@ export async function POST(request: Request) {
     // If message is either saved to DB or sent via email, customer was successfully served
     if (dbSaved || emailSent) {
       return NextResponse.json(
-        { message: 'Thank you for reaching out! We have received your message and will review it as soon as possible.' },
+        { message: 'Thank you for reaching out to Indelible Technologies! Your message has been received and our team will get back to you within 24 hours. For urgent inquiries, feel free to contact us on WhatsApp.' },
         { status: 200 }
       );
     }
