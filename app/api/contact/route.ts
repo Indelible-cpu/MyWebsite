@@ -99,7 +99,7 @@ export async function POST(request: Request) {
           'Reply-To': `"${cleanName}" <${cleanEmail}>`,
         },
         subject: `New Contact Inquiry from ${cleanName}: ${cleanSubject}`,
-        text: `Name: ${cleanName}\nEmail: ${cleanEmail}\nSubject: ${cleanSubject}\n\nMessage:\n${cleanMessage}\n\n---\nReply directly by emailing: ${cleanEmail}`,
+        text: `Name: ${cleanName}\nEmail: ${cleanEmail}\nSubject: ${cleanSubject}\n\nMessage:\n${cleanMessage}`,
         html: `
           <div style="font-family: Arial, sans-serif; max-width: 600px; color: #1e293b; line-height: 1.5;">
             <h2 style="color: #2563eb; margin-top: 0;">New Contact Inquiry</h2>
@@ -121,13 +121,6 @@ export async function POST(request: Request) {
               </blockquote>
             </div>
 
-            <div style="margin: 28px 0; padding-top: 16px; border-top: 1px solid #e2e8f0;">
-              <a href="mailto:${htmlEmail}?subject=${encodeURIComponent('Re: ' + cleanSubject)}"
-                 style="background: #2563eb; color: #ffffff; padding: 12px 24px; border-radius: 6px; text-decoration: none; font-weight: bold; display: inline-block;">
-                Reply directly to ${htmlName} (${htmlEmail})
-              </a>
-            </div>
-            <p style="font-size: 12px; color: #94a3b8; margin: 0;">Tip: In Gmail, make sure the "To" address is set to ${htmlEmail} when you reply.</p>
           </div>
         `,
       };
