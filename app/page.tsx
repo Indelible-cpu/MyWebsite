@@ -68,22 +68,22 @@ export default function Home() {
               </div>
             </div>
 
-            {/* Engineering Team Visual */}
+            {/* Founder & Engineering Workstation Visual */}
             <m.div
               initial={{ opacity: 0, scale: 0.98, y: 14 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               transition={{ duration: 0.55, delay: 0.1 }}
-              className="relative mx-auto w-full max-w-xl lg:max-w-none"
+              className="relative mx-auto w-full max-w-lg lg:max-w-none"
             >
               <div className="relative overflow-hidden rounded-2xl border border-border/80 bg-card shadow-2xl">
-                <div className="relative aspect-[16/10] w-full overflow-hidden bg-slate-900">
+                <div className="relative aspect-[4/3] sm:aspect-[5/4] lg:aspect-[4/3] w-full overflow-hidden bg-slate-900">
                   <Image
                     src="/images/engineering-team.jpg"
-                    alt="Indelible Technologies software engineering team designing and building systems in Malawi"
+                    alt="Indelible Technologies Lead Engineer at workstation in Malawi"
                     fill
                     priority
                     sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 600px"
-                    className="object-cover transition-transform duration-500 hover:scale-105"
+                    className="object-cover object-[center_45%] transition-transform duration-500 hover:scale-105"
                   />
                 </div>
               </div>
