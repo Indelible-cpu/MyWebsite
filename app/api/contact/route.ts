@@ -53,88 +53,114 @@ export async function POST(request: Request) {
       : 'General Inquiry';
     const cleanMessage = message.trim();
 
-    // Escape user-controlled content before embedding it in HTML emails.
-    const htmlName = escapeHtml(cleanName);
-    const htmlEmail = escapeHtml(cleanEmail);
-    const htmlSubject = escapeHtml(cleanSubject);
-    const htmlMessage = escapeHtml(cleanMessage).replace(/\r?\n/g, '<br>');
+    let dbSaved = false;
+    let emailSent = false;
 
-    await prisma.contactMessage.create({
-      data: {
-        name: cleanName,
-        email: cleanEmail,
-        subject: cleanSubject,
-        message: cleanMessage,
-      },
-    });
-
-    const transporter = nodemailer.createTransport({
-      service: 'gmail',
-      auth: {
-        user: process.env.GMAIL_USER,
-        pass: process.env.GMAIL_APP_PASSWORD,
-      },
-    });
-
-    const mailOptions = {
-      from: process.env.GMAIL_USER,
-      to: process.env.GMAIL_USER,
-      replyTo: cleanEmail,
-      subject: `New Contact Message: ${cleanSubject}`,
-      text: `Name: ${cleanName}\nEmail: ${cleanEmail}\n\nMessage:\n${cleanMessage}`,
-      html: `<h3>New Contact Message</h3>
-             <p><strong>Name:</strong> ${htmlName}</p>
-             <p><strong>Email:</strong> ${htmlEmail}</p>
-             <p><strong>Subject:</strong> ${htmlSubject}</p>
-             <p><strong>Message:</strong></p>
-             <p>${htmlMessage}</p>`,
-    };
-
-    const autoReplyOptions = {
-      from: `"Indelible Technologies" <${process.env.GMAIL_USER}>`,
-      to: cleanEmail,
-      subject: 'We received your message!',
-      text: `Hi ${cleanName},\n\nThank you for reaching out to Indelible Technologies! We have received your message regarding "${cleanSubject}" and will get back to you as soon as we can.\n\nFor urgent matters, please contact us on WhatsApp at +265993732694.\n\nBest regards,\nThe Indelible Technologies Team`,
-      html: `
-        <div style="font-family: sans-serif; max-width: 600px; margin: 0 auto; color: #333;">
-          <h2 style="color: #2563eb;">Thank you for reaching out!</h2>
-          <p>Hi ${htmlName},</p>
-          <p>We have received your message regarding <strong>"${htmlSubject}"</strong>.</p>
-          <p>Our team will review your request and get back to you as soon as we can.</p>
-          <hr style="border: 0; border-top: 1px solid #eee; margin: 20px 0;" />
-          <p style="font-size: 14px; color: #666;"><strong>A copy of your message:</strong></p>
-          <blockquote style="background: #f9fafb; padding: 15px; border-left: 4px solid #2563eb; margin: 0; font-size: 14px;">
-            ${htmlMessage}
-          </blockquote>
-          <hr style="border: 0; border-top: 1px solid #eee; margin: 20px 0;" />
-          <p>If your inquiry is urgent, please feel free to <a href="https://wa.me/265993732694" style="color: #2563eb;">contact us on WhatsApp</a>.</p>
-          <p>Best regards,<br /><strong>The Indelible Technologies Team</strong></p>
-        </div>
-      `,
-    };
-
+    // 1. Save to Database (independent try/catch so Postgres issues don't block email delivery)
     try {
-      await Promise.all([
-        transporter.sendMail(mailOptions),
-        transporter.sendMail(autoReplyOptions),
-      ]);
-    } catch (emailError) {
-      // The message is already stored. Do not tell the visitor to retry and create a duplicate record.
-      console.error('Contact message saved, but email delivery failed:', emailError);
+      await prisma.contactMessage.create({
+        data: {
+          name: cleanName,
+          email: cleanEmail,
+          subject: cleanSubject,
+          message: cleanMessage,
+        },
+      });
+      dbSaved = true;
+    } catch (dbError) {
+      console.error('Database save issue (e.g. database sleeping or free tier limit):', dbError);
+    }
+
+    // 2. Deliver via Email (independent try/catch)
+    const gmailUser = process.env.GMAIL_USER?.trim();
+    const gmailPass = process.env.GMAIL_APP_PASSWORD?.replace(/\s+/g, '');
+
+    if (gmailUser && gmailPass) {
+      const htmlName = escapeHtml(cleanName);
+      const htmlEmail = escapeHtml(cleanEmail);
+      const htmlSubject = escapeHtml(cleanSubject);
+      const htmlMessage = escapeHtml(cleanMessage).replace(/\r?\n/g, '<br>');
+
+      const transporter = nodemailer.createTransport({
+        host: 'smtp.gmail.com',
+        port: 465,
+        secure: true,
+        auth: {
+          user: gmailUser,
+          pass: gmailPass,
+        },
+      });
+
+      const mailOptions = {
+        from: gmailUser,
+        to: gmailUser,
+        replyTo: cleanEmail,
+        subject: `New Contact Message: ${cleanSubject}`,
+        text: `Name: ${cleanName}\nEmail: ${cleanEmail}\n\nMessage:\n${cleanMessage}`,
+        html: `<h3>New Contact Message</h3>
+               <p><strong>Name:</strong> ${htmlName}</p>
+               <p><strong>Email:</strong> ${htmlEmail}</p>
+               <p><strong>Subject:</strong> ${htmlSubject}</p>
+               <p><strong>Message:</strong></p>
+               <p>${htmlMessage}</p>`,
+      };
+
+      const autoReplyOptions = {
+        from: `"Indelible Technologies" <${gmailUser}>`,
+        to: cleanEmail,
+        subject: 'We received your message!',
+        text: `Hi ${cleanName},\n\nThank you for reaching out to Indelible Technologies! We have received your message regarding "${cleanSubject}" and will get back to you as soon as we can.\n\nFor urgent matters, please contact us on WhatsApp at +265993732694.\n\nBest regards,\nThe Indelible Technologies Team`,
+        html: `
+          <div style="font-family: sans-serif; max-width: 600px; margin: 0 auto; color: #333;">
+            <h2 style="color: #2563eb;">Thank you for reaching out!</h2>
+            <p>Hi ${htmlName},</p>
+            <p>We have received your message regarding <strong>"${htmlSubject}"</strong>.</p>
+            <p>Our team will review your request and get back to you as soon as we can.</p>
+            <hr style="border: 0; border-top: 1px solid #eee; margin: 20px 0;" />
+            <p style="font-size: 14px; color: #666;"><strong>A copy of your message:</strong></p>
+            <blockquote style="background: #f9fafb; padding: 15px; border-left: 4px solid #2563eb; margin: 0; font-size: 14px;">
+              ${htmlMessage}
+            </blockquote>
+            <hr style="border: 0; border-top: 1px solid #eee; margin: 20px 0;" />
+            <p>If your inquiry is urgent, please feel free to <a href="https://wa.me/265993732694" style="color: #2563eb;">contact us on WhatsApp</a>.</p>
+            <p>Best regards,<br /><strong>The Indelible Technologies Team</strong></p>
+          </div>
+        `,
+      };
+
+      try {
+        await transporter.sendMail(mailOptions);
+        emailSent = true;
+        // Attempt customer auto-reply
+        try {
+          await transporter.sendMail(autoReplyOptions);
+        } catch (autoReplyErr) {
+          console.warn('Customer auto-reply failed (non-critical):', autoReplyErr);
+        }
+      } catch (emailError) {
+        console.error('Admin email delivery failed:', emailError);
+      }
+    } else {
+      console.warn('GMAIL_USER or GMAIL_APP_PASSWORD is not defined in this environment.');
+    }
+
+    // If message is either saved to DB or sent via email, customer was successfully served
+    if (dbSaved || emailSent) {
       return NextResponse.json(
-        { message: 'Your message was saved, but email delivery is temporarily unavailable. For urgent enquiries, please contact us on WhatsApp.' },
-        { status: 202 }
+        { message: 'Thank you for reaching out! We have received your message and will review it as soon as possible.' },
+        { status: 200 }
       );
     }
 
+    // Fallback only if both database and email completely failed
     return NextResponse.json(
-      { message: 'Message sent successfully!' },
-      { status: 200 }
+      { error: 'We could not submit your message just now. Please contact us directly on WhatsApp at +265993732694.' },
+      { status: 500 }
     );
   } catch (error) {
-    console.error('Error sending email:', error);
+    console.error('Error handling contact form:', error);
     return NextResponse.json(
-      { error: 'Failed to send message. Please try again later.' },
+      { error: 'An unexpected error occurred. Please try again or reach out on WhatsApp.' },
       { status: 500 }
     );
   }
